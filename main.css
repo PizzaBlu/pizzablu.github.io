@@ -150,6 +150,12 @@ h1 small {
     margin-bottom: 2em;
 }
 
+.spacer {
+    content: " ";
+    width: 100%;
+    margin-bottom: 2em;
+}
+
 .embeds {
     display: flex;
     justify-content: space-evenly;
