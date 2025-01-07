@@ -150,18 +150,17 @@ h1 small {
     margin-bottom: 2em;
 }
 
-.card {
-    width: 256px;
-    background-color: #ffffff;
-    border-radius: 24px;
-
+.embeds {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-.portfolio iframe {
+.embeds iframe {
     border: none;
     border-radius: 24px;
     filter: drop-shadow(0 0 1.5rem rgba(0, 110, 255, 0.2));
-    margin: 24px;
+    margin: 12px;
 }
 
 .contact {
@@ -233,4 +232,29 @@ h1 small {
     .link-button {
         font-size: 18px;
     }
-  }
+
+    .contact-row {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contact-section {
+        margin-bottom: 32px;
+    }
+
+    .contact-row .vr {
+        border-top: 1px solid white;
+        height: 0;
+        width: 128px;
+        opacity: 0.1;
+    }
+
+    .contact .big-link {
+        font-size: 32px;
+    }
+}
+
+@media screen and (min-width: 600px)  {
+    .mobile-break { display: none; }
+}
