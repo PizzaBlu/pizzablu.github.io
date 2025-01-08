@@ -67,6 +67,12 @@ h1 small {
     margin: 0;
 }
 
+.no-margin-y {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
 .hero {
     width: 100vw;
     height: min(80vh, 1920px);
@@ -234,6 +240,7 @@ h1 small {
 
 .demo-row {
     width: 80vw;
+    max-width: 100%;
 
     display: flex;
     flex-direction: row;
@@ -277,6 +284,17 @@ h1 small {
         justify-content: center;
         align-items: center;
     }
+
+    .demo-spacer {
+        width: 0;
+    }
+
+    .demo-info {
+        width: auto;
+        min-width: auto;
+        max-width: auto;
+        margin: 64px 0px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -288,6 +306,10 @@ h1 small {
         font-size: 18px;
         margin-top: -16px;
         margin-bottom: 42px;
+    }
+
+    .title h1 {
+       font-size: 42px; 
     }
 
     .link-button {
@@ -313,6 +335,13 @@ h1 small {
 
     .contact .big-link {
         font-size: 32px;
+    }
+
+    .demo-info h1 {
+        font-size: 24px;
+    }
+    .demo-info h2 {
+        font-size: 18px;
     }
 }
 
@@ -358,8 +387,8 @@ h1 small {
 
 @media only screen and (max-width: 1200px) {
     .embeds iframe.portrait {
-        width: 320px;
-        height: 569px;
+        width: 288px;
+        height: 512px;
     }
 
     .embeds iframe.landscape {
@@ -368,9 +397,20 @@ h1 small {
     }
 }
 
-@media only screen and (max-width: 1200px) {
-    .embeds iframe.portrait {
-        width: 288px;
-        height: 512px;
+@media only screen and (max-width: 900px) {
+    .demo-video {
+        max-width: 600px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .demo-video {
+        max-width: 480px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .demo-video {
+        max-width: 360px;
     }
 }
