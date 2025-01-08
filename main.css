@@ -53,7 +53,7 @@ h1 small {
 
 .text-container {
     max-width: 1024px;
-    margin: 0 24px;
+    margin: 0 32px;
 }
 
 .vr {
@@ -406,6 +406,16 @@ h1 small {
 @media only screen and (max-width: 700px) {
     .demo-video {
         max-width: 480px;
+    }
+
+    .embeds iframe.portrait {
+        width: 180px;
+        height: 320px;
+    }
+
+    .embeds iframe.landscape {
+        width: 320px;
+        height: 180px;
     }
 }
 
