@@ -51,11 +51,20 @@ h1 small {
     margin: 0px 12px;
 }
 
+.text-container {
+    width: 100%;
+    max-width: 1024px;
+}
+
 .vr {
     border-left: 2px solid white;
-    height: 256px;
+    height: 200px;
     width: 0;
     opacity: 0.25;
+}
+
+.no-margin {
+    margin: 0;
 }
 
 .hero {
@@ -117,7 +126,8 @@ h1 small {
 }
 
 .hero h2 {
-    margin-top: -36px;
+    margin-top: -46px;
+    margin-bottom: 14px;
     opacity: 0.25;
 }
 
@@ -147,13 +157,17 @@ h1 small {
 
 .portfolio {
     width: 80vw;
-    margin-bottom: 2em;
+    margin-bottom: 64px;
 }
 
 .spacer {
     content: " ";
     width: 100%;
     margin-bottom: 2em;
+}
+
+#about-me p {
+    font-size: 16px;
 }
 
 .embeds {
@@ -166,7 +180,7 @@ h1 small {
     border: none;
     border-radius: 24px;
     filter: drop-shadow(0 0 1.5rem rgba(0, 110, 255, 0.2));
-    margin: 12px;
+    margin: 6px;
 }
 
 .contact {
@@ -218,11 +232,51 @@ h1 small {
     font-weight: bold;
 }
 
+.demo-row {
+    width: 80vw;
+
+    display: flex;
+    flex-direction: row;
+
+    margin: 0;
+    padding: 0;
+    margin-bottom: 64px;
+}
+
+.demo-spacer {
+    width: 100%;
+}
+
+.demo-info {
+    width: 512px;
+    min-width: 512px;
+    max-width: 512px;
+    margin: 64px 0px;
+}
+
+.demo-video {
+    border: none;
+    border-radius: 24px;
+    filter: drop-shadow(0 0 2rem rgba(0, 110, 255, 0.2));
+    margin: 12px 64px;
+
+    max-width: 720px;
+}
+
 .footer {
     content: " ";
     width: 100%;
     height: 256px;
     background: linear-gradient(rgba(0,0,0,0) 0%, rgba(16,16,16,1) 100%); 
+}
+
+@media screen and (max-width: 1400px) {
+    .demo-row {    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -232,7 +286,8 @@ h1 small {
 
     .hero h2 {
         font-size: 18px;
-        margin-top: -12px;
+        margin-top: -16px;
+        margin-bottom: 42px;
     }
 
     .link-button {
@@ -263,4 +318,59 @@ h1 small {
 
 @media screen and (min-width: 600px)  {
     .mobile-break { display: none; }
+}
+
+
+/* Responsive Video Embeds */
+.embeds iframe.portrait {
+    width: 320px;
+    height: 569px;
+}
+
+.embeds iframe.landscape {
+    width: 1011px;
+    height: 569px;
+}
+
+@media only screen and (max-width: 1700px) {
+    .embeds iframe.portrait {
+        width: 288px;
+        height: 512px;
+    }
+
+    .embeds iframe.landscape {
+        width: 960px;
+        height: 540px;
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+    .embeds iframe.portrait {
+        width: 216px;
+        height: 384px;
+    }
+
+    .embeds iframe.landscape {
+        width: 640px;
+        height: 360px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .embeds iframe.portrait {
+        width: 320px;
+        height: 569px;
+    }
+
+    .embeds iframe.landscape {
+        width: 480px;
+        height: 270px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .embeds iframe.portrait {
+        width: 288px;
+        height: 512px;
+    }
 }
