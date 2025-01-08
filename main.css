@@ -52,8 +52,8 @@ h1 small {
 }
 
 .text-container {
-    width: 100%;
     max-width: 1024px;
+    margin: 0 24px;
 }
 
 .vr {
