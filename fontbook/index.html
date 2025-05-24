@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="main.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- HTML Meta Tags -->
+        <title>Font Book - PizzaBlu</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+
+        <script src="fontbook.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <h1>Font Book</h1>
+                <label for="sampletext">Preview</label>
+                <input type="text" id="sampletext" Value="Hello Font">
+
+                <label for="sampletext">Weight</label>
+                <select name="sampleweight" id="sampleweight">
+                    <option value="100">Thin</option>
+                    <option value="200">Extra Light</option>
+                    <option value="300">Light</option>
+                    <option value="400">Normal</option>
+                    <option value="500">Medium</option>
+                    <option value="600">Semi Bold</option>
+                    <option value="700">Bold</option>
+                    <option value="800">Extra Bold</option>
+                    <option value="900" selected="selected">Black</option>
+                </select>
+
+                <label for="samplecase">Case</label>
+                <select name="samplecase" id="samplecase">
+                    <option value="lower">Lower</option>
+                    <option value="upper">Upper</option>
+                    <option value="none" selected="selected">Default</option>
+                </select>
+                <hr>
+                <div id="render"></div>
+            </div>
+        </div>
+    </body>
+</html>
