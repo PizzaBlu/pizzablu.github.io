@@ -59,7 +59,6 @@ class FontBook {
     }
 
     render(parent, sampletext, sampleweight, samplecase) {
-        parent.textContent = '';
         const el = document.createElement('div');
         for (const [groupname, group] of Object.entries(this.groups)) {
             const header = document.createElement('h2');
@@ -73,7 +72,8 @@ class FontBook {
             }
             el.appendChild(group_parent);
         }
-        parent.appendChild(el);
+        if (parent.firstChild) parent.firstChild.replaceWith(el)
+        else parent.appendChild(el)
     }
 }
 
