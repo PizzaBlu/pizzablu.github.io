@@ -115,7 +115,6 @@ fontbook.add('Mixed', new GoogleFont('Dosis'));
 fontbook.add('Mixed', new GoogleFont('Teko'));
 fontbook.add('Mixed', new GoogleFont('Fjalla One'));
 
-
 window.addEventListener('load', ()=>{
     console.log('ready');
 
