@@ -86,6 +86,11 @@ fontbook.add('Professional', new GoogleFont('Roboto Condensed'));
 fontbook.add('Professional', new GoogleFont('Oxygen'));
 fontbook.add('Professional', new GoogleFont('Encode Sans'));
 fontbook.add('Professional', new GoogleFont('Encode Sans Condensed'));
+fontbook.add('Professional', new GoogleFont('Archivo'));
+fontbook.add('Professional', new GoogleFont('Archivo Narrow'));
+
+fontbook.add('Tall', new GoogleFont('Anton'));
+fontbook.add('Tall', new GoogleFont('Bebas Neue'));
 
 fontbook.add('Fun', new GoogleFont('Rubik'));
 fontbook.add('Fun', new GoogleFont('Passion One'));
@@ -93,27 +98,28 @@ fontbook.add('Fun', new GoogleFont('Titan One'));
 fontbook.add('Fun', new GoogleFont('Wendy One'));
 fontbook.add('Fun', new GoogleFont('Lilita One'));
 
+fontbook.add('Stylized', new GoogleFont('Bowlby One'));
 fontbook.add('Stylized', new GoogleFont('Bangers'));
 fontbook.add('Stylized', new GoogleFont('Racing Sans One'));
-fontbook.add('Stylized', new GoogleFont('Tulpen One'));
 fontbook.add('Stylized', new GoogleFont('Denk One'));
 fontbook.add('Stylized', new GoogleFont('Contrail One'));
-fontbook.add('Stylized', new GoogleFont('Bowlby One'));
 fontbook.add('Stylized', new GoogleFont('Fugaz One'));
-fontbook.add('Stylized', new GoogleFont('Anton'));
 fontbook.add('Stylized', new GoogleFont('Raleway'));
-
-fontbook.add('Code', new GoogleFont('Source Code Pro'));
-fontbook.add('Code', new GoogleFont('Inconsolata'));
-fontbook.add('Code', new GoogleFont('Space Mono'));
-fontbook.add('Code', new GoogleFont('Ubuntu Mono'));
-fontbook.add('Code', new GoogleFont('Anonymous Pro'));
+fontbook.add('Stylized', new GoogleFont('Tulpen One'));
 
 fontbook.add('Mixed', new GoogleFont('Oswald'));
 fontbook.add('Mixed', new GoogleFont('Anybody'));
 fontbook.add('Mixed', new GoogleFont('Dosis'));
 fontbook.add('Mixed', new GoogleFont('Teko'));
 fontbook.add('Mixed', new GoogleFont('Fjalla One'));
+fontbook.add('Mixed', new GoogleFont('Saira'));
+fontbook.add('Mixed', new GoogleFont('Saira Condensed'));
+
+fontbook.add('Code', new GoogleFont('Source Code Pro'));
+fontbook.add('Code', new GoogleFont('Inconsolata'));
+fontbook.add('Code', new GoogleFont('Space Mono'));
+fontbook.add('Code', new GoogleFont('Ubuntu Mono'));
+fontbook.add('Code', new GoogleFont('Anonymous Pro'));
 
 window.addEventListener('load', ()=>{
     console.log('ready');
