@@ -1,5 +1,6 @@
 .hero {
-    min-height: 100vh;
+    height: min(80vh, 1920px);
+    margin-bottom: calc(100vh - min(80vh, 1920px));
 }
 
 .hero-main {
@@ -45,7 +46,15 @@
 }
 
 .footer {
-    margin-top: 64px;
-    height: 32px;
-    background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%); 
+    margin-top: 32px;
+    height: 128px;
+    background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 100%); 
+}
+
+@media screen and (min-height: 900px) {
+    .footer {
+        display: none;
+        margin-top: 0px;
+        height: 0px;
+    }
 }
