@@ -1,0 +1,41 @@
+.hero-main {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    margin-top: 64px;
+}
+
+.hero h1 {
+    font-size: 64px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.hero h2 {
+    margin-top: -16px;
+    margin-bottom: 0;
+    opacity: 0.25;
+}
+
+.cardzone {
+    margin-top: 32px;
+    width: 320px;
+}
+
+.card {
+    color: rgb(220,220,220);
+    background-color: rgba(32,36,48,0.8);
+    backdrop-filter: blur(8px);
+    filter: drop-shadow(0 0 0.4rem rgba(0, 32, 64, 0.2));
+    text-shadow: rgba(0,0,0,0.2) 0px 0 10px;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    /* width: 100%; */
+    padding: 4px 16px;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
