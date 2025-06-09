@@ -4,13 +4,18 @@
         <!-- Mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Preconnects for NOW -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
         <!-- CSS -->
         <link rel="stylesheet" href="main.css">
 
         <!-- Source Sans 3 -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
         <!-- HTML Meta Tags -->
         <title>Video Editing - PizzaBlu</title>
@@ -22,6 +27,7 @@
         <link rel="preconnect" href="https://youtube.com">
         <link rel="preconnect" href="https://tiktok.com">
         <link rel="preconnect" href="https://twitch.tv">
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
         <!-- Open Graph Meta Tags -->
         <meta property="og:type" content="website" />
@@ -59,10 +65,9 @@
                 <div class="hero-container">
                     <h1>PizzaBlu</h1>
                     <h2>Video Editing</h2>
-                    <span>
-                        <a href="/links/index.html" class="link-button">Socials</a>
-                        <a href="#portfolio" class="link-button">Portfolio</a>
-                        <a href="#contact" class="link-button">Contact Me</a>
+                    <span class="herolinks">
+                        <a href="/links/index.html" class="link-button"><i class="fa-solid fa-bars"></i> Links</a>
+                        <a href="#portfolio" class="link-button"><i class="fa-solid fa-video"></i> Portfolio</a>
                     </span>
                 </div>
             </div>
@@ -120,8 +125,13 @@
                 grow in a wider range of niches and styles.
             </p>
             <p>
-                I specialize in Overwatch content and motion graphics. Along with editing video I also help creators identify other ways to improve
-                their content and grow. I work on content planning, script writing, recording audio and video, thumbnails and brand assets.
+                I specilize in gaming & educational content along with motion graphics and animation. Along with editing video I also help creators
+                identify other ways to improve their content and grow. I work on content planning, script writing, recording audio and video,
+                thumbnails and brand assets.
+            </p>
+            <p>
+                I study computer science and motion design. I work in DaVinci Resolve and write plugins and effects, reach out to me via
+                discord or email if you are a video editor and would like a custom plugin or effect.
             </p>
         </div>
 
@@ -145,15 +155,6 @@
 
                 <div class="vr"></div>
 
-                <div class="contact-section">
-                    <h3>Google Form</h3>
-                    <div>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSduLu-pXqmYFTs0cE_w_xMplb-R6Laxd3P212Ou16J4Txa3lQ/viewform?usp=header" class="big-link" target="_blank">Contact Me!</a>
-                    </div>
-                </div>
-
-                <div class="vr"></div>
-
                 <div class="contact-section bookend-right" id="contact">
                     <h3>Contact Info & Socials</h3>
                     <div class="list">
@@ -167,5 +168,11 @@
         </div>
 
         <div class="footer"></div>
+
+        <div class="overlay overlay-top-left fullscreen-only">
+            <a href="/links" class="navbutton"><i class="fa-solid fa-bars"></i> Links</a>
+        </div>
+
+        <script src="animation_continuity.js"></script>
     </body>
 </html>

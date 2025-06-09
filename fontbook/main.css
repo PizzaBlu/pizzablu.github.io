@@ -1,11 +1,16 @@
 body {
-    background-color: rgb(20,22,22);
+    background-color: #171b1f;
     color: rgb(200,200,200);
-    font-family: "Encode Sans", Arial, Helvetica, sans-serif;
+    font-family: "League Spartan", "Encode Sans", Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     margin-top: 32px;
     margin-bottom: 32px;
+}
+
+a {
+    /* text-decoration: none; */
+    color: rgb(128,128,200);
 }
 
 .container {
@@ -19,11 +24,12 @@ body {
 }
 .group {
     margin-left: 32px;
-    margin-bottom: 32px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
-.font-container {
-    margin-bottom: 12px;
+.font-container .fontname-alt {
+    margin-left: 8px;
 }
 
 .sample-text {
@@ -40,13 +46,19 @@ body {
 }
 
 h1 {
-    font-weight: 800;
+    font-weight: 700;
     font-size: 48pt;
     margin: 0;
 }
 
+#home {
+    float: right;
+    font-weight: 100;
+    font-size: 24pt;
+}
+
 h2 {
-    font-weight: 800;
+    font-weight: 400;
     font-size: 18pt;
     margin: 0;
 }
@@ -54,7 +66,7 @@ h2 {
 h3 {
     font-weight: 900;
     font-size: 32pt;
-    margin: 0;
+    margin: 0px;
 }
 
 hr {
@@ -73,6 +85,10 @@ hr {
 
     h1 {
         font-size: 32pt;
+    }
+
+    #home {
+        font-size: 16pt;
     }
 
     h2 {

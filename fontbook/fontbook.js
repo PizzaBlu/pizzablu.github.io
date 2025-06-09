@@ -12,7 +12,9 @@ class Font {
         let casetext = this.name;
         console.log(caps);
         if (caps === "lower") casetext = casetext.toLowerCase();
+        if (caps === "lower") text = text.toLowerCase();
         if (caps === "upper") casetext = casetext.toUpperCase();
+        if (caps === "upper") text = text.toUpperCase();
 
         const el = document.createElement('h3');
         el.appendChild(document.createTextNode(casetext));
@@ -78,16 +80,19 @@ class FontBook {
 }
 
 const fontbook = new FontBook();
-fontbook.add('Professional', new Font('Arial'));
-fontbook.add('Professional', new GoogleFont('Source Sans 3'));
-fontbook.add('Professional', new GoogleFont('Noto Sans'));
-fontbook.add('Professional', new GoogleFont('Roboto'));
-fontbook.add('Professional', new GoogleFont('Roboto Condensed'));
-fontbook.add('Professional', new GoogleFont('Oxygen'));
-fontbook.add('Professional', new GoogleFont('Encode Sans'));
-fontbook.add('Professional', new GoogleFont('Encode Sans Condensed'));
-fontbook.add('Professional', new GoogleFont('Archivo'));
-fontbook.add('Professional', new GoogleFont('Archivo Narrow'));
+fontbook.add('Geometric', new GoogleFont('League Spartan'));
+fontbook.add('Geometric', new GoogleFont('Outfit'));
+fontbook.add('Geometric', new GoogleFont('Montserrat'));
+fontbook.add('Geometric', new GoogleFont('DM Sans'));
+
+fontbook.add('Sans Sarif', new GoogleFont('Roboto'));
+fontbook.add('Sans Sarif', new GoogleFont('Archivo'));
+fontbook.add('Sans Sarif', new Font('Arial'));
+
+fontbook.add('Humanist', new GoogleFont('Source Sans 3'));
+fontbook.add('Humanist', new GoogleFont('Noto Sans'));
+fontbook.add('Humanist', new GoogleFont('Oxygen'));
+
 
 fontbook.add('Tall', new GoogleFont('Anton'));
 fontbook.add('Tall', new GoogleFont('Bebas Neue'));
@@ -97,6 +102,7 @@ fontbook.add('Fun', new GoogleFont('Passion One'));
 fontbook.add('Fun', new GoogleFont('Titan One'));
 fontbook.add('Fun', new GoogleFont('Wendy One'));
 fontbook.add('Fun', new GoogleFont('Lilita One'));
+fontbook.add('Fun', new GoogleFont('Encode Sans'));
 
 fontbook.add('Stylized', new GoogleFont('Bowlby One'));
 fontbook.add('Stylized', new GoogleFont('Bangers'));

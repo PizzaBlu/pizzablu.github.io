@@ -7,7 +7,7 @@ body {
     background-color: #171b1f;
     color: #ffffff;
 
-    font-family: "Source Sans 3", "Open Sans", serif;
+    font-family: "Source Sans 3", "Open Sans", Geneva, Verdana, sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: normal;
@@ -96,6 +96,7 @@ h1 small {
     background-size: 128px;
 
     mask-image: linear-gradient(rgb(0 0 0 / 66%), transparent);
+    transform: translateZ(0);
 }
 
 @-webkit-keyframes scrolling {
@@ -117,6 +118,8 @@ h1 small {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    isolation: isolate;
 }
 
 .hero-container {
@@ -129,36 +132,54 @@ h1 small {
 .hero h1 {
     font-size: 128px;
     margin: 0;
+    line-height: 1em;
 }
 
 .hero h2 {
-    margin-top: -46px;
-    margin-bottom: 14px;
+    margin: 0;
+    margin-top: -16px;
+    line-height: 1em;
     opacity: 0.25;
 }
 
+.herolinks {
+    margin-top: 24px;
+}
+
 .link-button {
+    position: relative;
+
+    box-sizing: border-box;
     text-decoration: none;
-    font-family: inherit;
-    font-weight: 800;
+    color: #ffffff;
+    background: rgba(44, 72, 109, 0.8);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    filter: drop-shadow(0 0 0.4rem rgba(0, 32, 64, 0.2));
+    text-shadow: rgba(0,0,0,0.2) 0px 0 10px;
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 4px 24px;
+    font-size: 32px;
+    font-weight: 500;
+    margin: 12px;
+
     font-size: 24px;
 
-    color: #ffffff;
-    background-color: rgba(64, 150, 255, 0.88);
-
-
+    line-height: 1em;
     margin: 12px;
     padding: 8px 24px;
-
     border-radius: 8px;
 
-    opacity: 0.8;
+    border-bottom: 6px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 4px;
 
-    transform: scale(1,1);
+    transform: translateZ(0);
 }
 
 .link-button:hover {
-    background-color: rgba(64, 150, 255, 1);
+    background-color: rgba(60, 126, 206, 0.8);
 }
 
 .portfolio {
@@ -277,6 +298,47 @@ h1 small {
     background: linear-gradient(rgba(0,0,0,0) 0%, rgba(16,16,16,1) 100%); 
 }
 
+.navbutton {
+    text-decoration: none;
+    color: rgba(200,200,256,0.4);
+    font-weight: 700;
+    font-size: 16pt;
+    margin: 12px;
+    line-height: 1em;
+}
+
+.fa-bars, .fa-video {
+    font-size: 85%;
+}
+
+.fa-chevron-left {
+    font-size: 80%;
+}
+
+.overlay {
+    position: fixed;
+}
+
+.overlay-top-left {
+    top: 12px;
+    left: 12px;
+}
+
+.overlay-bottom-left {
+    bottom: 12px;
+    left: 12px;
+}
+
+.fullscreen-only {
+    display: none;
+}
+
+@media screen and (min-width: 1500px) {
+    .fullscreen-only {
+        display: block;
+    }
+}
+
 @media screen and (max-width: 1400px) {
     .demo-row {    
         display: flex;
@@ -304,8 +366,7 @@ h1 small {
 
     .hero h2 {
         font-size: 18px;
-        margin-top: -16px;
-        margin-bottom: 42px;
+        margin-top: -8px;
     }
 
     .title h1 {
@@ -314,6 +375,10 @@ h1 small {
 
     .link-button {
         font-size: 18px;
+        padding: 5px 14px;
+        padding-bottom: 1px;
+        border-radius: 5px;
+        border-bottom-width: 4px;
     }
 
     .contact-row {
@@ -348,7 +413,6 @@ h1 small {
 @media screen and (min-width: 600px)  {
     .mobile-break { display: none; }
 }
-
 
 /* Responsive Video Embeds */
 .embeds iframe.portrait {
