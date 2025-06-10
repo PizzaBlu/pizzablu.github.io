@@ -1,0 +1,20 @@
+{
+    "prefetch": [
+        {
+            "source": "link",
+            "urls": [
+                "/index.html",
+                "/links/index.html"
+            ]
+        }
+    ],
+    "prerender": [
+        {
+            "source": "link",
+            "urls": [
+                "/index.html",
+                "/links/index.html"
+            ]
+        }
+    ]
+}

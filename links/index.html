@@ -1,40 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8" />
+
         <!-- Mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Preconnects for NOW -->
+        <!-- Preconnect -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
         <!-- CSS -->
         <link rel="stylesheet" href="/main.css">
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="/links/main.css">
+
+        <!-- Scripts -->
+        <script src="/animation_continuity.js" defer></script>
+
+        <!-- Preload -->
+        <link rel="preload" href="/assets/background_tile.png" as="image">
 
         <!-- Source Sans 3 -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
         
         <!-- HTML Meta Tags -->
         <title>Socials - PizzaBlu</title>
         <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
         <meta name="description" content="Socials - PizzaBlu">
 
-        <!-- Preloads -->
-        <link rel="preconnect" href="https://youtube.com">
-        <link rel="preconnect" href="https://tiktok.com">
-        <link rel="preconnect" href="https://twitch.tv">
-        <link rel="prefetch" href="/assets/background_tile.png">
-
         <!-- Open Graph Meta Tags -->
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Socials - PizzaBlu" />
+        <meta property="og:title" content="Links - PizzaBlu" />
         <meta property="og:description" content="Video Editing & Content Creation" />
         <meta property="og:image" content="https://pizzablu.github.io/assets/pizzablu.png" />
         <meta property="og:image:width" content="128" />
@@ -46,22 +46,19 @@
         <meta name="twitter:card" content="summary">
         <meta property="twitter:domain" content="pizzablu.github.io">
         <meta property="twitter:url" content="https://pizzablu.github.io/">
-        <meta name="twitter:title" content="Socials - PizzaBlu">
+        <meta name="twitter:title" content="Links - PizzaBlu">
         <meta name="twitter:description" content="Video Editing & Content Creation">
         <meta name="twitter:image" content="https://pizzablu.github.io/assets/pizzablu.png">
 
-        <script src="/animation_continuity.js" defer></script>
-        
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-PJX6P9P9GV');
-        </script>
+        <!-- Speculation -->
+        <link rel="preconnect" href="https://tiktok.com" crossorigin>
+        <link rel="preconnect" href="https://youtube.com" crossorigin>
+        <link rel="preconnect" href="https://twitch.tv" crossorigin>
+        <link rel="preconnect" href="https://discord.gg" crossorigin>
+        <link rel="preconnect" href="https://x.com" crossorigin>
+        <script type="speculationrules" src="/speculation-rules.json"></script>
     </head>
-    <body>
+    <body style="background-color: #171b1f; color: #ffffff; overflow-x: hidden; width: 100vw; margin: 0; padding: 0; font-family: 'Source Sans 3', sans-serif;">
         <div class="hero" id="hero">
             <div class="hero-background"></div>
             <div class="hero-main">
@@ -71,23 +68,23 @@
 
                     <div class="cardzone cardzone-first">
                         <h3>Socials</h3>
-                        <a class="card" href="https://tiktok.com/@pizzablu">
+                        <a class="card" href="https://tiktok.com/@pizzablu" target="_blank" rel="noopener noreferrer">
                             TikTok
                             <i class="fa-brands fa-tiktok"></i>
                         </a>
-                        <a class="card" href="https://youtube.com/@pizzablu">
+                        <a class="card" href="https://youtube.com/@pizzablu" target="_blank" rel="noopener noreferrer">
                             YouTube
                             <i class="fa-brands fa-youtube"></i>
                         </a>
-                        <a class="card" href="https://twitch.tv/p1zzablu">
+                        <a class="card" href="https://twitch.tv/p1zzablu" target="_blank" rel="noopener noreferrer">
                             Twitch
                             <i class="fa-brands fa-twitch"></i>
                         </a>
-                        <a class="card" href="https://discord.gg/5NeWgZHxUV">
+                        <a class="card" href="https://discord.gg/5NeWgZHxUV" target="_blank" rel="noopener noreferrer">
                             Discord
                             <i class="fa-brands fa-discord"></i>
                         </a>
-                        <a class="card" href="https://x.com/PizzaBlu">
+                        <a class="card" href="https://x.com/PizzaBlu" target="_blank" rel="noopener noreferrer">
                             Twitter
                             <i class="fa-brands fa-twitter"></i>
                         </a>
@@ -111,7 +108,17 @@
         </div>
 
         <div class="overlay overlay-top-left fullscreen-only">
-            <a href="/" class="navbutton"><i class="fa-solid fa-chevron-left"></i> Home</a>
+            <a href="/index.html" class="navbutton"><i class="fa-solid fa-chevron-left"></i> Home</a>
         </div>
+
+        <!-- Google Analytics Scripts Jail -->
+        <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV"></script>
+        <script defer>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-PJX6P9P9GV');
+        </script>
     </body>
 </html>

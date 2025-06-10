@@ -1,33 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8" />
+
         <!-- Mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Preconnects for NOW -->
+        <!-- Preconnect -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+        <link rel="preconnect" href="https://www.youtube.com">
 
         <!-- CSS -->
         <link rel="stylesheet" href="main.css">
 
+        <!-- Scripts -->
+        <script src="/animation_continuity.js" defer></script>
+
+        <!-- Preload -->
+        <link rel="preload" href="/assets/background_tile.png" as="image">
+
         <!-- Source Sans 3 -->
         <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
 
         <!-- HTML Meta Tags -->
         <title>Video Editing - PizzaBlu</title>
         <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
         <meta name="description" content="Video Editing & Content Creation">
-
-        <!-- Preloads -->
-        <link rel="prefetch" href="/assets/background_tile.png">
-        <link rel="preconnect" href="https://youtube.com">
-        <link rel="preconnect" href="https://tiktok.com">
-        <link rel="preconnect" href="https://twitch.tv">
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
         <!-- Open Graph Meta Tags -->
         <meta property="og:type" content="website" />
@@ -47,19 +50,10 @@
         <meta name="twitter:description" content="Video Editing & Content Creation">
         <meta name="twitter:image" content="https://pizzablu.github.io/assets/pizzablu.png">
 
-        <script src="/animation_continuity.js" defer></script>
-
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-PJX6P9P9GV');
-        </script>
+        <!-- Speculation -->
+        <script type="speculationrules" src="/speculation-rules.json"></script>
     </head>
-    <body>
+    <body style="background-color: #171b1f; color: #ffffff; overflow-x: hidden; width: 100vw; margin: 0; padding: 0; font-family: 'Source Sans 3', sans-serif;">
         <div class="hero" id="hero">
             <div class="hero-background"></div>
             <div class="hero-main">
@@ -107,8 +101,8 @@
             </div>
             <div class="demo-spacer"></div>
             <video autoplay="false" muted="true" loop="true" class="demo-video" muted defaultMuted playsinline>
-                <source src="./assets/demo1.webm" type="video/webm">
-                <source src="./assets/demo1.mp4" type="video/mp4">
+                <source src="/assets/demo1.webm" type="video/webm">
+                <source src="/assets/demo1.mp4" type="video/mp4">
                 <p>
                     Your browser doesn't support HTML video.
                 </p>
@@ -149,7 +143,7 @@
                     <h3>Discord Server</h3>
                     <div>
                         <a href="https://discord.gg/wVwtfABPdP" target="_blank">
-                            <img src="./assets/discord.png" alt="" height="48">
+                            <img src="/assets/discord.png" alt="" height="48">
                         </a>
                     </div>
                 </div>
@@ -161,7 +155,7 @@
                     <div class="list">
                         <span>Email <small>pizzabluvideo@gmail.com</small></span>
                         <span>YouTube <small><a href="https://www.youtube.com/@pizzablu">PizzaBlu</a></small></span>
-                        <span>Twitter <small><a href="https://x.com/PizzaBlu">PizzaBlu</a></small></span>
+                        <span>Twitter <small><a href="https://www.x.com/PizzaBlu">PizzaBlu</a></small></span>
                         <span>TikTok <small><a href="https://www.tiktok.com/@pizzablu">@p1zza_blu</a></small></span>
                     </div>
                 </div>
@@ -171,7 +165,17 @@
         <div class="footer"></div>
 
         <div class="overlay overlay-top-left fullscreen-only">
-            <a href="/links" class="navbutton"><i class="fa-solid fa-bars"></i> Links</a>
+            <a href="/links/index.html" class="navbutton"><i class="fa-solid fa-bars"></i> Links</a>
         </div>
+
+        <!-- Google Analytics Scripts Jail -->
+        <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV"></script>
+        <script defer>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-PJX6P9P9GV');
+        </script>
     </body>
 </html>

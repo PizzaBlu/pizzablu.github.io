@@ -7,7 +7,7 @@ body {
     background-color: #171b1f;
     color: #ffffff;
 
-    font-family: "Source Sans 3", "Open Sans", Geneva, Verdana, sans-serif;
+    font-family: "Source Sans 3", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: normal;
@@ -162,7 +162,7 @@ h1 small {
     border-radius: 12px;
     padding: 4px 24px;
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 600;
     margin: 12px;
 
     font-size: 24px;
