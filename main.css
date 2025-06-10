@@ -98,10 +98,11 @@ h1 small {
     height: 100%;
 
     background: url("./assets/background_tile.png") repeat;
-    -webkit-animation: scrolling 5s linear infinite;
-    -moz-animation: scrolling 5s linear infinite;
-    -o-animation: scrolling 5s linear infinite;
+    -webkit-animation: scrolling 240s linear infinite;
+    -moz-animation: scrolling 240s linear infinite;
+    -o-animation: scrolling 240s linear infinite;
     animation: scrolling 240s linear infinite;
+    animation-delay: var(--animation-delay, 0ms);
 
     background-size: 128px;
 

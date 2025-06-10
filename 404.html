@@ -19,6 +19,12 @@
         <!-- Preload -->
         <link rel="preload" href="/assets/background_tile.png" as="image">
 
+        <!-- Animation Continuity -->
+        <script>
+            const elapsed = Date.now() % 240000;
+            document.documentElement.style.setProperty('--animation-delay', `-${elapsed}ms`);
+        </script>
+
         <!-- Google Analytics -->
         <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV" fetchpriority="low"></script>
         <script defer>

@@ -18,8 +18,11 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-        <!-- Scripts -->
-        <script src="/animation_continuity.js" defer></script>
+        <!-- Animation Continuity -->
+        <script>
+            const elapsed = Date.now() % 240000;
+            document.documentElement.style.setProperty('--animation-delay', `-${elapsed}ms`);
+        </script>
 
         <!-- Preload -->
         <link rel="preload" href="/assets/background_tile.png" as="image">
