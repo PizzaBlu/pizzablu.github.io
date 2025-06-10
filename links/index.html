@@ -25,6 +25,8 @@
         <link rel="preload" href="/assets/background_tile.png" as="image">
 
         <!-- Font Awesome -->
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-brands-400.woff2" as="font" crossorigin="anonymous">
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2" as="font" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
         
         <!-- HTML Meta Tags -->
@@ -57,6 +59,15 @@
         <meta name="twitter:title" content="Links - PizzaBlu">
         <meta name="twitter:description" content="Video Editing & Content Creation">
         <meta name="twitter:image" content="https://pizzablu.github.io/assets/pizzablu.png">
+
+        <!-- Google Analytics -->
+        <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV" fetchpriority="low"></script>
+        <script defer>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PJX6P9P9GV');
+        </script>
     </head>
     <body style="background-color: #171b1f; color: #ffffff; overflow-x: hidden; width: 100vw; margin: 0; padding: 0; font-family: 'Source Sans 3', sans-serif;">
         <div class="hero" id="hero">
@@ -110,15 +121,5 @@
         <div class="overlay overlay-top-left fullscreen-only">
             <a href="/index.html" class="navbutton"><i class="fa-solid fa-chevron-left"></i> Home</a>
         </div>
-
-        <!-- Google Analytics Scripts Jail -->
-        <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV"></script>
-        <script defer>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-PJX6P9P9GV');
-        </script>
     </body>
 </html>
