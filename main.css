@@ -620,3 +620,23 @@ h1 small {
 .embeds .embed-container:hover {
     transform: scale(1.02);
 }
+
+.embeds .sticker .fa-paperclip {
+    width: 0;
+    opacity: 0;
+    transition: transform 0.2s ease;
+}
+
+.embeds .sticker:hover .sticker, .embeds .embed-container:hover .sticker .fa-paperclip {
+    width: 14px;
+    opacity: 0.3;
+}
+
+.embeds .sticker:hover .sticker.sticker-tiktok, .embeds .embed-container:hover .sticker.sticker-tiktok .fa-paperclip {
+    opacity: 0.2;
+}
+
+.embeds .sticker:hover, .embeds .embed-container:hover .sticker:hover {
+    filter: drop-shadow(0 0 16px rgba(200,200,255, 0.2));
+    transform: rotate(0deg) translate(10%, -10%) scale(1.25);
+}
