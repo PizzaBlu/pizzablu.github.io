@@ -8,8 +8,20 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="main.css">
+        <style>
+            /* Outfit Latin */
+            @font-face {
+                font-family: 'Outfit';
+                font-style: normal;
+                font-weight: 100 900;
+                font-display: swap;
+                src: url(https://fonts.gstatic.com/s/outfit/v14/QGYvz_MVcBeNP4NJtEtqUYTkntBJ.woff2) format('woff2');
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+        </style>
 
         <!-- Source Sans 3 -->
+        <link rel="preload" href="https://fonts.gstatic.com/s/sourcesans3/v18/nwpStKy2OAdR1K-IwhWudF-R3w8aZejZ5HZV8Q.woff2" as="font" crossorigin="anonymous">
         <link rel="preload" href="https://fonts.gstatic.com/s/sourcesans3/v18/nwpStKy2OAdR1K-IwhWudF-R3w8aZejZ5HZV8Q.woff2" as="font" crossorigin="anonymous">
 
         <!-- Preconnect -->
@@ -20,7 +32,7 @@
 
         <!-- Animation Continuity -->
         <script>
-            const elapsed = Date.now() % 240000;
+            const elapsed = Date.now() % 360000;
             document.documentElement.style.setProperty('--animation-delay', `-${elapsed}ms`);
         </script>
 
@@ -30,6 +42,7 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
         <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2" as="font" crossorigin="anonymous">
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-brands-400.woff2" as="font" crossorigin="anonymous">
 
         <!-- HTML Meta Tags -->
         <title>Video Editing - PizzaBlu</title>
@@ -66,7 +79,7 @@
             gtag('config', 'G-PJX6P9P9GV');
         </script>
     </head>
-    <body style="background-color: #171b1f; color: #ffffff; overflow-x: hidden; width: 100vw; margin: 0; padding: 0; font-family: 'Source Sans 3', sans-serif;">
+    <body style="background-color: #171b1f; color: #ffffff; overflow-x: hidden; width: 100vw; margin: 0; padding: 0;">
         <div class="hero" id="hero">
             <div class="hero-background"></div>
             <div class="hero-main">
@@ -82,21 +95,32 @@
         </div>
 
         <div class="portfolio" id="portfolio">
-            <div class="title">
-                <span><h1>Short Form <br class="mobile-break"><small>100k to 1M+ views on TikTok or YouTube</small></h1></span>
-                <small>Only YouTube versions are embeded, TikTok versions often perform better.</small>
+            <div class="title inline-title">
+                <h1>Short Form <br class="mobile-break"><small>TikTok & YouTube</small></h1>
             </div>
             
             <div class="indent embeds" id="short-form">
-                <iframe class="portrait" src="https://www.youtube.com/embed/tKAkBLzXQ3M" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="portrait" src="https://www.youtube.com/embed/jj3YhQwSEqc" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="portrait" src="https://www.youtube.com/embed/4rMOGYZp53o" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="portrait" src="https://www.youtube.com/embed/-c38DcS157Y" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="embed-container">
+                    <iframe class="portrait" src="https://www.youtube.com/embed/tKAkBLzXQ3M" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <a class="sticker sticker-youtube" href="https://www.youtube.com/shorts/tKAkBLzXQ3M"  target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i> 1 Million</a>
+                </div>
+                <div class="embed-container">
+                    <iframe class="portrait" src="https://www.youtube.com/embed/jj3YhQwSEqc" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <a class="sticker sticker-tiktok" href="https://www.tiktok.com/@atlas_av/video/7429747532282055978"  target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i> 500K</a>
+                </div>
+                <div class="embed-container">
+                    <iframe class="portrait" src="https://www.youtube.com/embed/4rMOGYZp53o" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <a class="sticker sticker-tiktok" href="https://www.tiktok.com/@atlas_av/video/7423429249446448430"  target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i> 500K</a>
+                </div>
+                <div class="embed-container">
+                    <iframe class="portrait" src="https://www.youtube.com/embed/-c38DcS157Y" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <a class="sticker sticker-tiktok" href="https://www.tiktok.com/@ambitones/video/7507279234130300203"  target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i> 150K</a>
+                </div>
             </div>
 
-            <div class="title">
-                <span><h1>Reacts <br class="mobile-break"><small>Videos featured in "react" content help smaller creators gain exposure</small></h1></span>
-                <small>These videos were featured on other channels in "reaction" content.</small>
+            <div class="title inline-title">
+                <span><h1>As seen on TV <br class="mobile-break"><small>Videos featured in react content</small></h1></span>
+                <!-- <small>These videos were featured on other channels in "reaction" content.</small> -->
             </div>
 
             <div class="indent embeds" id="short-form">
@@ -109,7 +133,7 @@
 
         <div class="demo-row">
             <div class="demo-info">
-                <h1 class="no-margin-y">Eye Catching Visuals</h1>
+                <h1 class="no-margin-y inline-title">Eye Catching Visuals</h1>
                 <small><h2 class="no-margin-y">Captivate viewers with smooth animations and motion graphics.</h2></small>
             </div>
             <div class="demo-spacer"></div>
@@ -127,18 +151,18 @@
         <h1 class="no-margin-y">About Me</h1>
         <div class="text-container" id="about-me">
             <p>
-                I started editing video and consulting for content creators after reaching one million views in the first 6 months of running
-                my own channel. The first channel I worked with reached their first million views, gained 10k followers and millions more impressions
+                I started video editing and consulting after reaching one million views in the first 6 months of working on my own YouTube channel.
+                The next channel I worked with reached their first million views, gained 10k followers and millions more impressions
                 from being featured in react content within 6 months of working with me. Now I am looking to help more channels
                 grow in a wider range of niches and styles.
             </p>
             <p>
-                I specilize in gaming & educational content along with motion graphics and animation. Along with editing video I also help creators
-                identify other ways to improve their content and grow. I work on content planning, script writing, recording audio and video,
+                I specilize in gaming & educational content along with motion graphics and animation. I also help creators
+                identify other ways to improve their production quality and grow their channel. I work on design, script writing, recording audio and video,
                 thumbnails and brand assets.
             </p>
             <p>
-                I study computer science and motion design. I work in DaVinci Resolve and write plugins and effects, reach out to me via
+                I studied computer science in school and work in DaVinci Resolve. I also write custom plugins and effects, reach out to me via
                 discord or email if you are a video editor and would like a custom plugin or effect.
             </p>
         </div>
@@ -147,9 +171,8 @@
             <div class="text-container">
                 <div class="title">
                     <h1>Let's make something great!</h1>
-                    <small>You can contact me via Email, Google Forms and Discord if you have questions or are interested in working together.</small>
+                    <small>You can contact me via Email or Discord if you have questions or are interested in working together.</small>
                 </div>
-    
             </div>
             <div class="contact-row">
                 <div class="contact-section bookend-left">

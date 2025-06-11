@@ -14,7 +14,7 @@ html {
 }
 
 body {
-    background-color: #171b1f;
+    background-color: #272e35;
     color: #ffffff;
 
     font-family: "Source Sans 3", sans-serif;
@@ -38,7 +38,14 @@ a {
 }
 
 h1 {
-    font-size: 56px;
+    font-size: 64px;
+    color: rgb(250,250,250);
+    text-shadow: 0px 0px 16px rgba(23, 27, 31, 0.5);
+}
+
+.link-clean {
+    text-decoration: none;
+    color: inherit;
 }
 
 small {
@@ -51,6 +58,11 @@ h1 small {
 
 .title {
     margin: 50px 0;
+    line-height: 2.5em;
+}
+
+.inline-title {
+    line-height: 1.5em;
 }
 
 .title h1 {
@@ -82,12 +94,13 @@ h1 small {
     margin-bottom: 0;
 }
 
-
 .hero {
     width: 100vw;
-    height: min(80vh, 1920px);
+    height: min(78vh, 1920px);
 
     position: relative;
+
+    transition: 0.2s ease;
 }
 
 .hero-background {
@@ -98,10 +111,10 @@ h1 small {
     height: 100%;
 
     background: url("./assets/background_tile.png") repeat;
-    -webkit-animation: scrolling 240s linear infinite;
-    -moz-animation: scrolling 240s linear infinite;
-    -o-animation: scrolling 240s linear infinite;
-    animation: scrolling 240s linear infinite;
+    -webkit-animation: scrolling 360s linear infinite;
+    -moz-animation: scrolling 360s linear infinite;
+    -o-animation: scrolling 360s linear infinite;
+    animation: scrolling 360s linear infinite;
     animation-delay: var(--animation-delay, 0ms);
 
     background-size: 128px;
@@ -110,12 +123,12 @@ h1 small {
     transform: translateZ(0);
 }
 
-@-webkit-keyframes scrolling {
-    from{
+@keyframes scrolling {
+    from {
         background-position: 0 0;
     }
-    to{
-        background-position: 200% 800%;
+    to {
+        background-position: 8192px 8192px;
     }
 }
 
@@ -141,6 +154,8 @@ h1 small {
 }
 
 .hero h1 {
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 900;
     font-size: 128px;
     margin: 0;
     line-height: 1em;
@@ -148,7 +163,7 @@ h1 small {
 
 .hero h2 {
     margin: 0;
-    margin-top: -16px;
+    margin-top: -18px;
     line-height: 1em;
     opacity: 0.25;
 }
@@ -159,6 +174,9 @@ h1 small {
 
 .link-button {
     position: relative;
+
+    font-size: 24px;
+    font-weight: 600;
 
     box-sizing: border-box;
     text-decoration: none;
@@ -172,11 +190,8 @@ h1 small {
     text-decoration: none;
     border-radius: 12px;
     padding: 4px 24px;
-    font-size: 32px;
-    font-weight: 600;
     margin: 12px;
 
-    font-size: 24px;
 
     line-height: 1em;
     margin: 12px;
@@ -187,6 +202,8 @@ h1 small {
     padding-bottom: 4px;
 
     transform: translateZ(0);
+
+    transition: 0.1s ease;
 }
 
 .link-button:hover {
@@ -219,6 +236,14 @@ h1 small {
     border-radius: 24px;
     filter: drop-shadow(0 0 1.5rem rgba(0, 110, 255, 0.2));
     margin: 6px;
+}
+
+.embeds:hover iframe {
+    filter: drop-shadow(0 0 1.25rem rgba(0, 110, 255, 0.1));
+}
+
+.embeds .embed-container:hover iframe, .embeds iframe:hover {
+    filter: drop-shadow(0 0 3rem rgba(0, 110, 255, 0.25));
 }
 
 .contact {
@@ -311,11 +336,17 @@ h1 small {
 
 .navbutton {
     text-decoration: none;
-    color: rgba(200,200,256,0.4);
+    color: rgb(200,200,256);
     font-weight: 700;
     font-size: 16pt;
     margin: 12px;
     line-height: 1em;
+    opacity: 0.4;
+    transition: 0.1s ease opacity;
+}
+
+.navbutton:hover {
+    opacity: 0.5;
 }
 
 .fa-bars, .fa-video {
@@ -371,8 +402,12 @@ h1 small {
 }
 
 @media only screen and (max-width: 600px) {
+    .hero {
+        height: max(50vh, 480px);
+    }
+
     .hero h1 {
-        font-size: 64px;
+        font-size: 72px;
     }
 
     .hero h2 {
@@ -381,7 +416,15 @@ h1 small {
     }
 
     .title h1 {
-       font-size: 42px; 
+       font-size: 32px; 
+    }
+
+    .title h2 {
+        font-size: 12px;
+    }
+
+    .herolinks {
+        margin-top: 16px;
     }
 
     .link-button {
@@ -425,104 +468,119 @@ h1 small {
     .mobile-break { display: none; }
 }
 
+.embeds {
+    --embed-scale: 1;
+    --embed-landscape-factor: 1;
+}
+
+.embeds .embed-container {
+    position: relative;
+}
+
 /* Responsive Video Embeds */
 .embeds iframe.portrait {
-    width: 320px;
-    height: 569px;
+    --embed-width: 320px;
+    --embed-height: 569px;
+    width: calc(var(--embed-width) * var(--embed-scale));
+    height: calc(var(--embed-height) * var(--embed-scale));
 }
 
 .embeds iframe.landscape {
-    width: 1011px;
-    height: 569px;
+    --embed-width: 1011px;
+    --embed-height: 569px;
+    width: calc(var(--embed-width) * var(--embed-scale) * var(--embed-landscape-factor));
+    height: calc(var(--embed-height) * var(--embed-scale) * var(--embed-landscape-factor));
+}
+
+.embeds iframe {
+    transition: 0.2s ease;
 }
 
 @media only screen and (max-width: 1700px) {
-    .embeds iframe.portrait {
-        width: 288px;
-        height: 512px;
+    .embeds {
+        --embed-scale: 0.85;
     }
-
-    .embeds iframe.landscape {
-        width: 960px;
-        height: 540px;
+    .portfolio, .demo-row {
+        width: 85vw;
     }
 }
 
-@media only screen and (max-width: 1600px) {
-    .embeds iframe.portrait {
-        width: 216px;
-        height: 384px;
+@media only screen and (max-width: 1500px) {
+    .embeds {
+        --embed-scale: 0.72;
     }
-
-    .embeds iframe.landscape {
-        width: 640px;
-        height: 360px;
+    .portfolio, .demo-row {
+        width: 92vw;
     }
 }
 
-@media only screen and (max-width: 1200px) {
-    .embeds iframe.portrait {
-        width: 288px;
-        height: 512px;
+@media only screen and (max-width: 1300px) {
+    .embeds {
+        --embed-scale: 0.66;
     }
+}
 
-    .embeds iframe.landscape {
-        width: 480px;
-        height: 270px;
+@media only screen and (max-width: 1100px) {
+    .embeds {
+        --embed-scale: 0.5;
+        --embed-landscape-factor: 0.5;
     }
 }
 
 @media only screen and (max-width: 900px) {
+    .embeds {
+        --embed-scale: 0.8;
+        --embed-landscape-factor: 0.33;
+    }
     .demo-video {
         max-width: 600px;
     }
-
-    @-webkit-keyframes scrolling {
-        from{
-            background-position: 0 0;
-        }
-        to{
-            background-position: 400% 800%;
-        }
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    .demo-video {
-        max-width: 480px;
-    }
-
-    .embeds iframe.portrait {
-        width: 180px;
-        height: 320px;
-    }
-
-    .embeds iframe.landscape {
-        width: 320px;
-        height: 180px;
-    }
-
-    @-webkit-keyframes scrolling {
-        from{
-            background-position: 0 0;
-        }
-        to{
-            background-position: 800% 800%;
-        }
+    .portfolio, .demo-row {
+        width: 85vw;
     }
 }
 
 @media only screen and (max-width: 500px) {
     .demo-video {
-        max-width: 360px;
+        max-width: 300px;
     }
+}
 
-    @-webkit-keyframes scrolling {
-        from{
-            background-position: 0 0;
-        }
-        to{
-            background-position: 1200% 800%;
-        }
-    }
+.embeds .sticker {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding: 2px 6px;
+    border-radius: 4px;
+    transform: rotate(3deg) translate(10%, -10%);
+
+    text-decoration: none;
+    font-family: Outfit, "Source Sans 3", sans-serif;
+    font-weight: 900;
+    font-size: 14pt;
+    transition: 0.2s ease;
+
+    box-shadow: 4px 4px rgba(0,0,0,0.25), 0px 0px 16px rgba(0,0,0,0.25);
+}
+
+.embeds .sticker-youtube {
+    background: rgb(205, 32, 31);
+    color: rgb(250,250,250);
+}
+
+.embeds .sticker-tiktok {
+    background: rgb(240,240,240);
+    color: rgb(12,12,12);
+}
+
+.embeds .sticker:hover, .embeds .embed-container:hover .sticker {
+    transform: rotate(2deg) translate(10%, -10%) scale(1.2);
+}
+
+.embeds .embed-container {
+    transition: transform 0.2s ease;
+}
+.embeds .embed-container:hover {
+    transform: scale(1.02);
 }
