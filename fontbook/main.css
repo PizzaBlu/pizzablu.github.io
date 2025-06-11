@@ -32,6 +32,10 @@ a {
     margin-left: 8px;
 }
 
+.font-container {
+    margin-bottom: 4px;
+}
+
 .sample-text {
     font-size: 24pt;
     background-color: rgba(0,0,0,0.12);
@@ -42,7 +46,8 @@ a {
 
 .fontname-alt {
     color: rgb(100,100,100);
-    font-size: 60%;
+    font-size: 80%;
+    float: right;
 }
 
 h1 {
