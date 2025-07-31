@@ -53,11 +53,13 @@ class GoogleFont extends Font {
 class FontBook {
     constructor() {
         this.groups = {};
+        this.fonts = [];
     }
 
     add(group, font) {
         this.groups[group] = (this.groups[group] || [])
         this.groups[group].push(font);
+        this.fonts.push(font);
     }
 
     render(parent, sampletext, sampleweight, samplecase) {
@@ -77,6 +79,10 @@ class FontBook {
         if (parent.firstChild) parent.firstChild.replaceWith(el)
         else parent.appendChild(el)
     }
+
+    list() {
+        return this.fonts.map(f=>f.name).join('\n');
+    }
 }
 
 const fontbook = new FontBook();
@@ -86,6 +92,7 @@ fontbook.add('Geometric', new GoogleFont('Montserrat'));
 fontbook.add('Geometric', new GoogleFont('DM Sans'));
 
 fontbook.add('Sans Sarif', new GoogleFont('Roboto'));
+fontbook.add('Sans Sarif', new GoogleFont('Roboto Condensed'));
 fontbook.add('Sans Sarif', new GoogleFont('Archivo'));
 fontbook.add('Sans Sarif', new Font('Arial'));
 
@@ -126,6 +133,7 @@ fontbook.add('Code', new GoogleFont('Inconsolata'));
 fontbook.add('Code', new GoogleFont('Space Mono'));
 fontbook.add('Code', new GoogleFont('Ubuntu Mono'));
 fontbook.add('Code', new GoogleFont('Anonymous Pro'));
+fontbook.add('Code', new GoogleFont('Roboto Mono'));
 
 window.addEventListener('load', ()=>{
     console.log('ready');
