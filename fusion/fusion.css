@@ -30,3 +30,39 @@
 
     box-shadow: 0 0 32px rgba(0,0,4,0.2);
 }
+
+@media only screen and (max-width: 1380px) {
+    .plugin-video {
+        width: 520px;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .plugin-video {
+        width: 400px;
+    }
+}
+
+
+@media only screen and (max-width: 850px) {
+    .plugin-video {
+        width: 320px;
+    }
+}
+
+@media only screen and (max-width: 710px) {
+    .plugin-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+    .hero h2 {
+        font-size: 14px;
+    }
+}

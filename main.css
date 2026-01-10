@@ -426,11 +426,12 @@ h1 small {
     }
 
     .link-button {
-        font-size: 18px;
+        font-size: 16px;
         padding: 5px 14px;
         padding-bottom: 1px;
         border-radius: 5px;
         border-bottom-width: 4px;
+        margin: 2px;
     }
 
     .contact-row {
