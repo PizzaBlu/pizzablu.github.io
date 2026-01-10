@@ -1,0 +1,32 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transform: translate(0, -128px);
+    gap: 32px;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.plugin-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+.plugin-video {
+    width: 600px;
+    border-radius: 12px;
+    margin: 4px;
+
+    box-shadow: 0 0 32px rgba(0,0,4,0.2);
+}
