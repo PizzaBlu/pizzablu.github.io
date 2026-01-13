@@ -94,40 +94,40 @@
 
         <div class="content">
             <div class="plugin-row">
-                <video autoplay muted defaultMuted loop playsinline preload="auto" class="plugin-video">
+                <video autoplay muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
                     <source src="/fusion/video/CropPlus.mp4" type="video/mp4">
                 </video>
-                <video autoplay muted defaultMuted loop playsinline preload="auto" class="plugin-video">
+                <video autoplay muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
                     <source src="/fusion/video/Outline.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="plugin-row">
-                <video muted defaultMuted loop playsinline preload="auto" class="plugin-video">
+                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
                     <source src="/fusion/video/Posterize.mp4" type="video/mp4">
                 </video>
-                <video muted defaultMuted loop playsinline preload="auto" class="plugin-video">
+                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
                     <source src="/fusion/video/Halftone.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="plugin-row">
-                <video muted defaultMuted loop playsinline preload="auto" class="plugin-video">
+                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
                     <source src="/fusion/video/MaskWipe.mp4" type="video/mp4">
                 </video>
-                <video muted defaultMuted loop playsinline preload="auto" class="plugin-video">
+                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
                     <source src="/fusion/video/Squircle.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="plugin-row">
-                <video muted defaultMuted loop playsinline preload="none" class="plugin-video">
+                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
                     <source src="/fusion/video/NeonGlow.mp4" type="video/mp4">
                 </video>
                 <div class="plugin-video"></div>
             </div>
             <div class="plugin-row">
-                <video muted defaultMuted loop playsinline preload="none" class="plugin-video">
+                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
                     <source src="/fusion/video/BackFill.mp4" type="video/mp4">
                 </video>
-                <video muted defaultMuted loop playsinline preload="none" class="plugin-video">
+                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
                     <source src="/fusion/video/PublishSize.mp4" type="video/mp4">
                 </video>
             </div>
@@ -140,15 +140,28 @@
         </div>
 
         <script>
+            const playVideo = video => {
+                video.muted = true;
+                if (video.readyState >= 2) video.play().catch(console.error);
+                else {
+                    video.addEventListener('canplay', () => playVideo(video), {once: true});
+                    video.load();
+                }
+            }
+
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.play();
+                    entry.target.muted = true;
+                    if (entry.isIntersecting) playVideo(entry.target);
                     else entry.target.pause();
                 });
-            }, { threshold: 0.5 });
+            }, { threshold: 0.4 });
 
             document.querySelectorAll('.plugin-video').forEach(video => {
                 observer.observe(video);
+                const rect = video.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+                if (isVisible) playVideo(video);
             });
         </script>
         
