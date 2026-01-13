@@ -44,8 +44,8 @@
         <!-- <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-brands-400.woff2" as="font" crossorigin="anonymous"> -->
 
         <!-- Preload videos -->
-        <link rel="preload" href="/fusion/video/CropPlus.mp4" as="video" type="video/mp4">
-        <link rel="preload" href="/fusion/video/Outline.mp4" as="video" type="video/mp4">
+        <link rel="preload" href="/fusion/video/CropPlus.mp4" type="video/mp4">
+        <link rel="preload" href="/fusion/video/Outline.mp4" type="video/mp4">
 
         <!-- HTML Meta Tags -->
         <title>Fusion Tools - PizzaBlu</title>
@@ -135,7 +135,6 @@
                 if (!url) return;
 
                 video = document.createElement('video');
-                video.src = url;
                 video.className = 'plugin-video';
                 video.muted = true;
                 video.loop = true;
@@ -143,7 +142,11 @@
                 video.setAttribute('playsinline', ''); 
                 video.setAttribute('preload', 'auto');
                 container.appendChild(video);
-                playVideo(video);
+
+                video.src = url;
+                video.load();
+
+                if (video.paused) playVideo(video);
             };
 
             const observer = new IntersectionObserver(entries => {
@@ -154,8 +157,14 @@
                 });
             }, {
                 threshold: 0.1,
-                rootMargin: '400px 0px'
+                rootMargin: '300px 0px'
             });
+
+            window.addEventListener('touchstart', () => {
+                document.querySelectorAll('.plugin-placeholder .plugin-video').forEach(video => {
+                    if (video.paused && video.checkVisibility()) playVideo(video);
+                });
+            }, { once: true, passive: true });
 
             document.querySelectorAll('.plugin-placeholder').forEach(video => {
                 observer.observe(video);
