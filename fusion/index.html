@@ -94,42 +94,42 @@
 
         <div class="content">
             <div class="plugin-row">
-                <video autoplay="true" muted="true" loop="true" class="plugin-video" muted defaultMuted playsinline preload="auto">
+                <video autoplay muted defaultMuted loop playsinline preload="auto" class="plugin-video">
                     <source src="/fusion/video/CropPlus.mp4" type="video/mp4">
                 </video>
-                <video autoplay="true" muted="true" loop="true" class="plugin-video" muted defaultMuted playsinline preload="auto">
+                <video autoplay muted defaultMuted loop playsinline preload="auto" class="plugin-video">
                     <source src="/fusion/video/Outline.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="plugin-row">
-                <video autoplay="true" muted="true" loop="true" class="plugin-video" muted defaultMuted playsinline preload="auto">
+                <video autoplay muted defaultMuted loop playsinline preload="auto" class="plugin-video">
                     <source src="/fusion/video/Posterize.mp4" type="video/mp4">
                 </video>
-                <video autoplay="true" muted="true" loop="true" class="plugin-video" muted defaultMuted playsinline preload="auto">
+                <video autoplay muted defaultMuted loop playsinline preload="auto" class="plugin-video">
                     <source src="/fusion/video/Halftone.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="plugin-row">
-                <video autoplay="true" muted="true" loop="true" class="plugin-video" muted defaultMuted playsinline preload="auto">
+                <video autoplay muted defaultMuted loop playsinline preload="auto" class="plugin-video">
                     <source src="/fusion/video/MaskWipe.mp4" type="video/mp4">
                 </video>
-                <video autoplay="true" muted="true" loop="true" class="plugin-video" muted defaultMuted playsinline preload="auto">
+                <video autoplay muted defaultMuted loop playsinline preload="auto" class="plugin-video">
                     <source src="/fusion/video/Squircle.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="plugin-row">
-                <video autoplay="true" muted="true" loop="true" class="plugin-video" muted defaultMuted playsinline preload="auto">
+                <video autoplay muted defaultMuted loop playsinline preload="none" class="plugin-video">
                     <source src="/fusion/video/NeonGlow.mp4" type="video/mp4">
                 </video>
                 <div class="plugin-video"></div>
-                <!-- <video autoplay="true" muted="true" loop="true" class="plugin-video" muted defaultMuted playsinline preload="auto">
+                <!-- <video autoplay muted defaultMuted loop playsinline preload="auto" class="plugin-video">
                 </video> -->
             </div>
             <div class="plugin-row">
-                <video autoplay="true" muted="true" loop="true" class="plugin-video" muted defaultMuted playsinline preload="auto">
+                <video autoplay muted defaultMuted loop playsinline preload="auto" class="plugin-video">
                     <source src="/fusion/video/BackFill.mp4" type="video/mp4">
                 </video>
-                <video autoplay="true" muted="true" loop="true" class="plugin-video" muted defaultMuted playsinline preload="auto">
+                <video autoplay muted defaultMuted loop playsinline preload="auto" class="plugin-video">
                     <source src="/fusion/video/PublishSize.mp4" type="video/mp4">
                 </video>
             </div>
@@ -140,6 +140,19 @@
                 <div style="font-size: 32px; font-weight: bold;">And more...</div>
             </div>
         </div>
+
+        <script>
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.play();
+                    else entry.target.pause();
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.plugin-video').forEach(video => {
+                observer.observe(video);
+            });
+        </script>
         
     </body>
 </html>
