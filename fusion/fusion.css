@@ -28,29 +28,37 @@
 }
 
 .plugin-video {
-    width: 600px;
+    width: var(--width);
+    height: var(--height);
     border-radius: 12px;
     margin: 4px;
 
     box-shadow: 0 0 32px rgba(0,0,4,0.2);
 }
 
+.plugin-placeholder {
+    --width: 600px;
+    --height: calc(var(--width) * 9/16);
+    width: var(--width);
+    height: var(--height);
+}
+
 @media only screen and (max-width: 1380px) {
-    .plugin-video {
-        width: 520px;
+    .plugin-placeholder {
+        --width: 520px;
     }
 }
 
 @media only screen and (max-width: 1150px) {
-    .plugin-video {
-        width: 400px;
+    .plugin-placeholder {
+        --width: 400px;
     }
 }
 
 
 @media only screen and (max-width: 850px) {
-    .plugin-video {
-        width: 320px;
+    .plugin-placeholder {
+        --width: 320px;
     }
 }
 

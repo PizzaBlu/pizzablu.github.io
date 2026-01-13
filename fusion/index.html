@@ -41,7 +41,11 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
         <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2" as="font" crossorigin="anonymous">
-        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-brands-400.woff2" as="font" crossorigin="anonymous">
+        <!-- <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-brands-400.woff2" as="font" crossorigin="anonymous"> -->
+
+        <!-- Preload videos -->
+        <link rel="preload" href="/fusion/video/CropPlus.mp4" as="video" type="video/mp4">
+        <link rel="preload" href="/fusion/video/Outline.mp4" as="video" type="video/mp4">
 
         <!-- HTML Meta Tags -->
         <title>Fusion Tools - PizzaBlu</title>
@@ -94,42 +98,24 @@
 
         <div class="content">
             <div class="plugin-row">
-                <video autoplay muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
-                    <source src="/fusion/video/CropPlus.mp4" type="video/mp4">
-                </video>
-                <video autoplay muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
-                    <source src="/fusion/video/Outline.mp4" type="video/mp4">
-                </video>
+                <div class="plugin-placeholder" data-src="/fusion/video/CropPlus.mp4"></div>
+                <div class="plugin-placeholder" data-src="/fusion/video/Outline.mp4"></div>
             </div>
             <div class="plugin-row">
-                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
-                    <source src="/fusion/video/Posterize.mp4" type="video/mp4">
-                </video>
-                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
-                    <source src="/fusion/video/Halftone.mp4" type="video/mp4">
-                </video>
+                <div class="plugin-placeholder" data-src="/fusion/video/Halftone.mp4"></div>
+                <div class="plugin-placeholder" data-src="/fusion/video/Posterize.mp4"></div>
             </div>
             <div class="plugin-row">
-                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
-                    <source src="/fusion/video/MaskWipe.mp4" type="video/mp4">
-                </video>
-                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
-                    <source src="/fusion/video/Squircle.mp4" type="video/mp4">
-                </video>
+                <div class="plugin-placeholder" data-src="/fusion/video/NeonGlow.mp4"></div>
+                <div class="plugin-placeholder" ></div>
             </div>
             <div class="plugin-row">
-                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
-                    <source src="/fusion/video/NeonGlow.mp4" type="video/mp4">
-                </video>
-                <div class="plugin-video"></div>
+                <div class="plugin-placeholder" data-src="/fusion/video/MaskWipe.mp4"></div>
+                <div class="plugin-placeholder" data-src="/fusion/video/Squircle.mp4"></div>
             </div>
             <div class="plugin-row">
-                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
-                    <source src="/fusion/video/BackFill.mp4" type="video/mp4">
-                </video>
-                <video muted defaultMuted loop playsinline preload="metadata" class="plugin-video">
-                    <source src="/fusion/video/PublishSize.mp4" type="video/mp4">
-                </video>
+                <div class="plugin-placeholder" data-src="/fusion/video/BackFill.mp4"></div>
+                <div class="plugin-placeholder" data-src="/fusion/video/PublishSize.mp4"></div>
             </div>
         </div>
 
@@ -140,28 +126,39 @@
         </div>
 
         <script>
-            const playVideo = video => {
+            const playVideo = video => video.play().catch(console.warn);
+            const injectAndPlay = container => {
+                let video = container.querySelector('video');
+                if (video) return playVideo(video);
+                
+                const url = container.dataset.src;
+                if (!url) return;
+
+                video = document.createElement('video');
+                video.src = url;
+                video.className = 'plugin-video';
                 video.muted = true;
-                if (video.readyState >= 2) video.play().catch(console.error);
-                else {
-                    video.addEventListener('canplay', () => playVideo(video), {once: true});
-                    video.load();
-                }
-            }
+                video.loop = true;
+                video.autoplay = true;
+                video.setAttribute('playsinline', ''); 
+                video.setAttribute('preload', 'auto');
+                container.appendChild(video);
+                playVideo(video);
+            };
 
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
-                    entry.target.muted = true;
-                    if (entry.isIntersecting) playVideo(entry.target);
-                    else entry.target.pause();
+                    const video = entry.target.querySelector('video');
+                    if (entry.isIntersecting) injectAndPlay(entry.target);
+                    else if (video && !video.paused) video.pause();
                 });
-            }, { threshold: 0.4 });
+            }, {
+                threshold: 0.1,
+                rootMargin: '400px 0px'
+            });
 
-            document.querySelectorAll('.plugin-video').forEach(video => {
+            document.querySelectorAll('.plugin-placeholder').forEach(video => {
                 observer.observe(video);
-                const rect = video.getBoundingClientRect();
-                const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
-                if (isVisible) playVideo(video);
             });
         </script>
         
