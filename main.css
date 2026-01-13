@@ -373,6 +373,10 @@ h1 small {
     display: none;
 }
 
+i.fa-solid, i.fa-brands {
+    margin-right: 8px;
+}
+
 @media screen and (min-width: 1300px) {
     .fullscreen-only {
         display: block;

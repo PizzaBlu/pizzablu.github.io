@@ -168,6 +168,10 @@ a {
     color: inherit;
 }
 
+i.fa-solid, i.fa-brands {
+    margin-right: 8px;
+}
+
 @media only screen and (max-width: 600px) {
     .hero {
         height: max(50vh, 480px);
