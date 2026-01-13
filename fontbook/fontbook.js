@@ -90,13 +90,14 @@ fontbook.add('Geometric', new GoogleFont('League Spartan'));
 fontbook.add('Geometric', new GoogleFont('Outfit'));
 fontbook.add('Geometric', new GoogleFont('Montserrat'));
 fontbook.add('Geometric', new GoogleFont('DM Sans'));
-fontbook.add('Geometric', new GoogleFont('Urbanist'));
 fontbook.add('Geometric', new GoogleFont('Prompt'));
+fontbook.add('Geometric', new GoogleFont('Barlow'));
 
 fontbook.add('Sans Sarif', new GoogleFont('Roboto'));
 fontbook.add('Sans Sarif', new GoogleFont('Roboto Condensed'));
 fontbook.add('Sans Sarif', new GoogleFont('Archivo'));
 fontbook.add('Sans Sarif', new Font('Arial'));
+fontbook.add('Sans Sarif', new GoogleFont('Urbanist'));
 
 fontbook.add('Humanist', new GoogleFont('Source Sans 3'));
 fontbook.add('Humanist', new GoogleFont('Noto Sans'));
