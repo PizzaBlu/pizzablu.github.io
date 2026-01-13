@@ -126,11 +126,16 @@
         </div>
 
         <script>
-            const playVideo = video => video.play().catch(console.warn);
-            const injectAndPlay = container => {
+            const playVideo = video => video?.play().catch(err=>{
+                if (err.name !== 'AbortError') console.warn(err);
+            });
+            const pauseVideo = video => {
+                if (video && !video.paused) video.pause();
+            }
+            const injectVideo = container => {
                 let video = container.querySelector('video');
-                if (video) return playVideo(video);
-                
+                if (video) return video;
+
                 const url = container.dataset.src;
                 if (!url) return;
 
@@ -138,7 +143,6 @@
                 video.className = 'plugin-video';
                 video.muted = true;
                 video.loop = true;
-                video.autoplay = true;
                 video.setAttribute('playsinline', ''); 
                 video.setAttribute('preload', 'auto');
                 container.appendChild(video);
@@ -146,29 +150,39 @@
                 video.src = url;
                 video.load();
 
-                if (video.paused) playVideo(video);
-            };
+                return video;
+            }
+            const injectAndPlay = container => playVideo(injectVideo(container));
+            const injectAndPause = container => pauseVideo(injectVideo(container));
 
-            const observer = new IntersectionObserver(entries => {
+            const observer_load = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const video = entry.target.querySelector('video');
+                    if (entry.isIntersecting) injectVideo(entry.target);
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '600px 0px'
+            });
+
+            const observer_play = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     const video = entry.target.querySelector('video');
                     if (entry.isIntersecting) injectAndPlay(entry.target);
                     else if (video && !video.paused) video.pause();
                 });
             }, {
-                threshold: 0.1,
-                rootMargin: '300px 0px'
+                threshold: 0.4,
             });
+
+            document.querySelectorAll('.plugin-placeholder').forEach(video => observer_load.observe(video));
+            document.querySelectorAll('.plugin-placeholder').forEach(video => observer_play.observe(video));
 
             window.addEventListener('touchstart', () => {
                 document.querySelectorAll('.plugin-placeholder .plugin-video').forEach(video => {
                     if (video.paused && video.checkVisibility()) playVideo(video);
                 });
             }, { once: true, passive: true });
-
-            document.querySelectorAll('.plugin-placeholder').forEach(video => {
-                observer.observe(video);
-            });
         </script>
         
     </body>
