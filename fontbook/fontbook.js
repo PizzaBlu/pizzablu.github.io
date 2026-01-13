@@ -90,6 +90,8 @@ fontbook.add('Geometric', new GoogleFont('League Spartan'));
 fontbook.add('Geometric', new GoogleFont('Outfit'));
 fontbook.add('Geometric', new GoogleFont('Montserrat'));
 fontbook.add('Geometric', new GoogleFont('DM Sans'));
+fontbook.add('Geometric', new GoogleFont('Urbanist'));
+fontbook.add('Geometric', new GoogleFont('Prompt'));
 
 fontbook.add('Sans Sarif', new GoogleFont('Roboto'));
 fontbook.add('Sans Sarif', new GoogleFont('Roboto Condensed'));
@@ -99,7 +101,6 @@ fontbook.add('Sans Sarif', new Font('Arial'));
 fontbook.add('Humanist', new GoogleFont('Source Sans 3'));
 fontbook.add('Humanist', new GoogleFont('Noto Sans'));
 fontbook.add('Humanist', new GoogleFont('Oxygen'));
-
 
 fontbook.add('Tall', new GoogleFont('Anton'));
 fontbook.add('Tall', new GoogleFont('Bebas Neue'));
@@ -134,6 +135,7 @@ fontbook.add('Code', new GoogleFont('Space Mono'));
 fontbook.add('Code', new GoogleFont('Ubuntu Mono'));
 fontbook.add('Code', new GoogleFont('Anonymous Pro'));
 fontbook.add('Code', new GoogleFont('Roboto Mono'));
+fontbook.add('Code', new GoogleFont('JetBrains Mono'));
 
 window.addEventListener('load', ()=>{
     console.log('ready');
