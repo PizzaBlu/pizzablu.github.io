@@ -69,15 +69,6 @@
         <meta name="twitter:title" content="Fusion Tools">
         <meta name="twitter:description" content="The missing tools for DaVinci Resolve.">
         <meta name="twitter:image" content="https://pizzablu.github.io/assets/pizzablu.png">
-
-        <!-- Google Analytics -->
-        <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV" fetchpriority="low"></script>
-        <script defer>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-PJX6P9P9GV');
-        </script>
     </head>
     <body style="background-color: #171b1f; color: #ffffff; overflow-x: hidden; width: 100vw; margin: 0; padding: 0;">
         <div class="hero" id="hero">
@@ -184,6 +175,14 @@
                 });
             }, { once: true, passive: true });
         </script>
-        
+
+        <!-- Google Analytics -->
+         <script>
+            window.minimalAnalytics = {
+                trackingId: 'G-PJX6P9P9GV',
+                autoTrack: true,
+            };
+        </script>
+        <script defer src="https://unpkg.com/@minimal-analytics/ga4/dist/index.js" fetchpriority="low"></script>
     </body>
 </html>
