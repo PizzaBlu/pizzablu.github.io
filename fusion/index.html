@@ -163,7 +163,8 @@
                     else if (video && !video.paused) video.pause();
                 });
             }, {
-                threshold: 0.4,
+                threshold: 0.2,
+                rootMargin: '100px 0px'
             });
 
             document.querySelectorAll('.plugin-placeholder').forEach(video => observer_load.observe(video));
