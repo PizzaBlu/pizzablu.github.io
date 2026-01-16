@@ -89,20 +89,24 @@
 
         <div class="content">
             <div class="plugin-row">
-                <div class="plugin-placeholder" data-src="/fusion/video/CropPlus.mp4"></div>
-                <div class="plugin-placeholder" data-src="/fusion/video/Outline.mp4"></div>
-            </div>
-            <div class="plugin-row">
-                <div class="plugin-placeholder" data-src="/fusion/video/Halftone.mp4"></div>
                 <div class="plugin-placeholder" data-src="/fusion/video/Posterize.mp4"></div>
+                <div class="plugin-placeholder" data-src="/fusion/video/Halftone.mp4"></div>
             </div>
             <div class="plugin-row">
                 <div class="plugin-placeholder" data-src="/fusion/video/NeonGlow.mp4"></div>
-                <div class="plugin-placeholder" ></div>
+                <div class="plugin-placeholder" data-src="/fusion/video/Stack.mp4"></div>
+            </div>
+            <div class="plugin-row">
+                <div class="plugin-placeholder" data-src="/fusion/video/Outline.mp4"></div>
+                <div class="plugin-placeholder" data-src="/fusion/video/InnerShadow.mp4"></div>
             </div>
             <div class="plugin-row">
                 <div class="plugin-placeholder" data-src="/fusion/video/MaskWipe.mp4"></div>
                 <div class="plugin-placeholder" data-src="/fusion/video/Squircle.mp4"></div>
+            </div>
+            <div class="plugin-row">
+                <div class="plugin-placeholder" data-src="/fusion/video/CropPlus.mp4"></div>
+                <div class="plugin-placeholder" data-src="/fusion/video/ResizePlus.mp4"></div>
             </div>
             <div class="plugin-row">
                 <div class="plugin-placeholder" data-src="/fusion/video/BackFill.mp4"></div>
@@ -153,7 +157,7 @@
                 });
             }, {
                 threshold: 0.1,
-                rootMargin: '600px 0px'
+                rootMargin: '600px 0px',
             });
 
             const observer_play = new IntersectionObserver(entries => {
@@ -164,7 +168,7 @@
                 });
             }, {
                 threshold: 0.2,
-                rootMargin: '100px 0px'
+                rootMargin: '100px 0px',
             });
 
             document.querySelectorAll('.plugin-placeholder').forEach(video => observer_load.observe(video));
