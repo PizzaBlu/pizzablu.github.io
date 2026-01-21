@@ -2,13 +2,14 @@
     transform: translate(0, -32px);
 }
 
-.content {
+.container {
+    --base-gap: 32px;
+    --grid-gap: calc(var(--base-gap) * var(--scale));
     display: flex;
     flex-direction: column;
     align-items: center;
-
     transform: translate(0, -128px);
-    gap: 32px;
+    gap: var(--grid-gap);
 }
 
 .row {
@@ -24,7 +25,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 32px;
+    gap: var(--grid-gap);
 }
 
 .plugin-video {
@@ -37,28 +38,59 @@
 }
 
 .plugin-placeholder {
-    --width: 600px;
+    --base-width: 600px;
+    --display-width: calc(var(--base-width) * var(--scale));
+    --width: var(--display-width);
     --height: calc(var(--width) * 9/16);
     width: var(--width);
     height: var(--height);
 }
 
+.demo-placeholder {
+    --width: calc(var(--display-width)*2 + var(--grid-gap));
+}
+
+.main h1,
+.main h2,
+.main h3,
+.main h4,
+.main h5,
+.main h6 {
+    margin: 0;
+    padding: 0;
+    line-height: 0.5;
+}
+
+.main h1 {
+    font-weight: 900;
+    font-size: calc(0.6 * var(--title-size));
+    margin-top: calc(4*var(--grid-gap));
+    color: var(--text-2);
+}
+
+.main h2 {
+    font-weight: 900;
+    font-size: calc(0.2 * var(--title-size));
+    line-height: 0.4;
+    color: var(--text-3);
+}
+
 @media only screen and (max-width: 1380px) {
     .plugin-placeholder {
-        --width: 520px;
+        --base-width: 520px;
     }
 }
 
 @media only screen and (max-width: 1150px) {
     .plugin-placeholder {
-        --width: 400px;
+        --base-width: 400px;
     }
 }
 
 
 @media only screen and (max-width: 850px) {
     .plugin-placeholder {
-        --width: 320px;
+        --base-width: 320px;
     }
 }
 
@@ -69,6 +101,14 @@
         align-items: center;
         justify-content: center;
         gap: 32px;
+    }
+
+    .main {
+        --title-size: 32px;
+    }
+
+    .demo-placeholder {
+        --width: calc(var(--base-width));
     }
 
     .hero h1 {

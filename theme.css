@@ -8,6 +8,8 @@
 }
 
 html {
+    --scale: 1;
+    --title-size: calc(128px * var(--scale));
     scroll-behavior: smooth;
     box-sizing: content-box;
 }
@@ -63,7 +65,7 @@ a {
     animation: scrolling 360s linear infinite;
     animation-delay: var(--animation-delay, 0ms);
 
-    background-size: 128px;
+    background-size: calc(128px * var(--scale));
 
     mask-image: linear-gradient(rgb(0 0 0 / 66%), transparent);
     transform: translateZ(0);
@@ -74,7 +76,7 @@ a {
         background-position: 0 0;
     }
     to {
-        background-position: 8192px 8192px;
+        background-position: calc(8192px * var(--scale)) calc(8192px * var(--scale));
     }
 }
 
@@ -102,7 +104,7 @@ a {
 .hero h1 {
     font-family: "Source Sans 3", sans-serif;
     font-weight: 900;
-    font-size: 128px;
+    font-size: var(--title-size);
     margin: 0;
     line-height: 1em;
 }
@@ -112,6 +114,7 @@ a {
     margin-top: -18px;
     line-height: 1em;
     opacity: 0.25;
+    font-size: calc(var(--title-size) * 0.2);
 }
 
 .herolinks {
@@ -128,7 +131,7 @@ a {
 .link-button {
     position: relative;
 
-    font-size: 24px;
+    font-size: calc(24px * var(--scale));
     font-weight: 600;
 
     box-sizing: border-box;
@@ -141,18 +144,14 @@ a {
     filter: drop-shadow(0 0 0.4rem rgba(0, 32, 64, 0.2));
     text-shadow: rgba(0,0,0,0.2) 0px 0 10px;
     text-decoration: none;
-    border-radius: 12px;
-    padding: 4px 24px;
-    margin: 12px;
 
+    line-height: calc(1em * var(--scale));
+    margin: calc(12px * var(--scale));
+    padding: calc(8px * var(--scale)) calc(24px * var(--scale));
+    border-radius: calc(8px * var(--scale));
 
-    line-height: 1em;
-    margin: 12px;
-    padding: 8px 24px;
-    border-radius: 8px;
-
-    border-bottom: 6px solid rgba(0, 0, 0, 0.1);
-    padding-bottom: 4px;
+    border-bottom: calc(6px * var(--scale)) solid rgba(0, 0, 0, 0.1);
+    padding-bottom: calc(4px * var(--scale));
 
     transform: translateZ(0);
 
@@ -170,6 +169,18 @@ a {
 
 i.fa-solid, i.fa-brands {
     margin-right: 8px;
+}
+
+@media screen and (min-width: 2200px) {
+    html {
+        --scale: 1.2;
+    }
+}
+
+@media screen and (min-width: 3000px) {
+    html {
+        --scale: 1.8;
+    }
 }
 
 @media only screen and (max-width: 600px) {
