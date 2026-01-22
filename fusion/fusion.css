@@ -58,21 +58,30 @@
 .main h6 {
     margin: 0;
     padding: 0;
-    line-height: 0.5;
 }
 
 .main h1 {
     font-weight: 900;
     font-size: calc(0.6 * var(--title-size));
-    margin-top: calc(4*var(--grid-gap));
+    margin-top: calc(3*var(--grid-gap));
     color: var(--text-2);
+}
+
+.main h1.tall {
+    line-height: 0.5;
+    margin-top: calc(4*var(--grid-gap));
 }
 
 .main h2 {
     font-weight: 900;
     font-size: calc(0.2 * var(--title-size));
-    line-height: 0.4;
+    line-height: 0.5;
     color: var(--text-3);
+}
+
+.main h2.tall {
+    font-size: calc(0.4 * var(--title-size));
+    margin-top: calc(2*var(--grid-gap));
 }
 
 @media only screen and (max-width: 1380px) {
@@ -103,18 +112,33 @@
         gap: 32px;
     }
 
-    .main {
-        --title-size: 32px;
-    }
-
     .demo-placeholder {
-        --width: calc(var(--base-width));
+        --width: var(--base-width);
     }
 
-    .hero h1 {
-        font-size: 48px;
+    .plugin-placeholder {
+        --base-width: calc(100vw - 3 * var(--grid-gap));
     }
-    .hero h2 {
-        font-size: 14px;
+}
+
+@media only screen and (max-width: 610px) {
+    .main h1 {
+        font-size: calc(0.8 * var(--title-size));
+        margin-top: calc(3*var(--grid-gap));
+    }
+
+    .main h2 {
+        font-size: calc(0.3 * var(--title-size));
+        margin-top: calc(-0.25*var(--grid-gap));
+    }
+
+    .main h2.tall {
+        font-size: calc(0.6 * var(--title-size));
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .plugin-placeholder {
+        --base-width: calc(100vw - 2 * var(--grid-gap));
     }
 }
