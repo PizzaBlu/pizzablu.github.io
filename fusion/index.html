@@ -173,8 +173,8 @@
                     if (entry.isIntersecting) injectVideo(entry.target);
                 });
             }, {
-                threshold: 0.1,
-                rootMargin: '600px 0px',
+                threshold: 0.2,
+                rootMargin: '512px 0px',
             });
 
             const observer_play = new IntersectionObserver(entries => {
@@ -184,8 +184,8 @@
                     else if (video && !video.paused) video.pause();
                 });
             }, {
-                threshold: 0.2,
-                rootMargin: '100px 0px',
+                threshold: 0.1,
+                rootMargin: '64px 0px',
             });
 
             document.querySelectorAll('.plugin-placeholder').forEach(video => observer_load.observe(video));
