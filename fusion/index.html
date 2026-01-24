@@ -138,9 +138,14 @@
         </div>
 
         <script>
-            const playVideo = video => video?.play().catch(err=>{
-                if (err.name !== 'AbortError') console.warn(err);
-            });
+            const playVideo = async video => {
+                video.currentTime = 0;
+                try {
+                    await video?.play();
+                } catch (err) {
+                    if (err.name !== 'AbortError') console.warn(err);
+                }
+            };
             const pauseVideo = video => {
                 if (video && !video.paused) video.pause();
             }
