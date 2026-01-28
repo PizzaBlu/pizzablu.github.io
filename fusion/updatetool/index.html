@@ -70,11 +70,11 @@
                 const release = params.get("release");
                 const release_int = parseInt(release);
                 if (!id || !release || release_int == NaN || !(id in TOOLS)) {
-                    update_message("Error", "You can still check for updates manually on KoFi.");
+                    update_message("Error", "You can still check for updates manually on KoFi");
                     console.warn('invalid tool info:', id, release);
                 }
                 if (TOOLS[id].release == release_int) {
-                    update_message("You're up to date!", `You have the latest version of ${TOOLS[id].name}.`);
+                    update_message("You're up to date!", `You have the latest version of ${TOOLS[id].name}`);
                 } else {
                     update_message("Update Available!", `You can upgrade ${TOOLS[id].name} to version ${TOOLS[id].version}`);
                     document.getElementById("instructions").style.display = "block";
