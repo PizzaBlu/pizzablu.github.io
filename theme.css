@@ -170,6 +170,11 @@ i.fa-solid, i.fa-brands {
     margin-right: 8px;
 }
 
+section.simple {
+    max-width: 1200px;
+    margin: calc(var(--scale) * 32px);
+}
+
 @media screen and (min-width: 2200px) {
     html {
         --scale: 1.2;

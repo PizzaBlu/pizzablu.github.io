@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <!-- Mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/theme.css">
+        <style>
+            /* Outfit Latin */
+            @font-face {
+                font-family: 'Outfit';
+                font-style: normal;
+                font-weight: 100 900;
+                font-display: swap;
+                src: url(https://fonts.gstatic.com/s/outfit/v14/QGYvz_MVcBeNP4NJtEtqUYTkntBJ.woff2) format('woff2');
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+        </style>
+
+        <!-- Source Sans 3 -->
+        <link rel="preload" href="https://fonts.gstatic.com/s/sourcesans3/v18/nwpStKy2OAdR1K-IwhWudF-R3w8aZejZ5HZV8Q.woff2"
+            as="font" crossorigin="anonymous">
+
+        <!-- Preconnect -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- Preload -->
+        <link rel="preload" href="/assets/background_tile.png" as="image">
+
+        <!-- Animation Continuity -->
+        <script>
+            const elapsed = Date.now() % 240000;
+            document.documentElement.style.setProperty('--animation-delay', `-${elapsed}ms`);
+        </script>
+    </head>
+
+    <body
+        style="background-color: #171b1f; color: #ffffff; overflow-x: hidden; width: 100vw; margin: 0; padding: 0; font-family: 'Source Sans 3', sans-serif;">
+        <div class="hero" id="hero">
+            <div class="hero-background"></div>
+            <div class="hero-main">
+                <div class="hero-container">
+                    <h1><a href="/index.html" class="link-clean" style="font-family: Outfit, sans-serif; font-weight: 900;">EULA</a></h1>
+                    <h2><a href="/index.html" class="link-clean">End User License Agreement</a></h2>
+                </div>
+            </div>
+        </div>
+        <section class="simple">
+            <p>By purchasing this software you are granted a license to use this software. Your license to the software is subject to your prior acceptance of this End User License Agreement (EULA). The Software Provider as applicable (“Licensor”) reserves all rights in and to the licensed software not expressly granted to you under this EULA.</p>
+            <p>BY INSTALLING, COPYING, OR OTHERWISE USING THIS SOFTWARE YOU AGREE TO BE BOUND BY THIS EULA.</p>
+            <p>a. You are granted a nontransferable license for you to use the software on any computer that you own.</p>
+            <p>b. This EULA is effective until terminated by you or Licensor. Your rights under the EULA will terminate automatically if you fail to comply with any of its terms.</p>
+            <p>c. You are not allowed to redistribute, share, or sell the software in any way. You must have prior written consent from Licensor for any use not described in this document.</p>
+            <p>d. You are not allowed to adapt, alter, translate, remove, modify, combine, or embed this software into any other product or otherwise create derivative works or modify the software.</p>
+            <p>e. You are not allowed to reverse engineer, unobfuscate, or otherwise attempt to derive the source code for the software, except as permitted by applicable law.</p>
+            <p>f. You are not allowed to alter or obscure any proprietary notices on the Software or the applicable documentation therein.</p>
+            <p>g. Updates, support and refunds may be provided but are not guaranteed.</p>
+            <p>h. If any provision of this Agreement shall be held or made invalid by a court decision, statute or rule, or shall be otherwise rendered invalid, the remainder of this Agreement shall not be affected thereby.</p>
+            <p>i. This Agreement and the relationship between you and Licensor shall be governed by the laws of the State of Michigan. You and Licensor agree to submit to the jurisdiction of the courts located within the State of Michigan to resolve any dispute or claim arising from this Agreement.</p>
+            <p>j. Licensor reserves the right to modify this Agreement in any way at any time. Future versions of this Agreement will apply to updates or new downloads related to the software.</p>
+            <p>m. Licensor shall have no liability under this Agreement. Liability is limited to the payment the Licensor received for the software. THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+        </section>
+        <div class="footer main">
+            <div class="row"></div>
+        </div>
+        <!-- Google Analytics -->
+        <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV" fetchpriority="low"></script>
+        <script defer>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-PJX6P9P9GV');
+        </script>
+    </body>
+</html>
