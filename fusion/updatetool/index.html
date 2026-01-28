@@ -43,14 +43,14 @@
             <div class="hero-background"></div>
             <div class="hero-main">
                 <div class="hero-container">
-                    <h1><small id="title">Version Tool</small></h1>
+                    <h1><small id="title">Loading...</small></h1>
                     <h2 id="subtitle">Checking for Updates...</h2>
                 </div>
             </div>
         </div>
         <section class="simple" style="display: none" id="instructions">
             <h2>How do I update?</h2>
-            <p>You can get the latest version by redownloading the tool on <a href="https://ko-fi.com/pizzablu/shop">KoFio</a>.</p>
+            <p>You can download the latest version on <a href="https://ko-fi.com/pizzablu/shop">KoFi</a>.</p>
         </section>
         <div class="footer main">
             <div class="row"></div>
@@ -64,17 +64,14 @@
                 document.getElementById("subtitle").textContent = subtitle;
             }
 
-            document.addEventListener("DOMContentLoaded", () => {
+            function check() {
                 const params = new URLSearchParams(location.search);
                 const id = params.get("id");
                 const release = params.get("release");
                 const release_int = parseInt(release);
-                if (!id || !release || release_int == NaN) {
-                    update_message("Error", "Unable to check for updates.");
+                if (!id || !release || release_int == NaN || !(id in TOOLS)) {
+                    update_message("Error", "You can still check for updates manually on KoFi.");
                     console.warn('invalid tool info:', id, release);
-                }
-                if (!(id in TOOLS)) {
-                        update_message("Error", "That tool does not exist.");
                 }
                 if (TOOLS[id].release == release_int) {
                     update_message("You're up to date!", `You have the latest version of ${TOOLS[id].name}.`);
@@ -82,6 +79,10 @@
                     update_message("Update Available!", `You can upgrade ${TOOLS[id].name} to version ${TOOLS[id].version}.`);
                     document.getElementById("instructions").style.display = "block";
                 }
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                setTimeout(check, 200);
             });
         </script>
 
