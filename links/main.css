@@ -12,11 +12,21 @@
 
 .hero h1 {
     font-size: 64px;
+    font-weight: 900;
+    color: rgb(220,220,220);
 }
 
 .hero h2 {
     margin-top: -8px;
+    font-weight: 900;
     opacity: 0.25;
+    margin-bottom: 24px;
+}
+
+.hero h3 {
+    opacity: 0.5;
+    font-size: 18px;
+    margin: 2px;
 }
 
 .cardzone {
