@@ -58,9 +58,15 @@
         <script type="module">
             import {TOOLS} from './tools.js';
 
+            set_instructions(false);
+
             function update_message(title, subtitle) {
                 document.getElementById("title").textContent = title;
                 document.getElementById("subtitle").textContent = subtitle;
+            }
+
+            function set_instructions(b) {
+                document.getElementById("instructions").style.display = b ? "block" : "none";
             }
 
             function check() {
@@ -68,15 +74,24 @@
                 const id = params.get("id");
                 const release = params.get("release");
                 const release_int = parseInt(release);
+                if (id == "nil" || (id && !(id in TOOLS))) {
+                    update_message("Plugin Not Found", "You can still check for updates manually on KoFi");
+                    set_instructions(true);
+                    return;
+                }
+
                 if (!id || !release || release_int == NaN || !(id in TOOLS)) {
                     update_message("Error", "You can still check for updates manually on KoFi");
                     console.warn('invalid tool info:', id, release);
+                    set_instructions(true);
+                    return;
                 }
+
                 if (TOOLS[id].release == release_int) {
                     update_message("You're up to date!", `You have the latest version of ${TOOLS[id].name}`);
                 } else {
                     update_message("Update Available!", `You can upgrade ${TOOLS[id].name} to version ${TOOLS[id].version}`);
-                    document.getElementById("instructions").style.display = "block";
+                    set_instructions(true);
                 }
             }
 
