@@ -176,6 +176,10 @@ section.simple {
     margin: calc(var(--scale) * 32px);
 }
 
+.fullscreen-only, .fullscreen-only-strict {
+    display: none;
+}
+
 @media screen and (min-width: 2200px) {
     html {
         --scale: 1.2;
@@ -234,4 +238,16 @@ section.simple {
 
 @media screen and (min-width: 600px)  {
     .mobile-break { display: none; }
+}
+
+@media screen and (min-width: 1300px) {
+    .fullscreen-only {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    .fullscreen-only-strict {
+        display: block;
+    }
 }

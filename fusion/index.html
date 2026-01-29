@@ -83,53 +83,72 @@
             </div>
         </div>
 
-        <div class="container main">
-
-            <h2 class="tall">Layout</h2>
-            <div class="plugin-row">
-                <div class="plugin-placeholder" data-src="/fusion/video/BarChart.mp4"></div>
-                <div class="plugin-placeholder" data-src="/fusion/video/Append.mp4"></div>
+        <section class="tools-section" id="tools-section">
+            <div class="tools-nav fullscreen-only-strict" id="tools-nav">
+                <h3><a href="#hero">Tools</a></h3>
+                <ul id="nav-list">
+                    <li id="nav-layout"><a href="#layout">Layout</a></li>
+                    <li id="nav-effects"><a href="#effects">Effects</a></li>
+                    <li id="nav-shapes"><a href="#shapes">Shapes</a></li>
+                    <li id="nav-more"><a href="#more">More</a></li>
+                </ul>
+                <h3><a href="#hero">Links</a></h3>
+                <ul>
+                    <li><a href="https://ko-fi.com/pizzablu/shop">Shop</a></li>
+                    <li><a href="./discord">Discord</a></li>
+                    <li><a href="https://www.youtube.com/channel/UCxOrC01PVvxYe_JzB9Q8nqQ">YouTube</a></li>
+                    <li><a href="./installing">Setup Guide</a></li>
+                </ul>
             </div>
 
-            <h2 class="tall">Effects</h2>
-            <div class="plugin-row">
-                <div class="plugin-placeholder" data-src="/fusion/video/Posterize.mp4"></div>
-                <div class="plugin-placeholder" data-src="/fusion/video/Halftone.mp4"></div>
-            </div>
-            <div class="plugin-row">
-                <div class="plugin-placeholder" data-src="/fusion/video/NeonGlow.mp4"></div>
-                <div class="plugin-placeholder" data-src="/fusion/video/InnerShadow.mp4"></div>
-            </div>
-            <div class="plugin-row">
-                <div class="plugin-placeholder" data-src="/fusion/video/Outline.mp4"></div>
-                <div class="plugin-placeholder" data-src="/fusion/video/LongShadow.mp4"></div>
-            </div>
+            <div class="container main tools-main">
+                <h2 class="tall" id="layout">Layout</h2>
+                <div class="plugin-row">
+                    <div class="plugin-placeholder" data-src="/fusion/video/BarChart.mp4" data-tool="BarChart"></div>
+                    <div class="plugin-placeholder" data-src="/fusion/video/Append.mp4" data-tool="Append"></div>
+                </div>
 
-            <h2 class="tall">Shapes</h1>
-            <div class="plugin-row">
-                <div class="plugin-placeholder" data-src="/fusion/video/MaskWipe.mp4"></div>
-                <div class="plugin-placeholder" data-src="/fusion/video/Squircle.mp4"></div>
-            </div>
+                <h2 class="tall" id="effects">Effects</h2>
+                <div class="plugin-row">
+                    <div class="plugin-placeholder" data-src="/fusion/video/Posterize.mp4" data-tool="Posterize"></div>
+                    <div class="plugin-placeholder" data-src="/fusion/video/Halftone.mp4"data-tool="Halftone"></div>
+                </div>
+                <div class="plugin-row">
+                    <div class="plugin-placeholder" data-src="/fusion/video/NeonGlow.mp4" data-tool="NeonGlow"></div>
+                    <div class="plugin-placeholder" data-src="/fusion/video/InnerShadow.mp4" data-tool="InnerShadow"></div>
+                </div>
+                <div class="plugin-row">
+                    <div class="plugin-placeholder" data-src="/fusion/video/Outline.mp4" data-tool="Outline"></div>
+                    <div class="plugin-placeholder" data-src="/fusion/video/LongShadow.mp4" data-tool="LongShadow"></div>
+                </div>
 
-            <h1 class="tall">GPU Accelerated</h1>
-            <h2>smooth playback & fast renders</h2>
-            <div class="plugin-placeholder demo-placeholder" data-src="/fusion/video/LongShadowDemo.mp4"></div>
+                <h2 class="tall" id="shapes">Shapes</h1>
+                <div class="plugin-row">
+                    <div class="plugin-placeholder" data-src="/fusion/video/MaskWipe.mp4" data-tool="MaskWipe"></div>
+                    <div class="plugin-placeholder" data-src="/fusion/video/Squircle.mp4" data-tool="Squircle"></div>
+                </div>
 
-            <h2 class="tall"></h2>
-            <h2 class="tall">More</h1>
-            <div class="plugin-row">
-                <div class="plugin-placeholder" data-src="/fusion/video/CropPlus.mp4"></div>
-                <div class="plugin-placeholder" data-src="/fusion/video/ResizePlus.mp4"></div>
+                <h1 class="tall">GPU Accelerated</h1>
+                <h2>smooth playback & fast renders</h2>
+                <div class="plugin-placeholder demo-placeholder" data-src="/fusion/video/LongShadowDemo.mp4"></div>
+
+                <h2 class="tall"></h2>
+                <h2 class="tall" id="more">More</h1>
+                <div class="plugin-row">
+                    <div class="plugin-placeholder" data-src="/fusion/video/CropPlus.mp4" data-tool="CropPlus"></div>
+                    <div class="plugin-placeholder" data-src="/fusion/video/ResizePlus.mp4" data-tool="ResizePlus"></div>
+                </div>
+                <div class="plugin-row">
+                    <div class="plugin-placeholder" data-src="/fusion/video/BackFill.mp4" data-tool="BackFill"></div>
+                    <div class="plugin-placeholder" data-src="/fusion/video/PublishSize.mp4" data-tool="PublishSize"></div>
+                </div>
             </div>
-            <div class="plugin-row">
-                <div class="plugin-placeholder" data-src="/fusion/video/BackFill.mp4"></div>
-                <div class="plugin-placeholder" data-src="/fusion/video/PublishSize.mp4"></div>
-            </div>
-        </div>
+        </section>
+
 
         <div class="footer main">
             <div class="row">
-                <h2>Coming soon...</h2>
+                <h2>More Coming soon...</h2>
             </div>
         </div>
 
@@ -158,6 +177,8 @@
                 video.loop = true;
                 video.setAttribute('playsinline', ''); 
                 video.setAttribute('preload', 'auto');
+                video.setAttribute('aria-label', `${container.dataset.tool} Tool`);
+                video.setAttribute('id', `tool-${container.dataset.tool}`)
                 container.appendChild(video);
 
                 video.src = url;
@@ -198,6 +219,8 @@
                 });
             }, { once: true, passive: true });
         </script>
+
+        <script src="./navbar.js"></script>
 
         <!-- Google Analytics -->
          <script>
