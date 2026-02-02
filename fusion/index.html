@@ -110,7 +110,7 @@
 
                 <h2 class="tall" id="effects">Effects</h2>
                 <div class="plugin-row">
-                    <div class="plugin-placeholder" data-src="/fusion/video/Posterize.mp4" data-tool="Posterize"></div>
+                    <div class="plugin-placeholder" data-src="/fusion/video/Posterize.mp4" data-tool="Posterize" data-shop="https://ko-fi.com/s/814b625874"></div>
                     <div class="plugin-placeholder" data-src="/fusion/video/Halftone.mp4"data-tool="Halftone"></div>
                 </div>
                 <div class="plugin-row">
@@ -148,7 +148,7 @@
 
         <div class="footer main">
             <div class="row">
-                <h2>More Coming soon...</h2>
+                <h2>More on KoFi</h2>
             </div>
         </div>
 
@@ -171,6 +171,8 @@
                 const url = container.dataset.src;
                 if (!url) return;
 
+                const shoplink = container.dataset.shop;
+
                 video = document.createElement('video');
                 video.className = 'plugin-video';
                 video.muted = true;
@@ -178,8 +180,17 @@
                 video.setAttribute('playsinline', ''); 
                 video.setAttribute('preload', 'auto');
                 video.setAttribute('aria-label', `${container.dataset.tool} Tool`);
-                video.setAttribute('id', `tool-${container.dataset.tool}`)
-                container.appendChild(video);
+                video.setAttribute('id', `tool-${container.dataset.tool}`);
+
+                const a = document.createElement('a');
+                if (shoplink) {
+                    a.href = shoplink;
+                    a.title = "Shop on KoFi";
+                } else {
+                    a.title = "Coming Soon";
+                }
+                a.appendChild(video);
+                container.appendChild(a);
 
                 video.src = url;
                 video.load();

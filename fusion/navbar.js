@@ -33,13 +33,11 @@
         }
 
         for (const item of nav.children) {
-            console.log(item);
             item.classList.remove("active");
         }
 
         if (closestRow && minDistance < window.innerHeight/2) {
             const header = getHeaderAbove(closestRow);
-            console.log(header);
             if (header) {
                 const navItem = document.getElementById(`nav-${header.id}`);
                 if (navItem) navItem.classList.add("active");
