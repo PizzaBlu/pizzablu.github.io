@@ -152,6 +152,7 @@
         </div>
 
         <script>
+            // lazy loading videos
             const playVideo = async video => {
                 video.currentTime = 0;
                 try {
@@ -199,6 +200,7 @@
             const injectAndPlay = container => playVideo(injectVideo(container));
             const injectAndPause = container => pauseVideo(injectVideo(container));
 
+            // preload upcoming videos
             const observer_load = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     const video = entry.target.querySelector('video');
@@ -209,6 +211,7 @@
                 rootMargin: '512px 0px',
             });
 
+            // play/pause videos as they enter/exit the view
             const observer_play = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     const video = entry.target.querySelector('video');
