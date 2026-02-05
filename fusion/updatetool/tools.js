@@ -1,6 +1,6 @@
 export const TOOLS = {
     // effects
-    posterize:              { name: "Posterize", release: 1, version: '1.0' },
+    posterize:              { name: "Posterize", release: 2, version: '1.1' },
     halftone:               { name: "Halftone", release: 1, version: '1.0' },
     long_shadow:            { name: "LongShadow", release: 1, version: '1.0' },
     neon_glow:              { name: "NeonGlow", release: 1, version: '1.0' },
