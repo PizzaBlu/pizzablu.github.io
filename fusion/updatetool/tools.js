@@ -11,7 +11,10 @@ export const TOOLS = {
     squircle:               { name: "Squircle", release: 1, version: '1.0' },
     
     // modifiers
-    time_seconds:           { name: "TimeSeconds", release: 2, version: '1.1' },
-    time_frames:            { name: "TimeFrames", release: 2, version: '1.1' },
-    time_duration:          { name: "TimeDuration", release: 2, version: '1.1' },
+    time_seconds:           { name: "TimeSeconds", release: 3, version: '1.2' },
+    time_frames:            { name: "TimeFrames", release: 3, version: '1.2' },
+    time_duration:          { name: "TimeDuration", release: 3, version: '1.2' },
+
+    // genarators
+    arrow:                  { name: "Arrow", release: 1, version: '1.0' },
 }
