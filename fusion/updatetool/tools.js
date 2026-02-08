@@ -1,6 +1,6 @@
 export const TOOLS = {
     // effects
-    posterize:              { name: "Posterize", release: 2, version: '1.1' },
+    posterize:              { name: "Posterize", release: 3, version: '1.2' },
     halftone:               { name: "Halftone", release: 1, version: '1.0' },
     long_shadow:            { name: "LongShadow", release: 1, version: '1.0' },
     neon_glow:              { name: "NeonGlow", release: 1, version: '1.0' },
@@ -11,10 +11,10 @@ export const TOOLS = {
     squircle:               { name: "Squircle", release: 1, version: '1.0' },
     
     // modifiers
-    time_seconds:           { name: "TimeSeconds", release: 3, version: '1.2' },
-    time_frames:            { name: "TimeFrames", release: 3, version: '1.2' },
-    time_duration:          { name: "TimeDuration", release: 3, version: '1.2' },
+    time_seconds:           { name: "TimeSeconds", release: 4, version: '1.3' },
+    time_frames:            { name: "TimeFrames", release: 4, version: '1.3' },
+    time_duration:          { name: "TimeDuration", release: 4, version: '1.3' },
 
     // genarators
-    arrow:                  { name: "Arrow", release: 1, version: '1.0' },
+    arrow:                  { name: "Arrow", release: 2, version: '1.1' },
 }
