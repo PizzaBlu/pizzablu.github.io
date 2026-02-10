@@ -17,4 +17,5 @@ export const TOOLS = {
 
     // genarators
     arrow:                  { name: "Arrow", release: 2, version: '1.1' },
+    bar_chart:              { name: "BarChart", release: 1, version: '1.0' },
 }
