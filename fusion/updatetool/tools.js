@@ -1,4 +1,7 @@
 export const TOOLS = {
+    // layout
+    array_merge:            { name: "ArrayMerge", release: 1, version: '1.0' },
+
     // effects
     posterize:              { name: "Posterize", release: 3, version: '1.2' },
     halftone:               { name: "Halftone", release: 1, version: '1.0' },
@@ -11,11 +14,14 @@ export const TOOLS = {
     squircle:               { name: "Squircle", release: 1, version: '1.0' },
     
     // modifiers
-    time_seconds:           { name: "TimeSeconds", release: 4, version: '1.3' },
-    time_frames:            { name: "TimeFrames", release: 4, version: '1.3' },
-    time_duration:          { name: "TimeDuration", release: 4, version: '1.3' },
+    time_modifiers:         { name: "TimeModifiers", release: 5, version: '1.4' },
 
     // genarators
     arrow:                  { name: "Arrow", release: 2, version: '1.1' },
     bar_chart:              { name: "BarChart", release: 1, version: '1.0' },
+
+    // deprecated
+    time_seconds:           { name: "TimeSeconds", release: 5, version: '1.4' },
+    time_frames:            { name: "TimeFrames", release: 5, version: '1.4' },
+    time_duration:          { name: "TimeDuration", release: 5, version: '1.4' },
 }
