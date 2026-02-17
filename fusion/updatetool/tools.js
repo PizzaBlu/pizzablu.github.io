@@ -1,6 +1,7 @@
 export const TOOLS = {
     // layout
     array_merge:            { name: "ArrayMerge", release: 1, version: '1.0' },
+    array_merge_free:       { name: "ArrayMerge (free)", release: 1, version: '1.0' },
 
     // effects
     posterize:              { name: "Posterize", release: 3, version: '1.2' },
