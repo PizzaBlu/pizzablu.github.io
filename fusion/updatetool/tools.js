@@ -19,7 +19,7 @@ export const TOOLS = {
 
     // genarators
     arrow:                  { name: "Arrow", release: 2, version: '1.1' },
-    bar_chart:              { name: "BarChart", release: 1, version: '1.0' },
+    bar_chart:              { name: "BarChart", release: 2, version: '1.1' },
 
     // deprecated
     time_seconds:           { name: "TimeSeconds", release: 5, version: '1.4' },
