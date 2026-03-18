@@ -15,14 +15,9 @@ export const TOOLS = {
     squircle:               { name: "Squircle", release: 1, version: '1.0' },
     
     // modifiers
-    time_modifiers:         { name: "TimeModifiers", release: 5, version: '1.4' },
+    time_modifiers:         { name: "TimeModifiers", release: 6, version: '1.5' },
 
     // genarators
     arrow:                  { name: "Arrow", release: 2, version: '1.1' },
     bar_chart:              { name: "BarChart", release: 2, version: '1.1' },
-
-    // deprecated
-    time_seconds:           { name: "TimeSeconds", release: 5, version: '1.4' },
-    time_frames:            { name: "TimeFrames", release: 5, version: '1.4' },
-    time_duration:          { name: "TimeDuration", release: 5, version: '1.4' },
 }
