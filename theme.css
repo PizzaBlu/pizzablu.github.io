@@ -163,7 +163,7 @@ a {
     text-decoration: none;
 
     line-height: calc(1em * var(--down-scale));
-    margin: calc(6px * var(--down-scale));
+    margin: calc(2px * var(--down-scale));
     padding: calc(7px * var(--down-scale)) calc(20px * var(--down-scale));
     border-radius: calc(8px * var(--down-scale));
 
