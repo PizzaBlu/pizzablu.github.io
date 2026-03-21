@@ -114,11 +114,11 @@
     margin: 0;
     padding: 0;
     margin-top: 32px;
+    font-weight: 900;
 }
 
 .tools-nav h4 {
-    font-size: 18px;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .tools-nav ul {
@@ -130,13 +130,13 @@
 .tools-nav li {
     font-size: 18px;
     font-weight: bold;
-    opacity: 0.4;
+    opacity: 0.5;
 
     transition: opacity 0.1s;
 }
 
 .tools-nav li.active {
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .tools-nav li:before {
