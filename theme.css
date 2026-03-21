@@ -130,7 +130,7 @@ a {
     margin: 0;
     opacity: 0.2;
     font-weight: 200;
-    font-size: calc(var(--title-size) * 0.2);
+    font-size: calc(var(--title-size) * 0.15);
     line-height: 0.8em;
 }
 
