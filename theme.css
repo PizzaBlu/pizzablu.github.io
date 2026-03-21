@@ -242,7 +242,7 @@ section.simple {
 
     html {
         --title-size: 64px;
-        --down: 0.75;
+        --down: 0.7;
     }
 
     .herolinks {
@@ -251,6 +251,11 @@ section.simple {
 
     .hero h2 {
         font-size: calc(var(--title-size) * 0.3);
+    }
+
+    .hero .hero-top-spacer {
+        height: 0px;
+        margin-top: -56px;
     }
 }
 
