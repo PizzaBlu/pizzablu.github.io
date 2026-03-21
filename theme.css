@@ -164,11 +164,12 @@ a {
 
     line-height: calc(1em * var(--down-scale));
     margin: calc(2px * var(--down-scale));
-    padding: calc(7px * var(--down-scale)) calc(20px * var(--down-scale));
+    padding: calc(6px * var(--down-scale)) calc(18px * var(--down-scale));
     border-radius: calc(8px * var(--down-scale));
 
     border-bottom: calc(6px * var(--down-scale)) solid rgba(0, 0, 0, 0.1);
     padding-bottom: calc(6px * var(--down-scale));
+    padding-right: calc(22px * var(--down-scale));
 
     transform: translateZ(0);
 
@@ -176,8 +177,8 @@ a {
 }
 
 .link-button i {
-    padding-right: calc(5px * var(--down-scale));
-    transform: translate(0px, -0.5px);
+    padding-right: calc(3px * var(--down-scale));
+    transform: translate(0px, 0.5px);
 }
 
 .link-button:hover {
