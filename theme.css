@@ -9,7 +9,9 @@
 
 html {
     --scale: 1;
+    --button-scale: 1;
     --title-size: calc(142px * var(--scale));
+    --button-size: calc(var(--scale) * var(--button-scale));
     scroll-behavior: smooth;
     box-sizing: content-box;
 }
@@ -134,7 +136,7 @@ a {
 .link-button {
     position: relative;
 
-    font-size: calc(24px * var(--scale));
+    font-size: calc(24px * var(--button-scale));
     font-weight: 600;
 
     box-sizing: border-box;
@@ -148,13 +150,13 @@ a {
     text-shadow: rgba(0,0,0,0.2) 0px 0 10px;
     text-decoration: none;
 
-    line-height: calc(1em * var(--scale));
-    margin: calc(12px * var(--scale));
-    padding: calc(8px * var(--scale)) calc(24px * var(--scale));
-    border-radius: calc(8px * var(--scale));
+    line-height: calc(1em * var(--button-scale));
+    margin: calc(12px * var(--button-scale));
+    padding: calc(8px * var(--button-scale)) calc(24px * var(--button-scale));
+    border-radius: calc(8px * var(--button-scale));
 
-    border-bottom: calc(6px * var(--scale)) solid rgba(0, 0, 0, 0.1);
-    padding-bottom: calc(4px * var(--scale));
+    border-bottom: calc(6px * var(--button-scale)) solid rgba(0, 0, 0, 0.1);
+    padding-bottom: calc(4px * var(--button-scale));
 
     transform: translateZ(0);
 
@@ -199,12 +201,14 @@ section.simple {
 @media screen and (max-width: 900px) {
     html {
         --title-size: 96px;
+        --button-scale: 0.8;
     }
 }
 
 @media screen and (max-width: 710px) {
     html {
         --title-size: 76px;
+        --button-scale: 0.66;
     }
 }
 
@@ -217,16 +221,13 @@ section.simple {
         margin-top: 16px;
     }
 
-    .link-button {
-        font-size: 18px;
-        padding: 5px 14px;
-        padding-bottom: 1px;
-        border-radius: 5px;
-        border-bottom-width: 4px;
+    html {
+        --title-size: 64px;
+        --button-scale: 0.6;
     }
 
-    html {
-        --title-size: 56px;
+    .herolinks {
+        line-height: 2.5rem;
     }
 
     .hero h2 {
