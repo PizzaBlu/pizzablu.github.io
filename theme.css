@@ -109,19 +109,21 @@ a {
 }
 
 /* character spacing */
-.hero h1 {
-    letter-spacing: calc(-4px * var(--scale));
-}
-.hero h1 .c {
-    letter-spacing: calc(-8px * var(--scale));
-    margin-left: calc(-8px * var(--scale));
-}
-.hero h1 .cu {
-    margin-right: calc(2px * var(--scale));
-    margin-left: calc(-4px * var(--scale));
-}
-.hero h1 .cx {
-    margin-left: calc(-4px * var(--scale));
+@media screen and (min-width: 900px) {
+    .hero h1 {
+        letter-spacing: calc(-4px * var(--scale));
+    }
+    .hero h1 .c {
+        letter-spacing: calc(-8px * var(--scale));
+        margin-left: calc(-8px * var(--scale));
+    }
+    .hero h1 .cu {
+        margin-right: calc(2.5px * var(--scale));
+        margin-left: calc(-4px * var(--scale));
+    }
+    .hero h1 .cx {
+        margin-left: calc(-4px * var(--scale));
+    }
 }
 
 .hero h2 {
@@ -161,16 +163,21 @@ a {
     text-decoration: none;
 
     line-height: calc(1em * var(--down-scale));
-    margin: calc(12px * var(--down-scale));
-    padding: calc(8px * var(--down-scale)) calc(24px * var(--down-scale));
+    margin: calc(6px * var(--down-scale));
+    padding: calc(7px * var(--down-scale)) calc(20px * var(--down-scale));
     border-radius: calc(8px * var(--down-scale));
 
     border-bottom: calc(6px * var(--down-scale)) solid rgba(0, 0, 0, 0.1);
-    padding-bottom: calc(4px * var(--down-scale));
+    padding-bottom: calc(6px * var(--down-scale));
 
     transform: translateZ(0);
 
     transition: 0.1s ease;
+}
+
+.link-button i {
+    padding-right: calc(5px * var(--down-scale));
+    transform: translate(0px, -0.5px);
 }
 
 .link-button:hover {
