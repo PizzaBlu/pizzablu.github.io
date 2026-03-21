@@ -1,16 +1,7 @@
-@font-face {
-  font-family: 'Source Sans 3';
-  font-style: normal;
-  font-weight: 200 900;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/sourcesans3/v18/nwpStKy2OAdR1K-IwhWudF-R3w8aZejZ5HZV8Q.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
 html {
     --scale: 1;
     --down: 1;
-    --title-size: calc(142px * var(--scale));
+    --title-size: calc(160px * var(--scale));
     --down-scale: calc(var(--scale) * var(--down));
     scroll-behavior: smooth;
     box-sizing: content-box;
@@ -19,9 +10,10 @@ html {
 body {
     --bg: #272e35;
     --text: #ffffff;
+    --text-navbutton: rgb(210,210,230);
     --text-2: rgb(200,200,200);
     --text-3: rgba(200,200,200, 0.5);
-    --font: "Source Sans 3", sans-serif;
+    --font: "Outfit", sans-serif;
 
     background-color: var(--bg);
     color: var(--text);
@@ -104,22 +96,40 @@ a {
 }
 
 .hero .hero-top-spacer {
-    min-height: calc(128px * var(--down-scale));
+    min-height: calc(120px * var(--down-scale));
 }
 
 .hero h1 {
-    font-family: "Source Sans 3", sans-serif;
+    font-family: var(--font);
     font-weight: 900;
     font-size: var(--title-size);
     margin: 0;
+    padding: 0;
     line-height: 0.8em;
+}
+
+/* character spacing */
+.hero h1 {
+    letter-spacing: calc(-4px * var(--scale));
+}
+.hero h1 .c {
+    letter-spacing: calc(-8px * var(--scale));
+    margin-left: calc(-8px * var(--scale));
+}
+.hero h1 .cu {
+    margin-right: calc(2px * var(--scale));
+    margin-left: calc(-4px * var(--scale));
+}
+.hero h1 .cx {
+    margin-left: calc(-4px * var(--scale));
 }
 
 .hero h2 {
     margin: 0;
+    opacity: 0.2;
+    font-weight: 200;
+    font-size: calc(var(--title-size) * 0.2);
     line-height: 0.8em;
-    opacity: 0.25;
-    font-size: calc(var(--title-size) * 0.18);
 }
 
 .herolinks {
@@ -137,11 +147,11 @@ a {
     position: relative;
 
     font-size: calc(24px * var(--down-scale));
-    font-weight: 600;
+    font-weight: 300;
 
     box-sizing: border-box;
     text-decoration: none;
-    color: #ffffff;
+    color: var(--text-navbutton);
     background: rgba(44, 72, 109, 0.8);
 
     backdrop-filter: blur(16px);
