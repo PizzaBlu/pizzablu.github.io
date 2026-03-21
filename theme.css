@@ -148,7 +148,7 @@ a {
 .link-button {
     position: relative;
 
-    font-size: calc(24px * var(--down-scale));
+    font-size: calc(20px * var(--down-scale));
     font-weight: 300;
 
     box-sizing: border-box;
@@ -163,13 +163,14 @@ a {
     text-decoration: none;
 
     line-height: calc(1em * var(--down-scale));
-    margin: calc(2px * var(--down-scale));
-    padding: calc(6px * var(--down-scale)) calc(18px * var(--down-scale));
+    margin: calc(1px * var(--down-scale));
     border-radius: calc(8px * var(--down-scale));
+    
+    padding: calc(5px * var(--down-scale)) calc(24px * var(--down-scale));
+    padding-right: calc(32px * var(--down-scale));
 
-    border-bottom: calc(6px * var(--down-scale)) solid rgba(0, 0, 0, 0.1);
-    padding-bottom: calc(6px * var(--down-scale));
-    padding-right: calc(22px * var(--down-scale));
+    padding-bottom: calc(4px * var(--down-scale));
+    border-bottom: calc(6px * var(--down-scale)) solid rgba(0, 0, 0, 0.16);
 
     transform: translateZ(0);
 
@@ -219,14 +220,14 @@ section.simple {
 @media screen and (max-width: 900px) {
     html {
         --title-size: 96px;
-        --down: 0.8;
+        --down: 0.9;
     }
 }
 
 @media screen and (max-width: 710px) {
     html {
         --title-size: 76px;
-        --down: 0.66;
+        --down: 0.75;
     }
 }
 
@@ -241,11 +242,11 @@ section.simple {
 
     html {
         --title-size: 64px;
-        --down: 0.6;
+        --down: 0.75;
     }
 
     .herolinks {
-        line-height: 2.5rem;
+        line-height: 2rem;
     }
 
     .hero h2 {
