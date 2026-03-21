@@ -9,7 +9,7 @@
 
 html {
     --scale: 1;
-    --title-size: calc(128px * var(--scale));
+    --title-size: calc(142px * var(--scale));
     scroll-behavior: smooth;
     box-sizing: content-box;
 }
@@ -101,19 +101,23 @@ a {
     justify-content: center;
 }
 
+.hero .hero-top-spacer {
+    min-height: calc(128px * var(--scale));
+}
+
 .hero h1 {
     font-family: "Source Sans 3", sans-serif;
     font-weight: 900;
     font-size: var(--title-size);
     margin: 0;
-    line-height: 1em;
+    line-height: 0.8em;
 }
 
 .hero h2 {
     margin: 0;
-    line-height: 1em;
+    line-height: 0.8em;
     opacity: 0.25;
-    font-size: calc(var(--title-size) * 0.2);
+    font-size: calc(var(--title-size) * 0.18);
 }
 
 .herolinks {
