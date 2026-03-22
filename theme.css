@@ -8,11 +8,12 @@ html {
 }
 
 body {
-    --bg: #272e35;
-    --text: #ffffff;
     --text-navbutton: rgb(210,210,230);
     --text-2: rgb(200,200,200);
-    --text-3: rgba(200,200,200, 0.5);
+    --text-3: rgba(80,80,85,0.8);
+    --text-4: rgba(96,96,96, 0.8);
+    --text-5: rgba(64,64,72, 0.8);
+    --link-color: cornflowerblue;
     --font: "Outfit", sans-serif;
 
     background-color: var(--bg);
@@ -35,43 +36,29 @@ body {
 }
 
 a {
-    color: cornflowerblue;
+    color: var(--link-color);
+}
+
+.small a {
+    color: hsl(from var(--link-color) h calc(s*0.5) calc(l*0.8));
+}
+
+.small a.subtle-link {
+    color: hsl(from var(--link-color) h calc(s*0.33) calc(l*0.66));
 }
 
 .hero {
     width: 100vw;
-    height: min(78vh, 1920px);
+    height: calc(1080px * var(--scale));
+
+    background: linear-gradient(
+        hsl(from var(--bg) h calc(s*1.66) calc(l*1.1)) 80%,
+        rgb(0 0 0 / 0%) 100%
+    );
+
+    margin-bottom: calc(-1080px * 0.33 * var(--scale));
 
     position: relative;
-}
-
-.hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100%;
-
-    background: url("./assets/tile_half.png") repeat;
-    -webkit-animation: scrolling 360s linear infinite;
-    -moz-animation: scrolling 360s linear infinite;
-    -o-animation: scrolling 360s linear infinite;
-    animation: scrolling 360s linear infinite;
-    animation-delay: var(--animation-delay, 0ms);
-
-    background-size: calc(160px * var(--down-scale));
-
-    mask-image: linear-gradient(rgb(0 0 0 / 66%), transparent);
-    transform: translateZ(0);
-}
-
-@keyframes scrolling {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: calc(8192px * var(--scale)) calc(8192px * var(--scale));
-    }
 }
 
 .hero-main {
@@ -86,6 +73,44 @@ a {
     justify-content: center;
 
     isolation: isolate;
+
+    margin-top: calc(-142px * var(--scale));
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+
+    background: url("./assets/tile_half.png") repeat;
+    -webkit-animation: scrolling 360s linear infinite;
+    -moz-animation: scrolling 360s linear infinite;
+    -o-animation: scrolling 360s linear infinite;
+    animation: scrolling 360s linear infinite;
+    animation-delay: var(--animation-delay, 0ms);
+
+    background-size: calc(160px * var(--down-scale));
+
+    mask-image: linear-gradient(
+        rgb(0 0 0 / 36%) 0%,
+        rgb(0 0 0 / 56%) 35%,
+        rgb(0 0 0 / 4%) 66%,
+        transparent
+    );
+    transform: translateZ(0);
+    pointer-events: none;
+}
+
+@keyframes scrolling {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: calc(8192px * var(--scale)) calc(8192px * var(--scale));
+    }
 }
 
 .hero-container {
@@ -93,10 +118,6 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.hero .hero-top-spacer {
-    min-height: calc(120px * var(--down-scale));
 }
 
 .hero h1 {
@@ -128,8 +149,9 @@ a {
 
 .hero h2 {
     margin: 0;
-    opacity: 0.2;
-    font-weight: 200;
+    color: var(--text-2);
+    opacity: 0.5;
+    font-weight: 150;
     font-size: calc(var(--title-size) * 0.15);
     line-height: 1em;
 }
@@ -141,8 +163,16 @@ a {
 .footer {
     content: " ";
     width: 100%;
-    height: 256px;
-    background: linear-gradient(rgba(0,0,0,0) 0%, rgba(16,16,16,1) 100%); 
+    padding-top: calc(128px * var(--scale));
+    padding-bottom: calc(64px * var(--scale));
+    background: linear-gradient(
+        rgb(0 0 0 / 0%) 0%,
+        rgb(0 0 0 / 16%) 100%
+    ); 
+}
+
+.footer .spacer {
+    min-height: calc(64px * var(--down-scale));
 }
 
 .link-button {
@@ -154,22 +184,20 @@ a {
     box-sizing: border-box;
     text-decoration: none;
     color: var(--text-navbutton);
-    background: rgba(44, 72, 109, 0.8);
+    background: hsla(216deg, 56%, 42%, 0.32);
 
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    filter: drop-shadow(0 0 0.4rem rgba(0, 32, 64, 0.2));
-    text-shadow: rgba(0,0,0,0.2) 0px 0 10px;
+    backdrop-filter: blur(calc(16px * var(--down-scale))) brightness(1.4);
+    text-shadow: 0 0 4px rgba(0,0,0,0.2);
     text-decoration: none;
 
     line-height: calc(1em * var(--down-scale));
-    margin: calc(1px * var(--down-scale));
+    margin: calc(1.5px * var(--down-scale));
     border-radius: calc(8px * var(--down-scale));
     
     padding: calc(5px * var(--down-scale)) calc(24px * var(--down-scale));
     padding-right: calc(32px * var(--down-scale));
 
-    padding-bottom: calc(4px * var(--down-scale));
+    padding-bottom: calc(4.5px * var(--down-scale));
     border-bottom: calc(6px * var(--down-scale)) solid rgba(0, 0, 0, 0.16);
 
     transform: translateZ(0);
@@ -183,7 +211,8 @@ a {
 }
 
 .link-button:hover {
-    background-color: rgba(60, 126, 206, 0.8);
+    background-color: hsla(216deg, 100%, 64%, 0.66);
+    color: hsl(from var(--text-navbutton) h s calc(l+0.05));
 }
 
 .link-clean {
@@ -203,6 +232,11 @@ section.simple {
 
 .fullscreen-only, .fullscreen-only-strict {
     display: none;
+}
+
+.small {
+    color: var(--text-3);
+    font-size: 0.8rem;
 }
 
 @media screen and (min-width: 2200px) {
@@ -233,7 +267,12 @@ section.simple {
 
 @media only screen and (max-width: 610px) {
     .hero {
-        height: max(50vh, 480px);
+        height: calc(960px * var(--down-scale));
+        margin-bottom: calc(var(--down-scale) * -320px);
+    }
+
+    .hero-main {
+        margin-top: calc(-128px * var(--scale));
     }
 
     .herolinks {
@@ -251,11 +290,6 @@ section.simple {
 
     .hero h2 {
         font-size: calc(var(--title-size) * 0.3);
-    }
-
-    .hero .hero-top-spacer {
-        height: 0px;
-        margin-top: -56px;
     }
 }
 

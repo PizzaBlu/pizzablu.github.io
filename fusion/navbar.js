@@ -32,13 +32,12 @@
             }
         }
 
-        for (const item of nav.children) {
-            item.classList.remove("active");
-        }
-
         if (closestRow && minDistance < window.innerHeight/2) {
             const header = getHeaderAbove(closestRow);
             if (header) {
+                for (const item of nav.children) {
+                    item.classList.remove("active");
+                }
                 const navItem = document.getElementById(`nav-${header.id}`);
                 if (navItem) navItem.classList.add("active");
             }
