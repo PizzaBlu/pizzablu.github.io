@@ -131,11 +131,11 @@ a {
     opacity: 0.2;
     font-weight: 200;
     font-size: calc(var(--title-size) * 0.15);
-    line-height: 0.8em;
+    line-height: 1em;
 }
 
 .herolinks {
-    margin-top: 32px;
+    margin-top: calc(24px * var(--down-scale));
 }
 
 .footer {
