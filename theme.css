@@ -230,6 +230,14 @@ section.simple {
     margin: calc(var(--scale) * 32px);
 }
 
+section.text {
+    padding-left: calc(128px * var(--down-scale));
+}
+
+section.text-narrow {
+    padding-left: calc(256px * var(--down-scale));
+}
+
 .fullscreen-only, .fullscreen-only-strict {
     display: none;
 }
@@ -237,6 +245,11 @@ section.simple {
 .small {
     color: var(--text-3);
     font-size: 0.8rem;
+}
+
+p.clear {
+    margin: 0;
+    padding: 0;
 }
 
 @media screen and (min-width: 2200px) {

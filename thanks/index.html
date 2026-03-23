@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <!-- Mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/theme.css">
+        <style>
+            /* Outfit Latin */
+            @font-face {
+                font-family: 'Outfit';
+                font-style: normal;
+                font-weight: 100 900;
+                font-display: swap;
+                src: url(https://fonts.gstatic.com/s/outfit/v14/QGYvz_MVcBeNP4NJtEtqUYTkntBJ.woff2) format('woff2');
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+        </style>
+
+        <!-- Preconnect -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- Preload -->
+        <link rel="preload" href="/assets/tile_half.png" as="image">
+
+        <!-- Title -->
+        <title>Thanks - PizzaBlu</title>
+    
+        <!-- favicon -->
+        <link rel="icon" href="/icon.svg" type="image/svg+xml">
+
+        <!-- Animation Continuity -->
+        <script>
+            const elapsed = Date.now() % 240000;
+            document.documentElement.style.setProperty('--animation-delay', `-${elapsed}ms`);
+        </script>
+    </head>
+
+    <body
+        style="background-color: #171b1f; color: #ffffff; overflow-x: hidden; width: 100vw; margin: 0; padding: 0; font-family: 'Source Sans 3', sans-serif;">
+        <div class="hero" id="hero">
+            <div class="hero-background"></div>
+            <div class="hero-main">
+                <div class="hero-container">
+                    <h1>Thanks!</h1>
+                    <p class="clear"><h2>My tools & community are made possible by these awesome people!</h2></p>
+                </div>
+            </div>
+        </div>
+        <section class="simple text-narrow" style="margin-top: -120px; z-index: 10;">
+            <p>
+                <h2>Thank you!</h2>
+                <ul>
+                    <li><a href="https://7lowercasee.com" target="_blank">7LowercaseE</a> - Beta Tester, Advisor, Friend</li>
+                    <li><a href="https://ko-fi.com/poligloti" target="_blank">PoliGloti</a> - Community Leader</li>
+                    <li><a href="https://www.youtube.com/@TheOrsonLord" target="_blank">Orson Lord</a> - Advisor</li>
+                    <li><a href="https://www.anhylian.com/" target="_blank">Hylian</a></li>
+                    <li><a href="https://www.youtube.com/channel/UC2mnTykeIm9sFyQCmOlcjEg">Isaiah Grade</a></li>
+                </ul>
+            </p>
+            <p>
+                <h4>Community:</h4>
+                <ul>
+                    <li>Joshuadrck</li>
+                    <li>Shard</li>
+                    <li>Yoro</li>
+                    <li>Phoenix | uncropped screenshots</li>
+                </ul>
+            </p>
+            <p>
+                <h4>Special thanks to:</h4>
+                <ul>
+                    <li><a href="https://steakunderwater.com/wesuckless/member/secondman.2" target="_blank">SecondMan</a> - WeSuckLess, Reactor, VFXPedia, Fusion Community Leader</li>
+                    <li><a href="https://github.com/andrewhazelden" target="_blank">Andrew Hazelden</a></li>
+                    <li>Roger Magnusson</li>
+                    <li>The Digital Fusion Team</li>
+                    <li>Blackmagic Design Support</li>
+                </ul>
+            </p>
+        </section>
+        <div class="footer main">
+        </div>
+        <!-- Google Analytics -->
+        <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV" fetchpriority="low"></script>
+        <script defer>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-PJX6P9P9GV');
+        </script>
+    </body>
+</html>
