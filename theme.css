@@ -52,7 +52,7 @@ a {
     height: calc(1080px * var(--scale));
 
     background: linear-gradient(
-        hsl(from var(--bg) h calc(s*1.66) calc(l*1.1)) 80%,
+        hsl(from var(--bg) h calc(s*2) calc(l*1.12)) 80%,
         rgb(0 0 0 / 0%) 100%
     );
 
@@ -263,6 +263,10 @@ section.simple {
         --title-size: 76px;
         --down: 0.75;
     }
+
+    .hero h2 {
+        font-size: calc(var(--title-size) * 0.3);
+    }
 }
 
 @media only screen and (max-width: 610px) {
@@ -276,7 +280,7 @@ section.simple {
     }
 
     .herolinks {
-        margin-top: 16px;
+        margin-top: 8px;
     }
 
     html {
@@ -288,10 +292,23 @@ section.simple {
         line-height: 2rem;
     }
 
-    .hero h2 {
-        font-size: calc(var(--title-size) * 0.3);
+    .link-button {
+        background: hsla(216deg, 56%, 32%, 0.66);
+        font-size: calc(18px * var(--down-scale));
     }
 }
+
+@media only screen and (max-width: 400px) {
+    html {
+        --title-size: 50px;
+        --down: 0.6;
+    }
+
+    .link-button {
+        font-size: calc(16px * var(--down-scale));
+    }
+}
+
 
 @media only screen and (max-width: 320px) {
     html {
