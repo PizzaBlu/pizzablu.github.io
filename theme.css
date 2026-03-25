@@ -156,10 +156,6 @@ a {
     line-height: 1em;
 }
 
-.herolinks {
-    margin-top: calc(24px * var(--down-scale));
-}
-
 .footer {
     content: " ";
     width: 100%;
@@ -310,17 +306,13 @@ p.clear {
         margin-top: calc(-128px * var(--scale));
     }
 
-    .herolinks {
-        margin-top: 8px;
-    }
-
     html {
         --title-size: 64px;
         --down: 0.7;
     }
 
     .herolinks {
-        line-height: 2rem;
+        margin-top: -16px;
     }
 
     .link-button {
