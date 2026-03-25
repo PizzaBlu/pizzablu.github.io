@@ -252,6 +252,24 @@ p.clear {
     padding: 0;
 }
 
+.inline-btn {
+    background-color: hsl(from var(--bg) h s calc(l*0.75));
+    color: inherit;
+    border: none;
+    border-radius: 8px;
+    padding: 3px 8px;
+    margin: 0px 2px;
+    font-size: 0.75rem;
+}
+
+.inline-btn.subtle-link {
+    color: hsl(from var(--link-color) h calc(s*0.33) calc(l*0.66));
+}
+
+.inline-btn:hover {
+    background-color: hsl(from var(--bg) h s calc(l*0.5));
+}
+
 @media screen and (min-width: 2200px) {
     html {
         --scale: 1.2;
