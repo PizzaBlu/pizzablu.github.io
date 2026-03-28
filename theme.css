@@ -225,6 +225,7 @@ section.simple {
     width: 100%;
     max-width: 1200px;
     margin: calc(var(--scale) * 32px);
+    z-index: 10;
 }
 
 section.text {
