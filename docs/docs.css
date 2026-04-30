@@ -153,3 +153,11 @@ td:nth-child(3), th:nth-child(3) {
     color: inherit;
     text-decoration: none;
 }
+
+/* MISC */
+span.space {
+    color: var(--text-3);
+    font-weight: 900;
+    margin-left: 12px;
+    margin-right: 12px;
+}
