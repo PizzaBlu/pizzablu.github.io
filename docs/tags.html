@@ -59,6 +59,10 @@
                 <h3><a href="#hero">TagsMap</a></h3>
                 <ul id="nav-list">
                     <li><a href="#Link">Link</a></li>
+                    <ul>
+                        <li><a href="#DataType">DataType</a></li>
+                    </ul>
+
                     <li><a href="#Input">Input</a></li>
                     <ul>
                         <li><a href="#Number">Number</a></li>
@@ -71,11 +75,13 @@
                     <ul>
                         <li><a href="#LabelControl">LabelControl</a></li>
                         <li><a href="#SliderControl">SliderControl</a></li>
+                        <li><a href="#ScrewControl">ScrewControl</a></li>
+                        <li><a href="#CheckboxControl">CheckboxControl</a></li>
                         <li><a href="#OffsetControl">OffsetControl</a></li>
                         <li><a href="#ComboControl">ComboControl</a></li>
                         <li><a href="#ComboIDControl">ComboIDControl</a></li>
+                        <li><a href="#TextEditControl">TextEditControl</a></li>
                     </ul>
-
 
                     <li><a href="#PreviewControl">PreviewControl</a></li>
                     <ul>
@@ -98,7 +104,18 @@
                     <tr><td>LINK_Main</td><td>Number</td><td>Inputs/Outputs with LINK_Main set to a positive integer show up on the node in the flow view. The first 4 Main input's have a special color assigned to them.</td></tr>
                 </table>
 
-                <h3 id="Input"><span>Input</span> <a href="#Input"><i class="fa-solid fa-link"></i></a></h3>
+                <h3 id="DataType"><span>DataType</span> <a href="#DataType"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">Available DataTypes for Inputs & Outputs</p>
+                <table>
+                    <tr><th>DataType FuID</th><th>Type</th><th>Related Classes</th></tr>
+                    <tr><td>Image</td><td>Image</td><td>Image</td></tr>
+                    <tr><td>Number</td><td>Number</td><td>SliderControl, ScrewControl, CheckboxControl, ComboIDControl, AngleControl, RectangleControl, EllipseControl, ColorControl, RangeControl</td></tr>
+                    <tr><td>Point</td><td>Point</td><td>OffsetControl, CrosshairControl</td></tr>
+                    <tr><td>Text</td><td>Text</td><td>TextEditControl</td></tr>
+                    <tr><td>FuID</td><td>FuID</td><td>FuID, FuIDParam, ComboIDControl</td></tr>
+                </table>
+
+                <h2 id="Input"><span>Input</span> <a href="#Input"><i class="fa-solid fa-link"></i></a></h2>
                 <p class="iblock">General settings for Inputs.</p>
                 <table>
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
@@ -182,7 +199,14 @@
                 </table>
 
                 <h3 id="ScrewControl"><span>ScrewControl</span> <a href="#ScrewControl"><i class="fa-solid fa-link"></i></a></h3>
-                <p class="iblock">An InputControl for Screw Inputs.</p>  
+                <p class="iblock">An InputControl for Screw Inputs.</p>
+
+                <h3 id="CheckboxControl"><span>CheckboxControl</span> <a href="#CheckboxControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">An InputControl for Number Inputs.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>CBC_TriState</td><td>Bool</td><td>Adds a third state beyond On/Off.</td></tr>
+                </table>
                 
                 <h3 id="OffsetControl"><span>OffsetControl</span> <a href="#OffsetControl"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">An InputControl for Point Inputs.</p>
@@ -202,6 +226,13 @@
                     <tr><td>CCS_AddString</td><td>String+</td><td>Add a new entry to the dropdown.</td></tr>
                     <tr><td>CCID_AddID</td><td>FuID+</td><td>Insert after CCS_AddString to set the FuID value it returns when selected.</td></tr>
                     <tr><td>CCS_AddSeparator</td><td>String+</td><td>Add a separator to the dropdown, value is ignored.</td></tr>
+                </table>
+
+                <h3 id="TextEditControl"><span>TextEditControl</span> <a href="#TextEditControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">An InputControl for DataType Text.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>TEC_Lines</td><td>Number</td><td>Number of lines to display.</td></tr>
                 </table>
 
                 <h2 id="PreviewControl"><span>PreviewControl</span> <a href="#PreviewControl"><i class="fa-solid fa-link"></i></a></h2>
@@ -229,7 +260,7 @@
                     <tr><td>RCD_LockAspect</td><td>Number</td><td>Use a fixed aspect ratio instead of a Height Input.</td></tr>
                     <tr><td>RCID_Center</td><td>String</td><td>ID of an Input on this Node to be used as the center position.</td></tr>
                     <tr><td>RCID_Angle</td><td>String</td><td>ID of an Input on this Node to be used for the angle of the rectangle.</td></tr>
-                    <tr><td>PC_ControlID</td><td>Number</td><td>1 = Width, 2 = Height (see <a href="#PreviewControl">PreivewControl</a>)</td></tr>
+                    <tr><td>> PC_ControlID</td><td>Number</td><td>1 = Width, 2 = Height (see <a href="#PreviewControl">PreivewControl</a>)</td></tr>
                 </table>
 
                 <h3 id="EllipseControl"><span>EllipseControl</span> <a href="#EllipseControl"><i class="fa-solid fa-link"></i></a></h3>
@@ -239,7 +270,7 @@
                     <tr><td>ECD_LockAspect</td><td>Number</td><td>Use a fixed aspect ratio instead of a Height Input.</td></tr>
                     <tr><td>ECID_Center</td><td>String</td><td>ID of an Input on this Node to be used as the center position.</td></tr>
                     <tr><td>ECID_Angle</td><td>String</td><td>ID of an Input on this Node to be used for the angle of the rectangle.</td></tr>
-                    <tr><td>PC_ControlID</td><td>Number</td><td>1 = Width, 2 = Height (see <a href="#PreviewControl">PreivewControl</a>)</td></tr>
+                    <tr><td>> PC_ControlID</td><td>Number</td><td>1 = Width, 2 = Height (see <a href="#PreviewControl">PreivewControl</a>)</td></tr>
                 </table>
 
             </div>
