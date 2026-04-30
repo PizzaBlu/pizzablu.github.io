@@ -1,5 +1,12 @@
 section.docs {
+    position: relative;
+    width: 100%;
+    /* width: 1000px; */
+}
+
+.container {
     width: 1000px;
+    margin-left: calc((100vw - 1000px)/2)
 }
 
 section.docs p {
@@ -28,6 +35,24 @@ section.docs h2 {
 section.docs h3 {
     font-size: 2rem;
     color: var(--text-2);
+}
+
+section.docs h2 span,
+section.docs h3 span
+{
+    user-select: all;
+}
+
+section.docs h2 a,
+section.docs h3 a
+{
+    color: var(--text-3);
+    opacity: 0.4;
+    font-size: 2rem;
+}
+section.docs h3 a
+{
+    font-size: 1rem;
 }
 
 table, th, td {
@@ -71,4 +96,56 @@ td:nth-child(2) {
 
 td:nth-child(3), th:nth-child(3) { 
     text-align: left;
+}
+
+
+/* NAV UI */
+.tools-nav {
+    position: sticky;
+    width: 300px;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    height: 0;
+    overflow-y: visible;
+
+    padding-top: calc(64px * var(--scale));
+    padding-left: calc(48px * var(--scale));
+
+    color: var(--text-4);
+    font-weight: bold;
+
+    transition: 0.1s ease opacity;
+}
+
+.tools-nav ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 4px;
+    color: var(--text-4);
+}
+
+.tools-nav ul ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 4px;
+    margin-left: 12px;
+    color: var(--text-5);
+}
+
+.tools-nav li {
+    font-size: 18px;
+    font-weight: bold;
+    transition: opacity 0.1s;
+}
+
+.tools-nav li:before {
+    content: " - ";
+    font-weight: 900;
+    opacity: 0.33;
+}
+
+.tools-nav a {
+    color: inherit;
+    text-decoration: none;
 }

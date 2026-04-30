@@ -21,6 +21,9 @@
             }
         </style>
 
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         <!-- Preconnect -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,152 +50,188 @@
             <div class="hero-main">
                 <div class="hero-container">
                     <h1>Fusion Tags</h1>
-                    <p class="clear"><h2>Common Fusion Tags for Fuses & Macros</h2></p>
+                    <p class="clear"><h2>Reference for common Fusion Input Tags</h2></p>
                 </div>
             </div>
         </div>
         <section class="docs" style="margin-top: -120px; z-index: 10;">
-            <h2 id="Link">Link</h2>
-            <p class="iblock">General settings for Inputs & Outputs</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>LINKID_DataType</td><td>String</td><td>Inputs & Outputs can only connect when they share the same DataType.</td></tr>
-                <tr><td>LINKS_Name</td><td>String</td><td>The name of this connection.</td></tr>
-                <tr><td>LINK_Main</td><td>Number</td><td>Inputs/Outputs with LINK_Main set to a positive integer show up on the node in the flow view. The first 4 Main input's have a special color assigned to them.</td></tr>
-            </table>
+            <div class="tools-nav fullscreen-only-strict" id="tools-nav">
+                <h3><a href="#hero">TagsMap</a></h3>
+                <ul id="nav-list">
+                    <li><a href="#Link">Link</a></li>
+                    <li><a href="#Input">Input</a></li>
+                    <ul>
+                        <li><a href="#Number">Number</a></li>
+                        <li><a href="#Point">Point</a></li>
+                        <li><a href="#FuID">FuID</a></li>
+                        <li><a href="#Text">Text</a></li>
+                    </ul>
 
-            <h2 id="Input">Input</h2>
-            <p class="iblock">General settings for Inputs.</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>INP_External</td><td>Bool</td><td>External Inputs can be connected to an external source for Animation and Expressions.</td></tr>
-                <tr><td>INP_Passive</td><td>Bool</td><td>Changes to this input don't change the output of this tool.</td></tr>
-                <tr><td>INP_InteractivePassive</td><td>Bool</td><td>Like INP_Passive but keeps Undo events.</td></tr>
-                <tr><td>INP_AddModifier</td><td>String</td><td>Class ID of a CT_Modifier to create connected to this Input.</td></tr>
-                <tr><td>INP_DoNotifyChanged</td><td>Bool</td><td>Changes to this input fire the NotifyChanged event.</td></tr>
-                <tr><td>INP_InitialNotify</td><td>Bool</td><td>Are NotifyChanged events fired when the tool is first added to the flow.</td></tr>
-            </table>
+                    <li><a href="#InputControl">InputControl</a></li>
+                    <ul>
+                        <li><a href="#LabelControl">LabelControl</a></li>
+                        <li><a href="#SliderControl">SliderControl</a></li>
+                        <li><a href="#OffsetControl">OffsetControl</a></li>
+                        <li><a href="#ComboControl">ComboControl</a></li>
+                        <li><a href="#ComboIDControl">ComboIDControl</a></li>
+                    </ul>
 
-            <h3 id="Number">Number</h3>
-            <p class="iblock">General tags for Inputs with DataType "Number".</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>INP_Default</td><td>Number</td><td>Default value for Number Inputs.</td></tr>
-                <tr><td>INP_MinAllowed</td><td>Number</td><td>Do not allow this Number to be set below this value.</td></tr>
-                <tr><td>INP_MaxAllowed</td><td>Number</td><td>Do not allow this Number to be set above this value.</td></tr>
-                <tr><td>INP_MinScale</td><td>Number</td><td>The highest value on a slider.</td></tr>
-                <tr><td>INP_MaxScale</td><td>Number</td><td>The lowest value on a slider.</td></tr>
-                <tr><td>INP_Integer</td><td>Bool</td><td>Must be integer values only.</td></tr>
-                <tr><td>INP_SplineType</td><td>String</td><td>What type of easing is used when interpolating between keyframes.</td></tr>
-            </table>
 
-            <h3 id="Point">Point</h3>
-            <p class="iblock">General tags for Inputs with DataType "Point"</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>INP_DefaultX</td><td>Number</td><td>Default X value for Point Inputs.</td></tr>
-                <tr><td>INP_DefaultY</td><td>Number</td><td>Default Y value for Point Inputs.</td></tr>
-            </table>
+                    <li><a href="#PreviewControl">PreviewControl</a></li>
+                    <ul>
+                        <li><a href="#CrosshairControl">CrosshairControl</a></li>
+                        <li><a href="#RectangleControl">RectangleControl</a></li>
+                    </ul>
 
-            <h3 id="FuID">FuID</h3>
-            <p class="iblock">General tags for Inputs with DataType "FuID"</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>INPID_DefaultID</td><td>String</td><td>Default value for FuID Inputs.</td></tr>
-            </table>
+                </ul>
+            </div>
 
-            <h3 id="Text">Text</h3>
-            <p class="iblock">General tags for Inputs with DataType "Text"</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>INPS_DefaultText</td><td>String</td><td>Default value for Text Inputs.</td></tr>
-            </table>
+            <div class="container main">
 
-            <h2 id="InputControl">InputControl</h2>
-            <p class="iblock">General tags for Inputs in the Inspector window</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>INPID_InputControl</td><td>String</td><td>The Class ID of an InputControl to use in the Inspector window.</td></tr>
-                <tr><td>IC_NoReset</td><td>Bool</td><td>Disable the keyframe column for this control.</td></tr>
-                <tr><td>IC_NoLabel</td><td>Bool</td><td>Disable the label column for this control.</td></tr>
-                <tr><td>ICD_Width</td><td>Number</td><td>A width of 1 fills an entire row. Multiple controls can share a row when their widths add up to 1.</td></tr>
-                <tr><td>IC_ControlGroup</td><td>Number</td><td>InputControls with the same ControlGroup number are in the same group.</td></tr>
-                <tr><td>IC_ControlID</td><td>Number</td><td>ControlID specifies which Input this is within the ControlGroup.</td></td></tr>
-                <tr><td>IC_Visible</td><td>Bool</td><td>Hides the Input from the Inspector window.</td></tr>
-                <tr><td>IC_Disabled</td><td>Bool</td><td>Disables controls from the Inspector window.</td></tr>
-                <tr><td>IC_DisplayedPrecision</td><td>Number</td><td>How many digits are shown after the decimal point in the Inspector.</td></tr>
-            </table>
+                <h2 id="Link"><span>Link</span> <a href="#Link"><i class="fa-solid fa-link"></i></a></h2>
+                <p class="iblock">General settings for Inputs & Outputs</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>LINKID_DataType</td><td>String</td><td>Inputs & Outputs can only connect when they share the same DataType.</td></tr>
+                    <tr><td>LINKS_Name</td><td>String</td><td>The name of this connection.</td></tr>
+                    <tr><td>LINK_Main</td><td>Number</td><td>Inputs/Outputs with LINK_Main set to a positive integer show up on the node in the flow view. The first 4 Main input's have a special color assigned to them.</td></tr>
+                </table>
 
-            <h3 id="LabelControl">LabelControl</h3>
-            <p class="iblock">An InputControl for adding extra info to the Inspector window. LabelControl can also be used to create Control Nests using the self:BeginControlNest() and self:EndControlNest() methods in Fuses.</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>LBLC_MultiLine</td><td>Bool</td><td>The hight of this LabelControl adapts to fit the content. &lt;br&gt; starts a new line.</td></tr>
-                <tr><td>LBLC_DropDownButton</td><td>Bool</td><td>Hides/Shows the Dropdown Arrow for NestControls.</td></tr>
-                <tr><td>LBLC_NumInputs</td><td>Number</td><td>How many inputs are Hidden with this Nest.</td></tr>
-                <tr><td>&lt;br&gt;</td><td>HTML</td><td>Line break.</td></tr>
-                <tr><td>&lt;h1,h2,h3,h4,h5&gt;</td><td>HTML</td><td>Headers.</td></tr>
-                <tr><td>&lt;font color=#ffffff&gt;</td><td>HTML</td><td>Font color.</td></tr>
-            </table>
+                <h3 id="Input"><span>Input</span> <a href="#Input"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">General settings for Inputs.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>INP_External</td><td>Bool</td><td>External Inputs can be connected to an external source for Animation and Expressions.</td></tr>
+                    <tr><td>INP_Passive</td><td>Bool</td><td>Changes to this input don't change the output of this tool.</td></tr>
+                    <tr><td>INP_InteractivePassive</td><td>Bool</td><td>Like INP_Passive but keeps Undo events.</td></tr>
+                    <tr><td>INP_AddModifier</td><td>String</td><td>Class ID of a CT_Modifier to create connected to this Input.</td></tr>
+                    <tr><td>INP_DoNotifyChanged</td><td>Bool</td><td>Changes to this input fire the NotifyChanged event.</td></tr>
+                    <tr><td>INP_InitialNotify</td><td>Bool</td><td>Are NotifyChanged events fired when the tool is first added to the flow.</td></tr>
+                </table>
 
-            <h3 id="SliderControl">SliderControl</h3>
-            <p class="iblock">An InputControl for Slider Inputs.</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>SLCS_LowName</td><td>String</td><td>An extra label below the left side of the slider.</td></tr>
-                <tr><td>SLCS_HighName</td><td>String</td><td>An extra label below the right side of the slider.</td></tr>
-                <tr><td>SLCS_MidName</td><td>String</td><td>An extra label below the middle of the slider.</td></tr>
-            </table>
+                <h3 id="Number"><span>Number</span> <a href="#Number"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">General tags for Inputs with DataType "Number".</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>INP_Default</td><td>Number</td><td>Default value for Number Inputs.</td></tr>
+                    <tr><td>INP_MinAllowed</td><td>Number</td><td>Do not allow this Number to be set below this value.</td></tr>
+                    <tr><td>INP_MaxAllowed</td><td>Number</td><td>Do not allow this Number to be set above this value.</td></tr>
+                    <tr><td>INP_MinScale</td><td>Number</td><td>The highest value on a slider.</td></tr>
+                    <tr><td>INP_MaxScale</td><td>Number</td><td>The lowest value on a slider.</td></tr>
+                    <tr><td>INP_Integer</td><td>Bool</td><td>Must be integer values only.</td></tr>
+                    <tr><td>INP_SplineType</td><td>String</td><td>What type of easing is used when interpolating between keyframes.</td></tr>
+                </table>
 
-            <h3 id="ScrewControl">ScrewControl</h3>
-            <p class="iblock">An InputControl for Screw Inputs.</p>  
-            
-            <h3 id="OffsetControl">OffsetControl</h3>
-            <p class="iblock">An InputControl for Point Inputs.</p>
-            
-            <h3 id="ComboControl">ComboControl</h3>
-            <p class="iblock">An InputControl for DataType Number dropdown Inputs. Holds the item number selected.</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>CCS_AddString</td><td>String+</td><td>Add a new entry to the dropdown.</td></tr>
-                <tr><td>CCS_AddSeparator</td><td>String+</td><td>Add a separator to the dropdown, value is ignored.</td></tr>
-            </table>
+                <h3 id="Point"><span>Point</span> <a href="#Point"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">General tags for Inputs with DataType "Point"</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>INP_DefaultX</td><td>Number</td><td>Default X value for Point Inputs.</td></tr>
+                    <tr><td>INP_DefaultY</td><td>Number</td><td>Default Y value for Point Inputs.</td></tr>
+                </table>
 
-            <h3 id="ComboIDControl">ComboIDControl</h3>
-            <p class="iblock">An InputControl for DataType FuID dropdown Inputs.</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>CCS_AddString</td><td>String+</td><td>Add a new entry to the dropdown.</td></tr>
-                <tr><td>CCID_AddID</td><td>FuID+</td><td>Insert after CCS_AddString to set the FuID value it returns when selected.</td></tr>
-                <tr><td>CCS_AddSeparator</td><td>String+</td><td>Add a separator to the dropdown, value is ignored.</td></tr>
-            </table>
+                <h3 id="FuID"><span>FuID</span> <a href="#FuID"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">General tags for Inputs with DataType "FuID"</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>INPID_DefaultID</td><td>String</td><td>Default value for FuID Inputs.</td></tr>
+                </table>
 
-            <h2 id="PreviewControl">PreviewControl</h2>
-            <p class="iblock">General tags for Inputs in the viewer</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>INPID_PreviewControl</td><td>String</td><td>The Class ID of a PreviewControl to use in the Viewer.</td></tr>    
-                <tr><td>PC_Visible</td><td>Bool</td><td>Hides the PreviewControl from the viewer.</td></tr>
-            </table>
+                <h3 id="Text"><span>Text</span> <a href="#Text"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">General tags for Inputs with DataType "Text"</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>INPS_DefaultText</td><td>String</td><td>Default value for Text Inputs.</td></tr>
+                </table>
 
-            <h3 id="CrosshairControl">CrosshairControl</h3>
-            <p class="iblock">A PreviewControl for Point Inputs.</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>CHC_Style</td><td>FuID</td><td>NormalCross, DiagonalCross, Rectangle, Circle, Rays</td></tr>
-            </table>
+                <h2 id="InputControl"><span>InputControl</span> <a href="#InputControl"><i class="fa-solid fa-link"></i></a></h2>
+                <p class="iblock">General tags for Inputs in the Inspector window</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>INPID_InputControl</td><td>String</td><td>The Class ID of an InputControl to use in the Inspector window.</td></tr>
+                    <tr><td>IC_NoReset</td><td>Bool</td><td>Disable the keyframe column for this control.</td></tr>
+                    <tr><td>IC_NoLabel</td><td>Bool</td><td>Disable the label column for this control.</td></tr>
+                    <tr><td>ICD_Width</td><td>Number</td><td>A width of 1 fills an entire row. Multiple controls can share a row when their widths add up to 1.</td></tr>
+                    <tr><td>IC_ControlGroup</td><td>Number</td><td>InputControls with the same ControlGroup number are in the same group.</td></tr>
+                    <tr><td>IC_ControlID</td><td>Number</td><td>ControlID specifies which Input this is within the ControlGroup.</td></td></tr>
+                    <tr><td>IC_Visible</td><td>Bool</td><td>Hides the Input from the Inspector window.</td></tr>
+                    <tr><td>IC_Disabled</td><td>Bool</td><td>Disables controls from the Inspector window.</td></tr>
+                    <tr><td>IC_DisplayedPrecision</td><td>Number</td><td>How many digits are shown after the decimal point in the Inspector.</td></tr>
+                </table>
 
-            <h3 id="RectangleControl">RectangleControl</h3>
-            <p class="iblock">A PreviewControl for Rectangles. Connects to multiple inputs, but lives on the Width Input.</p>
-            <table>
-                <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                <tr><td>RCD_LockAspect</td><td>Number</td><td>Use a fixed aspect ratio instead of a Height Input.</td></tr>
-                <tr><td>RCID_Center</td><td>String</td><td>ID of an Input on this Node to be used as the center position.</td></tr>
-                <tr><td>RCID_Angle</td><td>String</td><td>ID of an Input on this Node to be used for the angle of the rectangle.</td></tr>
-            </table>
+                <h3 id="LabelControl"><span>LabelControl</span> <a href="#LabelControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">An InputControl for adding extra info to the Inspector window. LabelControl can also be used to create Control Nests using the self:BeginControlNest() and self:EndControlNest() methods in Fuses.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>LBLC_MultiLine</td><td>Bool</td><td>The hight of this LabelControl adapts to fit the content. &lt;br&gt; starts a new line.</td></tr>
+                    <tr><td>LBLC_DropDownButton</td><td>Bool</td><td>Hides/Shows the Dropdown Arrow for NestControls.</td></tr>
+                    <tr><td>LBLC_NumInputs</td><td>Number</td><td>How many inputs are Hidden with this Nest.</td></tr>
+                    <tr><td>&lt;br&gt;</td><td>HTML</td><td>Line break.</td></tr>
+                    <tr><td>&lt;h1,h2,h3,h4,h5&gt;</td><td>HTML</td><td>Headers.</td></tr>
+                    <tr><td>&lt;font color=#ffffff&gt;</td><td>HTML</td><td>Font color.</td></tr>
+                </table>
+
+                <h3 id="SliderControl"><span>SliderControl</span> <a href="#SliderControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">An InputControl for Slider Inputs.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>SLCS_LowName</td><td>String</td><td>An extra label below the left side of the slider.</td></tr>
+                    <tr><td>SLCS_HighName</td><td>String</td><td>An extra label below the right side of the slider.</td></tr>
+                    <tr><td>SLCS_MidName</td><td>String</td><td>An extra label below the middle of the slider.</td></tr>
+                </table>
+
+                <h3 id="ScrewControl"><span>ScrewControl</span> <a href="#ScrewControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">An InputControl for Screw Inputs.</p>  
+                
+                <h3 id="OffsetControl"><span>OffsetControl</span> <a href="#OffsetControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">An InputControl for Point Inputs.</p>
+                
+                <h3 id="ComboControl"><span>ComboControl</span> <a href="#ComboControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">An InputControl for DataType Number dropdown Inputs. Holds the item number selected.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>CCS_AddString</td><td>String+</td><td>Add a new entry to the dropdown.</td></tr>
+                    <tr><td>CCS_AddSeparator</td><td>String+</td><td>Add a separator to the dropdown, value is ignored.</td></tr>
+                </table>
+
+                <h3 id="ComboIDControl"><span>ComboIDControl</span> <a href="#ComboIDControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">An InputControl for DataType FuID dropdown Inputs.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>CCS_AddString</td><td>String+</td><td>Add a new entry to the dropdown.</td></tr>
+                    <tr><td>CCID_AddID</td><td>FuID+</td><td>Insert after CCS_AddString to set the FuID value it returns when selected.</td></tr>
+                    <tr><td>CCS_AddSeparator</td><td>String+</td><td>Add a separator to the dropdown, value is ignored.</td></tr>
+                </table>
+
+                <h2 id="PreviewControl"><span>PreviewControl</span> <a href="#PreviewControl"><i class="fa-solid fa-link"></i></a></h2>
+                <p class="iblock">General tags for Inputs in the viewer</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>INPID_PreviewControl</td><td>String</td><td>The Class ID of a PreviewControl to use in the Viewer.</td></tr>    
+                    <tr><td>PC_Visible</td><td>Bool</td><td>Hides the PreviewControl from the viewer.</td></tr>
+                </table>
+
+                <h3 id="CrosshairControl"><span>CrosshairControl</span> <a href="#CrosshairControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">A PreviewControl for Point Inputs.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>CHC_Style</td><td>FuID</td><td>NormalCross, DiagonalCross, Rectangle, Circle, Rays</td></tr>
+                </table>
+
+                <h3 id="RectangleControl"><span>RectangleControl</span> <a href="#RectangleControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">A PreviewControl for Rectangles. Connects to multiple inputs, but lives on the Width Input.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>RCD_LockAspect</td><td>Number</td><td>Use a fixed aspect ratio instead of a Height Input.</td></tr>
+                    <tr><td>RCID_Center</td><td>String</td><td>ID of an Input on this Node to be used as the center position.</td></tr>
+                    <tr><td>RCID_Angle</td><td>String</td><td>ID of an Input on this Node to be used for the angle of the rectangle.</td></tr>
+                </table>
+
+            </div>
         </section>
         <div class="footer main">
         </div>
+
         <!-- Google Analytics -->
         <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV" fetchpriority="low"></script>
         <script defer>
