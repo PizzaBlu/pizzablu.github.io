@@ -81,6 +81,7 @@
                     <ul>
                         <li><a href="#CrosshairControl">CrosshairControl</a></li>
                         <li><a href="#RectangleControl">RectangleControl</a></li>
+                        <li><a href="#EllipseControl">EllipseControl</a></li>
                     </ul>
 
                 </ul>
@@ -209,6 +210,9 @@
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
                     <tr><td>INPID_PreviewControl</td><td>String</td><td>The Class ID of a PreviewControl to use in the Viewer.</td></tr>    
                     <tr><td>PC_Visible</td><td>Bool</td><td>Hides the PreviewControl from the viewer.</td></tr>
+                    <tr><td>PC_Disabled</td><td>Bool</td><td>Disables teh PreviewControl.</td></tr>
+                    <tr><td>PC_ControlGroup</td><td>Number</td><td>PreviewControls with the same ControlGroup number are in the same group.</td></tr>
+                    <tr><td>PC_ControlID</td><td>Number</td><td>This PreviewControls ID within its ControlGroup.</td></tr>
                 </table>
 
                 <h3 id="CrosshairControl"><span>CrosshairControl</span> <a href="#CrosshairControl"><i class="fa-solid fa-link"></i></a></h3>
@@ -225,6 +229,17 @@
                     <tr><td>RCD_LockAspect</td><td>Number</td><td>Use a fixed aspect ratio instead of a Height Input.</td></tr>
                     <tr><td>RCID_Center</td><td>String</td><td>ID of an Input on this Node to be used as the center position.</td></tr>
                     <tr><td>RCID_Angle</td><td>String</td><td>ID of an Input on this Node to be used for the angle of the rectangle.</td></tr>
+                    <tr><td>PC_ControlID</td><td>Number</td><td>1 = Width, 2 = Height (see <a href="#PreviewControl">PreivewControl</a>)</td></tr>
+                </table>
+
+                <h3 id="EllipseControl"><span>EllipseControl</span> <a href="#EllipseControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">A PreviewControl for Ellipses & Circles. Connects to multiple inputs, but lives on the Width Input.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>ECD_LockAspect</td><td>Number</td><td>Use a fixed aspect ratio instead of a Height Input.</td></tr>
+                    <tr><td>ECID_Center</td><td>String</td><td>ID of an Input on this Node to be used as the center position.</td></tr>
+                    <tr><td>ECID_Angle</td><td>String</td><td>ID of an Input on this Node to be used for the angle of the rectangle.</td></tr>
+                    <tr><td>PC_ControlID</td><td>Number</td><td>1 = Width, 2 = Height (see <a href="#PreviewControl">PreivewControl</a>)</td></tr>
                 </table>
 
             </div>
