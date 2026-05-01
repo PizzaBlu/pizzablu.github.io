@@ -147,7 +147,7 @@ return Text(str);                    -- the "output" of the expression script
 -- t = [0..1] where 0=a and 1=b
 local function lerp(a,b,t) return a + (b-a)*t; end;
 
--- use lerp() to blend halfway between two values
+-- use lerp() to blend between two values over the duration of the composition
 local percent = (time-comp.RenderStart)/(comp.RenderEnd-comp.RenderStart);
 local result = lerp(StartValue, EndValue, percent);
 
