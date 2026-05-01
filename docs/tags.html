@@ -76,7 +76,10 @@
                         <li><a href="#LabelControl">LabelControl</a></li>
                         <li><a href="#SliderControl">SliderControl</a></li>
                         <li><a href="#ScrewControl">ScrewControl</a></li>
+                        <li><a href="#ColorControl">ColorControl</a></li>
                         <li><a href="#CheckboxControl">CheckboxControl</a></li>
+                        <li><a href="#RangeControl">RangeControl</a></li>
+                        <li><a href="#ButtonControl">ButtonControl</a></li>
                         <li><a href="#OffsetControl">OffsetControl</a></li>
                         <li><a href="#ComboControl">ComboControl</a></li>
                         <li><a href="#ComboIDControl">ComboIDControl</a></li>
@@ -205,11 +208,36 @@
                 <h3 id="ScrewControl"><span>ScrewControl</span> <a href="#ScrewControl"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">An InputControl for Screw Inputs.</p>
 
+                <h3 id="ColorControl"><span>ColorControl</span> <a href="#ColorControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">An InputControl for Color Input ControlGroups. ControlID (0,1,2,3) is used to set the channel of each input in the group.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>CLRC_ColorSpace</td><td>String</td><td>HSL, HLS, YUV</td></tr>
+                    <tr><td>CLRC_NoSliders</td><td>Bool</td><td>Hide the sliders below the color picker.</td></tr>
+                    <tr><td>CLRC_ShowWheel</td><td>Bool</td><td></td>Shows a color wheel.</tr>
+                </table>
+
                 <h3 id="CheckboxControl"><span>CheckboxControl</span> <a href="#CheckboxControl"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">An InputControl for Number Inputs.</p>
                 <table>
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
                     <tr><td>CBC_TriState</td><td>Bool</td><td>Adds a third state beyond On/Off.</td></tr>
+                </table>
+
+                <h3 id="RangeControl"><span>RangeControl</span> <a href="#RangeControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">An InputControl for pairs of Number Inputs.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>RNGCS_LowName</td><td>String</td><td>Adds an additional label below the left side of the slider.</td></tr>
+                    <tr><td>RNGCS_MidName</td><td>String</td><td>Adds an additional label below the middle of the slider.</td></tr>
+                    <tr><td>RNGCS_HighName</td><td>String</td><td>Adds an additional label below the right side of the slider.</td></tr>
+                </table>
+
+                <h3 id="ButtonControl"><span>ButtonControl</span> <a href="#ButtonControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">An InputControl for momentary push buttons.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>BTNCS_Execute</td><td>String</td><td>A lua script to be run when the button is pressed.</td></tr>
                 </table>
                 
                 <h3 id="OffsetControl"><span>OffsetControl</span> <a href="#OffsetControl"><i class="fa-solid fa-link"></i></a></h3>
@@ -239,6 +267,15 @@
                     <tr><td>TEC_Lines</td><td>Number</td><td>Number of lines to display.</td></tr>
                 </table>
 
+                <h3 id="FileControl"><span>FileControl</span> <a href="#FileControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">An InputControl for Selecting a File Path.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>FC_PathBrowse</td><td>Bool</td><td>Select files or folders.</td></tr>
+                    <tr><td>FC_ClipBrowse</td><td>Bool</td><td>Select single Images or Image sequences.</td></tr>
+                    <tr><td>FCS_FilterString</td><td>String</td><td>Only show certain file types. Example: "png files (*.png)"</td></tr>
+                </table>
+
                 <h2 id="PreviewControl"><span>PreviewControl</span> <a href="#PreviewControl"><i class="fa-solid fa-link"></i></a></h2>
                 <p class="iblock">General tags for Inputs in the viewer</p>
                 <table>
@@ -248,6 +285,7 @@
                     <tr><td>PC_Disabled</td><td>Bool</td><td>Disables teh PreviewControl.</td></tr>
                     <tr><td>PC_ControlGroup</td><td>Number</td><td>PreviewControls with the same ControlGroup number are in the same group.</td></tr>
                     <tr><td>PC_ControlID</td><td>Number</td><td>This PreviewControls ID within its ControlGroup.</td></tr>
+                    <tr><td>PC_GrabPriority</td><td>Number</td><td>The highest GrabPriority control is used when clicking an area with mulitiple PreviewControls in the viewer.</td></tr>
                 </table>
 
                 <h3 id="CrosshairControl"><span>CrosshairControl</span> <a href="#CrosshairControl"><i class="fa-solid fa-link"></i></a></h3>
