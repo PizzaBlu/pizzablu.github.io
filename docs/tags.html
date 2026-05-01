@@ -101,8 +101,10 @@
                 <table>
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
                     <tr><td>LINKID_DataType</td><td>String</td><td>Inputs & Outputs can only connect when they share the same DataType.</td></tr>
-                    <tr><td>LINKS_Name</td><td>String</td><td>The name of this connection.</td></tr>
-                    <tr><td>LINK_Main</td><td>Number</td><td>Inputs/Outputs with LINK_Main set to a positive integer show up on the node in the flow view. The first 4 Main input's have a special color assigned to them.</td></tr>
+                    <tr><td>LINKS_Name</td><td>String</td><td>The name of this Link. Also used for labels in the Inspector.</td></tr>
+                    <tr><td>LINKID_ID</td><td>String</td><td>The ID of this Link. Also its key in the UserControls object in macros.</td></tr>
+                    <tr><td>LINK_Main</td><td>Number</td><td>Inputs/Outputs with <i>LINK_Main</i> set to a positive integer show up as Inputs/Outputs on the Node in the flow view. The first 4 Main input's have a special color assigned to them. <i>LINK_Main also works on non-Image outputs!</i></td></tr>
+                    <tr><td>LINK_NotColored</td><td>Bool</td><td>Override the Default Yellow,Green etc. colors for LINK_Main Inputs.</td></tr>
                 </table>
 
                 <h3 id="DataType"><span>DataType</span> <a href="#DataType"><i class="fa-solid fa-link"></i></a></h3>
