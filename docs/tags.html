@@ -77,8 +77,8 @@
                         <li><a href="#SliderControl">SliderControl</a></li>
                         <li><a href="#ScrewControl">ScrewControl</a></li>
                         <li><a href="#ColorControl">ColorControl</a></li>
-                        <li><a href="#CheckboxControl">CheckboxControl</a></li>
                         <li><a href="#RangeControl">RangeControl</a></li>
+                        <li><a href="#CheckboxControl">CheckboxControl</a></li>
                         <li><a href="#ButtonControl">ButtonControl</a></li>
                         <li><a href="#OffsetControl">OffsetControl</a></li>
                         <li><a href="#ComboControl">ComboControl</a></li>
@@ -217,20 +217,20 @@
                     <tr><td>CLRC_ShowWheel</td><td>Bool</td><td></td>Shows a color wheel.</tr>
                 </table>
 
-                <h3 id="CheckboxControl"><span>CheckboxControl</span> <a href="#CheckboxControl"><i class="fa-solid fa-link"></i></a></h3>
-                <p class="iblock">An InputControl for Number Inputs.</p>
-                <table>
-                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                    <tr><td>CBC_TriState</td><td>Bool</td><td>Adds a third state beyond On/Off.</td></tr>
-                </table>
-
                 <h3 id="RangeControl"><span>RangeControl</span> <a href="#RangeControl"><i class="fa-solid fa-link"></i></a></h3>
-                <p class="iblock">An InputControl for pairs of Number Inputs.</p>
+                <p class="iblock">An InputControl for pairs of Number Inputs. ControlID (0,1) is used for each input.</p>
                 <table>
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
                     <tr><td>RNGCS_LowName</td><td>String</td><td>Adds an additional label below the left side of the slider.</td></tr>
                     <tr><td>RNGCS_MidName</td><td>String</td><td>Adds an additional label below the middle of the slider.</td></tr>
                     <tr><td>RNGCS_HighName</td><td>String</td><td>Adds an additional label below the right side of the slider.</td></tr>
+                </table>
+
+                <h3 id="CheckboxControl"><span>CheckboxControl</span> <a href="#CheckboxControl"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">An InputControl for Number Inputs.</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>CBC_TriState</td><td>Bool</td><td>Adds a third state beyond On/Off.</td></tr>
                 </table>
 
                 <h3 id="ButtonControl"><span>ButtonControl</span> <a href="#ButtonControl"><i class="fa-solid fa-link"></i></a></h3>
