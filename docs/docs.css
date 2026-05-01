@@ -180,6 +180,15 @@ section.docs p.sample-block {
     margin-top: 2em;
 }
 
+code.snip {
+    user-select: all;
+    border-radius: 4px;
+    background-color: rgba(64,64,64,0.25);
+    
+    padding: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
 
 /* MISC */
 span.space {

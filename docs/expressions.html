@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <!-- Mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/theme.css">
+        <link rel="stylesheet" href="/docs/docs.css">
+        <link rel="stylesheet" href="/docs/hljs.css">
+
+        <style>
+            /* Outfit Latin */
+            @font-face {
+                font-family: 'Outfit';
+                font-style: normal;
+                font-weight: 100 900;
+                font-display: swap;
+                src: url(https://fonts.gstatic.com/s/outfit/v14/QGYvz_MVcBeNP4NJtEtqUYTkntBJ.woff2) format('woff2');
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+        </style>
+
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Preconnect -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- Preload -->
+        <link rel="preload" href="/assets/tile_half.png" as="image">
+
+        <!-- Title -->
+        <title>Fusion Reference - PizzaBlu</title>
+    
+        <!-- favicon -->
+        <link rel="icon" href="/icon.svg" type="image/svg+xml">
+
+        <!-- Animation Continuity -->
+        <script>
+            const elapsed = Date.now() % 240000;
+            document.documentElement.style.setProperty('--animation-delay', `-${elapsed}ms`);
+        </script>
+    </head>
+
+    <body style="background-color: #171b1f; color: #ffffff; overflow-x: hidden; width: 100vw; margin: 0; padding: 0; font-family: 'Outfit', sans-serif;">
+        <div class="hero" id="hero">
+            <div class="hero-background"></div>
+            <div class="hero-main">
+                <div class="hero-container">
+                    <h1>Expressions</h1>
+                    <p class="clear"><h2>Fusion Expressions Cheat Sheet</h2></p>
+                </div>
+            </div>
+        </div>
+        <section class="docs" style="margin-top: -120px; z-index: 10;">
+            <div class="docs-nav fullscreen-only-strict" id="tools-nav">
+
+                <ul id="nav-list">
+                    <a href="#Expressions">Expressions</a>
+                    <ul>
+                        <li><a href="#Time">Time</a></li>
+                        <li><a href="#Image">Image</a></li>
+                        <li><a href="#Point">Point</a></li>
+                        <li><a href="#IfExpressions">If</a></li>
+                    </ul>
+                    <a href="#Scripts">Expression Scripts</a>
+                    <ul>
+                        <li><a href="#Scripts">Usage</a></li>
+                        <li><a href="#Lerp">Lerp</a></li>
+                    </ul>
+                    <a href="#Types">Reference</a>
+                    <ul>
+                        <li><a href="#Types">Constructors</a></li>
+                        <li><a href="#Math">Math</a></li>
+                        <li><a href="#Trig">Trig</a></li>
+                    </ul>
+
+                </ul>
+            </div>
+
+            <div class="container main">
+
+                <h2 id="Expressions"><span>Expressions</span> <a href="#Expressions"><i class="fa-solid fa-link"></i></a></h2>
+
+                <h3 id="Time"><span>Time</span> <a href="#Time"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">Expressions related to time & frame counts</p>
+                <table>
+                    <tr><th>Meaning</th><th>Type</th><th>Code</th></tr>
+                    <tr><td>Current frame number</td><td>Number</td><td><code class="language-lua snip">time</code></td></tr>
+                    <tr><td>Current second</td><td>Number</td><td><code class="language-lua snip">(time-comp.RenderStart)/comp:GetPrefs("Comp.FrameFormat.Rate")</code></td></tr>
+                    <tr><td>Current percent</td><td>Number</td><td><code class="language-lua snip">(time-comp.RenderStart)/(comp.RenderEnd-comp.RenderStart)</code></td></tr>
+                    <tr><td>Framerate</td><td>Number</td><td><code class="language-lua snip">comp:GetPrefs("Comp.FrameFormat.Rate")</code></td></tr>
+                    <tr><td>Duration</td><td>Number</td><td><code class="language-lua snip">comp.RenderEnd - comp.RenderStart</code></td></tr>
+                    <tr><td>First frame number</td><td>Number</td><td><code class="language-lua snip">comp.RenderStart</code></td></tr>
+                    <tr><td>Last frame number</td><td>Number</td><td><code class="language-lua snip">comp.RenderEnd</code></td></tr>
+                </table>
+
+                <h3 id="Image"><span>Image</span> <a href="#Image"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">Expressions related to the size of images</p>
+                <table>
+                    <tr><th>Meaning</th><th>Type</th><th>Code</th></tr>
+                    <tr><td>Default Width</td><td>Number</td><td><code class="language-lua snip">comp:GetPrefs("Comp.FrameFormat.Width")</code></td></tr>
+                    <tr><td>Default Height</td><td>Number</td><td><code class="language-lua snip">comp:GetPrefs("Comp.FrameFormat.Height")</code></td></tr>
+                    <tr><td>Input Width</td><td>Number</td><td><code class="language-lua snip">Input.Width</code></td></tr>
+                    <tr><td>Input Height</td><td>Number</td><td><code class="language-lua snip">Input.Height</code></td></tr>
+                    <tr><td>Text+ <code>Input</code> Width</td><td>Number</td><td><code class="language-lua snip">self.Input.DataWindow[3] - self.Input.DataWindow[1]</code></td></tr>
+                    <tr><td>Text+ <code>Input</code> Height</td><td>Number</td><td><code class="language-lua snip">self.Input.DataWindow[4] - self.Input.DataWindow[2]</code></td></tr>
+                </table>
+
+                <h3 id="Point"><span>Point</span> <a href="#Point"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">Expressions related to the size of images</p>
+                <table>
+                    <tr><th>Meaning</th><th>Type</th><th>Code</th></tr>
+                    <tr><td>X Component</td><td>Number</td><td><code class="language-lua snip">&lt;input&gt;.X</code></td></tr>
+                    <tr><td>Y Component</td><td>Number</td><td><code class="language-lua snip">&lt;input&gt;.Y</code></td></tr>
+                    <tr><td>Create a Point</td><td>Point</td><td><code class="language-lua snip">Point(&lt;x&gt;,&lt;y&gt;)</code></td></tr>
+                </table>
+
+                <h3 id="IfExpressions"><span>If</span> <a href="#IfExpressions"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">Conditional expression patterns</p>
+                <table>
+                    <tr><th>Expression</th><th>Type</th><th>Code</th></tr>
+                    <tr><td>Inline if <small><i>and/or</i></small> </td><td>Number</td><td><code class="language-lua snip">value = (condition and if_true or if_false)</code></td></tr>
+                    <tr><td>Inline if <small><i>function</i></small></td><td>Number</td><td><code class="language-lua snip">value = iif(condition, if_true, if_false)</code></td></tr>
+                </table>
+
+                <h2 id="Scripts"><span>Scripts</span> <a href="#Scripts"><i class="fa-solid fa-link"></i></a></h2>
+<p class="iblock">You can embed full lua scripts in expressions with the : syntax.</p>
+<pre><code class="language-lua sample">:                                    -- begin script
+local str = "Hello Lua!";            -- define a local variable
+return Text(str);                    -- the "output" of the expression script
+</code></pre>
+
+<h3 id="Lerp"><span>Linear Interpolation</span> <a href="#Lerp"><i class="fa-solid fa-link"></i></a></h3>
+<p class="iblock">Linear Interpolation (lerp) blends betwen two numbers. <a href="https://en.wikipedia.org/wiki/Linear_interpolation">Wikipedia</a></p>
+<pre><code class="language-lua sample">:
+-- lerp function:
+-- a = first number
+-- b = second Number
+-- t = [0..1] where 0=a and 1=b
+local function lerp(a,b,t) return a + (b-a)*t; end;
+
+-- use lerp() to blend halfway between two values
+local percent = (time-comp.RenderStart)/(comp.RenderEnd-comp.RenderStart);
+local result = lerp(StartValue, EndValue, percent);
+
+-- output result
+return result;</code></pre>
+<p class="iblock">Quick copy & paste snippet</p>
+<pre><code class="language-lua sample">local function lerp(a,b,t) return a + (b-a)*t; end;                                      -- Number Interpolation
+local function lerpxy(a,b,t) return Point(a.X + (b.X-a.X)*t, a.Y + (b.Y-a.Y)*t); end;    -- Point Interpolation</code></pre>
+
+                <h2 id="Types"><span>Types</span> <a href="#Types"><i class="fa-solid fa-link"></i></a></h2>
+                <p class="iblock">Parameter Constructors</p>
+                <table>
+                    <tr><th>Constructor</th><th>Type</th><th>Usage</th><th>Example</th></tr>
+                    <tr><td><code class="snip">Point(x,y)</code></td><td>Point</td><td>Setting Point inputs like <code class="snip">Transform.Center</code></td><td><code class="snip">Point(x,y)</code></td></tr>
+                    <tr><td><code class="snip">Text(string)</code></td><td>Text</td><td>Setting Text inputs like on <code class="snip">Text.StyledText</code></td><td><code class="snip">Text("hello world")</code></td></tr>
+                    <tr><td><code class="snip">FuIDParam(string)</code></td><td>FuID</td><td>Setting some dropdowns like <code class="snip">Blur.Filter</code></td><td><code class="snip">FuIDParam("Gaussian")</code></td></tr>
+                </table>
+
+                <h2 id="Math"><span>Math</span> <a href="#Math"><i class="fa-solid fa-link"></i></a></h2>
+                <p class="iblock">Common math functions</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>abs(x)</td><td>Number</td><td>Absolute value of x.</td></tr>
+                    <tr><td>ceil(x)</td><td>Number</td><td>Round up.</td></tr>
+                    <tr><td>floor(x)</td><td>Number</td><td>Round down.</td></tr>
+                    <tr><td>pow(a, b)</td><td>Number</td><td>a^b</td></tr>
+                    <tr><td>sqrt(x)</td><td>Number</td><td>Square root of x.</td></tr>
+                    <tr><td>random(min, max)</td><td>Number</td><td>Random number between min and max.</td></tr>
+                </table>
+
+                <h3 id="Trig"><span>Trig</span> <a href="#Trig"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">Common trigonometry functions</p>
+                <table>
+                    <tr><td>pi</td><td>Number</td><td>Constant PI.</td></tr>
+                    <tr><td>sin(x) cos(x) tan (x)</td><td>Number</td><td>Trig functions (radians).</td></tr>
+                    <tr><td>asin(x) acos(x) atan (x)</td><td>Number</td><td>Trig arc functions (radians).</td></tr>
+                    <tr><td>deg(radians)</td><td>Number</td><td>Radians to degrees.</td></tr>
+                    <tr><td>rad(degrees)</td><td>Number</td><td>Degrees to radians.</td></tr>
+                </table>
+
+            </div>
+        </section>
+
+        <div class="footer main">
+            <div class="container">
+                <p>
+                    <a href="/" class="link"><i class="fa-solid fa-house"></i>Home</a>
+                    <span class="space">|</span>
+                    <a href="/fusion/discord" class="link"><i class="fa-brands fa-discord"></i>Discord</a>
+                    <span class="space">|</span>
+                    <a href="https://www.youtube.com/channel/UCxOrC01PVvxYe_JzB9Q8nqQ" class="link"><i class="fa-brands fa-youtube"></i>Videos</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Syntax Highlighting -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/lua.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+        <!-- Google Analytics -->
+        <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV" fetchpriority="low"></script>
+        <script defer>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-PJX6P9P9GV');
+        </script>
+    </body>
+</html>
