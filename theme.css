@@ -269,6 +269,41 @@ p.clear {
     background-color: hsl(from var(--bg) h s calc(l*0.5));
 }
 
+/* home button */
+.navbutton {
+    text-decoration: none;
+    color: rgb(200,200,220);
+    font-weight: 400;
+    font-size: 16pt;
+    margin: 12px;
+    line-height: 1em;
+    opacity: 0.4;
+    transition: 0.1s ease opacity;
+    z-index: 1000;
+}
+
+.navhome {
+    margin-left: -4px;
+}
+
+.navbutton:hover {
+    opacity: 0.5;
+}
+
+.fa-chevron-left {
+    font-size: 80%;
+}
+
+.overlay {
+    position: fixed;
+    z-index: 1000000;
+}
+
+.overlay-top-left {
+    top: 12px;
+    left: 6px;
+}
+
 @media screen and (min-width: 2200px) {
     html {
         --scale: 1.2;
