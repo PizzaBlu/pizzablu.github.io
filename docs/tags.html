@@ -99,6 +99,11 @@
                     </ul>
 
                     <li><a href="#Examples">Examples</a></li>
+                    <ul>
+                        <li><a href="#sample-macro-slider">UserControls</a></li>
+                        <li><a href="#sample-fuse-slider">Fuse Slider</a></li>
+                        <li><a href="#sample-fuse-transform">Transform Controls</a></li>
+                    </ul>
 
                 </ul>
             </div>
@@ -340,7 +345,7 @@
 
                 <h2 id="Examples">Examples <a href="#Examples"><i class="fa-solid fa-link"></i></a></h2>
 
-<p class="iblock sample-block">Adding a UserControls slider to in a Macro setting.</p>
+<p class="iblock sample-block" id="sample-macro-slider">Adding a UserControls slider to in a Macro setting.</p>
 <pre><code class="language-lua sample">UserControls = ordered() {
     MyControl = {
         LINKS_Name = "MyControl",
@@ -352,7 +357,7 @@
     }
 }</code></pre>
 
-<p class="iblock sample-block">Adding a slider control to a Fuse.</p>
+<p class="iblock sample-block" id="sample-fuse-slider">Adding a slider control to a Fuse.</p>
 <pre><code class="language-lua sample">InMyControl = self:AddInput("MyControl", "MyControl", {
     LINKID_DataType = "Number",
     INPID_InputControl = "SliderControl",
@@ -361,7 +366,7 @@
     INP_MaxScale = 1,
 })</code></pre>
 
-<p class="iblock sample-block">Transform controls in a fuse.</p>
+<p class="iblock sample-block" id="sample-fuse-transform">Transform controls in a fuse.</p>
 <pre><code class="language-lua sample">
 InCenter = self:AddInput("Center", "Center", {
     LINKID_DataType = "Point",

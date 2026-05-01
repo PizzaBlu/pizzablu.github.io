@@ -131,9 +131,16 @@ td:nth-child(3), th:nth-child(3) {
 
 .docs-nav ul {
     list-style-type: none;
-    padding-left: 0;
-    margin: 4px;
+    padding-left: 4px;
     color: var(--text-4);
+}
+
+.docs-nav ul li {
+    margin-top: 8px;
+}
+
+.docs-nav ul ul li {
+    margin-top: 0px;
 }
 
 .docs-nav ul ul {
@@ -160,14 +167,7 @@ td:nth-child(3), th:nth-child(3) {
     text-decoration: none;
 }
 
-/* MISC */
-span.space {
-    color: var(--text-3);
-    font-weight: 900;
-    margin-left: 12px;
-    margin-right: 12px;
-}
-
+/* CODE */
 code {
     border-radius: 8px;
 }
@@ -178,6 +178,15 @@ code.sample {
 
 section.docs p.sample-block {
     margin-top: 2em;
+}
+
+
+/* MISC */
+span.space {
+    color: var(--text-3);
+    font-weight: 900;
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
 @media only screen and (max-width: 1100px) {
