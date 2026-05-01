@@ -168,6 +168,18 @@ span.space {
     margin-right: 12px;
 }
 
+code {
+    border-radius: 8px;
+}
+
+code.sample {
+    margin-bottom: 1em;
+}
+
+section.docs p.sample-block {
+    margin-top: 2em;
+}
+
 @media only screen and (max-width: 1100px) {
     section.docs {
         font-size: 12px;

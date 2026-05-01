@@ -9,6 +9,8 @@
         <!-- CSS -->
         <link rel="stylesheet" href="/theme.css">
         <link rel="stylesheet" href="/docs/docs.css">
+        <link rel="stylesheet" href="/docs/hljs.css">
+
         <style>
             /* Outfit Latin */
             @font-face {
@@ -95,6 +97,8 @@
                         <li><a href="#EllipseControl">EllipseControl</a></li>
                         <li><a href="#AngleControl">AngleControl</a></li>
                     </ul>
+
+                    <li><a href="#Examples">Examples</a></li>
 
                 </ul>
             </div>
@@ -334,8 +338,65 @@
                     <tr><td>ACID_Center</td><td>String</td><td>ID of an Input on this Node to be used as the center position.</td></tr>
                 </table>
 
+                <h2 id="Examples">Examples <a href="#Examples"><i class="fa-solid fa-link"></i></a></h2>
+
+<p class="iblock sample-block">Adding a UserControls slider to in a Macro setting.</p>
+<pre><code class="language-lua sample">UserControls = ordered() {
+    MyControl = {
+        LINKS_Name = "MyControl",
+        LINKID_DataType = "Number",
+        INPID_InputControl = "SliderControl",
+        INP_Default = 0,
+        INP_MinScale = 0,
+        INP_MaxScale = 1,
+    }
+}</code></pre>
+
+<p class="iblock sample-block">Adding a slider control to a Fuse.</p>
+<pre><code class="language-lua sample">InMyControl = self:AddInput("MyControl", "MyControl", {
+    LINKID_DataType = "Number",
+    INPID_InputControl = "SliderControl",
+    INP_Default = 0,
+    INP_MinScale = 0,
+    INP_MaxScale = 1,
+})</code></pre>
+
+<p class="iblock sample-block">Transform controls in a fuse.</p>
+<pre><code class="language-lua sample">
+InCenter = self:AddInput("Center", "Center", {
+    LINKID_DataType = "Point",
+    INPID_InputControl = "OffsetControl",
+    INPID_PreviewControl = "CrosshairControl",
+})
+
+InSize = self:AddInput("Size", "Size", {
+    LINKID_DataType = "Number",
+
+    INPID_InputControl = "SliderControl",
+    INP_Default = 1.0,
+    INP_MaxScale = 5.0,
+    ICD_Center = 1.0,
+
+    INPID_PreviewControl = "RectangleControl",
+    RCID_Center = "Center",
+    RCID_Angle = "Angle",
+    RCD_LockAspect = 1.0,
+})
+
+InAngle = self:AddInput("Angle", "Angle", {
+    LINKID_DataType = "Number",
+
+    INPID_InputControl = "ScrewControl",
+    INP_MaxScale = 360,
+
+    INPID_PreviewControl = "AngleControl",
+    ACID_Center = "Center",
+})
+</code></pre>
+
             </div>
         </section>
+
         <div class="footer main">
             <div class="container">
                 <p>
@@ -347,6 +408,11 @@
                 </p>
             </div>
         </div>
+
+        <!-- Syntax Highlighting -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/lua.min.js"></script>
+        <script>hljs.highlightAll();</script>
 
         <!-- Google Analytics -->
         <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV" fetchpriority="low"></script>
