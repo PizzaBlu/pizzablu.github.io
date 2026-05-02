@@ -51,8 +51,8 @@
             <div class="hero-background"></div>
             <div class="hero-main">
                 <div class="hero-container">
-                    <h1>Fusion Tags</h1>
-                    <p class="clear"><h2>Reference for common Fusion Input Tags</h2></p>
+                    <h1>FusionSDK</h1>
+                    <p class="clear"><h2>Reference for common Fusion Tags</h2></p>
                 </div>
             </div>
         </div>
@@ -107,6 +107,8 @@
                         <li><a href="#sample-fuse-slider">Fuse Slider</a></li>
                         <li><a href="#sample-fuse-transform">Transform Controls</a></li>
                     </ul>
+
+                    <a href="#Registry">Registry</a>
 
                 </ul>
             </div>
@@ -476,6 +478,32 @@ InAngle = self:AddInput("Angle", "Angle", {
     ACID_Center = "Center",
 })
 </code></pre>
+
+                <h2 id="Registry"><span>Registry</span> <a href="#Registry"><i class="fa-solid fa-link"></i></a></h2>
+                <p class="iblock">General tags for FuRegisterClass</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>REGS_Name</td><td>String</td><td>Node name</td></tr>
+                    <tr><td>REGS_URL</td><td>String</td><td>Documentation / help URL</td></tr>
+                    <tr><td>REGS_VersionString</td><td>String</td><td>Usually a build date.</td></tr>
+                    <tr><td>REG_Version</td><td>Number</td><td>Version number.</td></tr>
+                    <tr><td>REGS_OpIconString</td><td>String</td><td>String used in Toolbars (short).</td></tr>
+                    <tr><td>REGS_Company</td><td>String</td><td>Company name used in about page.</td></tr>
+                    <tr><td>REG_TimeVariant</td><td>Bool</td><td>The output of the tool changes with the frame number.</td></tr>
+                    <tr><td>REG_Unpredictable</td><td>Bool</td><td>Avoid caching this tool.</td></tr>
+                </table>
+                <p class="iblock">Modifier specific tags for FuRegisterClass</p>
+                <table>
+                    <tr><td>REGID_DataType</td><td>FuID</td><td>Main Operator Output DataType.</td></tr>
+                    <tr><td>REGID_InputDataType</td><td>FuID</td><td>Main Operator Input DataType.</td></tr>
+                </table>
+                <p class="iblock">Fuse specific tags for FuRegisterClass</p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>REG_Fuse_NoJIT</td><td>Bool</td><td>Disable LuaJIT.</td></tr>
+                    <tr><td>REG_Fuse_NoEdit</td><td>Bool</td><td>Disable the Edit button in inspector.</td></tr>
+                    <tr><td>REG_Fuse_NoReload</td><td>Bool</td><td>Disable the Reload button in inspector.</td></tr>
+                </table>
 
             </div>
         </section>
