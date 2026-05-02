@@ -60,7 +60,7 @@
             <a href="/index.html" class="navbutton"><i class="fa-solid fa-chevron-left"></i><span class="navhome">Home</span></a>
         </div>
         <section class="docs" style="margin-top: -120px; z-index: 10;">
-            <div class="docs-nav fullscreen-only" id="tools-nav">
+            <div class="docs-nav" id="tools-nav">
 
                 <ul id="nav-list">
                     <a href="#Link">Link</a>
@@ -126,7 +126,7 @@
                     <tr><td>LINK_NotColored</td><td>Bool</td><td>Override the Default Yellow,Green etc. colors for LINK_Main Inputs.</td></tr>
                 </table>
 
-<p class="iblock sample-block" id="sample-fuse-slider">Example Image Link (valid as an Input or Output).</p>
+<p class="iblock sample-block">Example Image Link (valid as an Input or Output).</p>
 <pre><code class="language-lua sample">{
     LINKID_DataType = "Image",
     LINK_Main = 1,
@@ -237,7 +237,7 @@
 }</code></pre>
 
                 <h3 id="SliderControl"><span>SliderControl</span> <a href="#SliderControl"><i class="fa-solid fa-link"></i></a></h3>
-                <p class="iblock">An InputControl for Slider Inputs.</p>
+                <p class="iblock">An InputControl for Number Inputs.</p>
                 <table>
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
                     <tr><td>SLCS_LowName</td><td>String</td><td>An extra label below the left side of the slider.</td></tr>
@@ -255,7 +255,7 @@
 }</code></pre>
 
                 <h3 id="ScrewControl"><span>ScrewControl</span> <a href="#ScrewControl"><i class="fa-solid fa-link"></i></a></h3>
-                <p class="iblock">An InputControl for Screw Inputs.</p>
+                <p class="iblock">An InputControl for Number Inputs.</p>
 <pre><code class="language-lua sample">{
     LINKID_DataType = "Number",
     INPID_InputControl = "ScrewControl",
@@ -274,7 +274,7 @@
                 </table>
 
                 <h3 id="RangeControl"><span>RangeControl</span> <a href="#RangeControl"><i class="fa-solid fa-link"></i></a></h3>
-                <p class="iblock">An InputControl for pairs of Number Inputs. ControlID (0,1) is used for each input.</p>
+                <p class="iblock">An InputControl for pairs of Number Input ControlGroups representing a Low to High range. ControlID (0,1) is used for each input.</p>
                 <table>
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
                     <tr><td>RNGCS_LowName</td><td>String</td><td>Adds an additional label below the left side of the slider.</td></tr>
@@ -326,6 +326,7 @@
                     <tr><td>CCS_AddString</td><td>String+</td><td>Add a new entry to the dropdown.</td></tr>
                     <tr><td>CCS_AddSeparator</td><td>String+</td><td>Add a separator to the dropdown, value is ignored.</td></tr>
                 </table>
+
 <pre><code class="language-lua sample">{
     LINKID_DataType = "Number",
     INPID_InputControl = "ComboControl",
