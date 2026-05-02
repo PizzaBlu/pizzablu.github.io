@@ -75,6 +75,8 @@
                         <li><a href="#Scripts">Usage</a></li>
                         <li><a href="#Lerp">Lerp</a></li>
                         <li><a href="#Unlerp">Unlerp</a></li>
+                        <li><a href="#FormatString">Format Strings</a></li>
+                        <li><a href="#Debugging">Debugging</a></li>
                     </ul>
                     <a href="#Types">Reference</a>
                     <ul>
@@ -174,6 +176,61 @@ local percent = lerp(comp.RenderStart, comp.RenderEnd, time);
 return result;</code></pre>
 <p class="iblock">Quick copy & paste snippet</p>
 <pre><code class="language-lua sample">local function unlerp(a,b,c) return (c-a)/(b-a); end;</code></pre>
+
+<h3 id="Remap"><span>Remap</span> <a href="#Remap"><i class="fa-solid fa-link"></i></a></h3>
+<p class="iblock">You can combine an <code>unlerp()</code> and <code>lerp()</code> to remap a value from an input domain to an output range..</p>
+<pre><code class="language-lua sample">:
+-- function definitions
+local function unlerp(a,b,c) return (c-a)/(b-a); end;
+local function lerp(a,b,t) return a + (b-a)*t; end;
+
+-- input variable: "time"
+-- input domain: [RenderStart, RenderEnd]
+-- find where "time" lies between "RenderStart" and "RenderEnd"
+local t = unlerp(comp.RenderStart, comp.RenderEnd, time);
+
+-- output range: [LowValue, HighValue]
+-- calculate that same position between "LowValue" and "HighValue"
+local result = lerp(LowValue, HighValue, t);
+
+return result;</code></pre>
+
+                <h3 id="FormatString"><span>Format Strings</span> <a href="#FormatString"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">You camn use the <code>string.format(str, ...)</code> function to present multiple variables as text in a more readable way.</p>
+                <table>
+                    <tr><th>shorthand</th><th>Type</th><th>Usage</th></tr>
+                    <tr><td><code class="snip">%s</code></td><td>String</td><td><code>string.format("your name is: %s", name);</code></td></tr>
+                    <tr><td><code class="snip">%.<precision>f</code></td><td>Float</td><td><code>string.format("angle=%f.2", 33.3333333); -- "angle=33.33"</code></td></tr>
+                    <tr><td><code class="snip">%i</code></td><td>Integer</td><td><code>string.format("frame=%d", time);</code></td></tr>
+                    <tr><td><code class="snip">%%</code></td><td>Literal</td><td><code>string.format("%i%%", 50); -- "50%"</code></td></tr>
+                </table>
+                <pre><code class="language-lua sample">:
+-- load some values
+local framerate = comp:GetPrefs("Comp.FrameFormat.Rate");
+local seconds = time/framerate;
+local minutes = floor(seconds/60);
+seconds = seconds - (minutes * 60);
+local str = string.format("%i minutes, %.1f seconds", minutes, seconds);
+return Text(str);
+</code></pre>
+
+<h3 id="Debugging"><span>Debugging</span> <a href="#Debugging"><i class="fa-solid fa-link"></i></a></h3>
+<p class="iblock">You can use the <code>print()</code> function to see what your expression is doing each frame.</p>
+<pre><code class="language-lua sample">:
+-- load some values
+local r = TopLeftRed;
+local g = TopLeftGreen;
+local b = TopLeftBlue;
+
+-- check the values of the variables by printing them to the console
+print("red:", r, ", green:", ", blue:", b);             -- "red: 0.5000, green: 0.1000, blue: 1.0000"
+
+-- we can clean this up a bit with a format string
+print(string.format("rgb(%.2f, %.2f, %.2f)", r,g,b));     -- "rgb(0.50, 0.12, 1.00)"
+
+-- output anything
+return r+g+b;
+</code></pre>
 
                 <h2 id="Types"><span>Types</span> <a href="#Types"><i class="fa-solid fa-link"></i></a></h2>
                 <p class="iblock">Parameter Constructors</p>
