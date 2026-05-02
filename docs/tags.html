@@ -389,6 +389,10 @@
                     <tr><td>PC_ControlID</td><td>Number</td><td>This PreviewControls ID within its ControlGroup.</td></tr>
                     <tr><td>PC_GrabPriority</td><td>Number</td><td>The highest GrabPriority control is used when clicking an area with mulitiple PreviewControls in the viewer.</td></tr>
                 </table>
+<pre><code class="language-lua sample">{
+    LINKID_DataType = "Point",
+    INPID_PreviewControl = "CrosshairControl",
+}</code></pre>
 
                 <h3 id="CrosshairControl"><span>CrosshairControl</span> <a href="#CrosshairControl"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">A PreviewControl for Point Inputs.</p>
@@ -396,6 +400,12 @@
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
                     <tr><td>CHC_Style</td><td>FuID</td><td>NormalCross, DiagonalCross, Rectangle, Circle, Rays</td></tr>
                 </table>
+
+<pre><code class="language-lua sample">{
+    LINKID_DataType = "Point",
+    INPID_InputControl = "OffsetControl",
+    INPID_PreviewControl = "CrosshairControl",
+}</code></pre>
 
                 <h3 id="RectangleControl"><span>RectangleControl</span> <a href="#RectangleControl"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">A PreviewControl for Rectangles. Connects to multiple inputs, but lives on the Width Input.</p>
@@ -407,6 +417,25 @@
                     <tr><td>PC_ControlID</td><td>Number</td><td>0 = Width, 1 = Height (see <a href="#PreviewControl">PreivewControl</a>)</td></tr>
                 </table>
 
+<pre><code class="language-lua sample">{
+    LINKS_Name = "Width",
+    LINKID_DataType = "Number",
+    INPID_InputControl = "SliderControl",
+    INPID_PreviewControl = "RectangleControl",
+    INP_Default = 0.5,
+    PC_ControlGroup = 0,
+    PC_ControlID = 0,
+}</code></pre>
+<pre><code class="language-lua sample">{
+    LINKS_Name = "Height",
+    LINKID_DataType = "Number",
+    INPID_InputControl = "SliderControl",
+    INPID_PreviewControl = "RectangleControl",
+    INP_Default = 0.5,
+    PC_ControlGroup = 0,
+    PC_ControlID = 1,
+}</code></pre>
+                
                 <h3 id="EllipseControl"><span>EllipseControl</span> <a href="#EllipseControl"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">A PreviewControl for Ellipses & Circles. Connects to multiple inputs, but lives on the Width Input.</p>
                 <table>
@@ -423,6 +452,13 @@
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
                     <tr><td>ACID_Center</td><td>String</td><td>ID of an Input on this Node to be used as the center position.</td></tr>
                 </table>
+
+<pre><code class="language-lua sample">{
+    LINKID_DataType = "Number",
+    INPID_InputControl = "ScrewControl",
+    INPID_PreviewControl = "AngleControl",
+    ACID_Center = "Center",
+}</code></pre>
 
                 <h2 id="Examples">Examples <a href="#Examples"><i class="fa-solid fa-link"></i></a></h2>
 
