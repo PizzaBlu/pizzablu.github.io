@@ -158,7 +158,7 @@ return result;</code></pre>
 <pre><code class="language-lua sample">local function lerp(a,b,t) return a + (b-a)*t; end;                                      -- Number Interpolation
 local function lerpxy(a,b,t) return Point(a.X + (b.X-a.X)*t, a.Y + (b.Y-a.Y)*t); end;    -- Point Interpolation</code></pre>
 
-<h3 id="Unlerp"><span>Reverse Linear Interpolation</span> <a href="#Unlerp"><i class="fa-solid fa-link"></i></a></h3>
+<h3 id="Unlerp"><span>Inverse Linear Interpolation</span> <a href="#Unlerp"><i class="fa-solid fa-link"></i></a></h3>
 <p class="iblock">Find a position t between two numbers.</p>
 <pre><code class="language-lua sample">:
 -- unlerp function:
