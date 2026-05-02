@@ -158,7 +158,7 @@ return Text(str);                    -- the "output" of the expression script
 local function lerp(a,b,t) return a + (b-a)*t; end;
 
 -- use lerp() to blend between two values based on a Blend slider
-local result = lerp(StartValue, EndValue, Blend);
+local result = lerp(LowValue, HighValue, Blend);
 
 -- output result
 return result;</code></pre>
@@ -176,7 +176,7 @@ local function lerpxy(a,b,t) return Point(a.X + (b.X-a.X)*t, a.Y + (b.Y-a.Y)*t);
 local function unlerp(a,b,c) return (c-a)/(b-a); end;
 
 -- use unlerp() to find the current time as a percentage from start to end
-local percent = lerp(comp.RenderStart, comp.RenderEnd, time);
+local percent = unlerp(comp.RenderStart, comp.RenderEnd, time);
 
 -- output percent
 return result;</code></pre>
