@@ -5,11 +5,9 @@ section.docs {
 
 .container {
     --container-width: 1000px;
+    --container-offset: 0px;
     width: var(--container-width);
-    margin-left: calc((100vw - var(--container-width))/2)
-}
-
-section.docs p {
+    margin-left: calc(var(--container-offset) + (100vw - var(--container-width))/2)
 }
 
 section.docs p.iblock {
@@ -196,6 +194,17 @@ span.space {
     font-weight: 900;
     margin-left: 12px;
     margin-right: 12px;
+}
+
+@media only screen and (max-width: 1600px) {
+    .docs-nav {
+        font-size: 14px;
+        padding-left: calc(32px * var(--scale));
+    }
+
+    .container {
+        --container-offset: 64px;
+    }
 }
 
 @media only screen and (max-width: 1100px) {
