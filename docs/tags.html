@@ -126,6 +126,7 @@
                     <tr><td>LINKID_ID</td><td>String</td><td>The ID of this Link. Also its key in the UserControls object in macros. Should not contain spaces.</td></tr>
                     <tr><td>LINK_Main</td><td>Number</td><td>Inputs/Outputs with <i>LINK_Main</i> set to a positive integer show up as Inputs/Outputs on the Node in the flow view. The first 4 Main input's have a special color assigned to them. <i>LINK_Main also works on non-Image outputs!</i></td></tr>
                     <tr><td>LINK_NotColored</td><td>Bool</td><td>Override the Default Yellow,Green etc. colors for LINK_Main Inputs.</td></tr>
+                    <tr><td>LINK_ForceSave</td><td>Bool</td><td>Always save this Link, even if it has not changed from it's default value.</td></tr>
                 </table>
 
 <p class="iblock sample-block">Example Image Link (valid as an Input or Output).</p>
@@ -244,6 +245,8 @@
                     <tr><td>IC_Visible</td><td>Bool</td><td>Hides the Input from the Inspector window.</td></tr>
                     <tr><td>IC_Disabled</td><td>Bool</td><td>Disables controls from the Inspector window.</td></tr>
                     <tr><td>IC_DisplayedPrecision</td><td>Number</td><td>How many digits are shown after the decimal point in the Inspector.</td></tr>
+                    <tr><td>IC_ControlPage</td><td>Number</td><td>Control page number to add this InputControl to. A special control page, numbered -1, is always visable at the top of the inspector.</td></tr>
+                    <tr><td>ICS_ControlPage</td><td>String</td><td>ID of a control page to add this InputControl to.</td></tr>
                 </table>
 
 <pre><code class="language-lua sample">{
@@ -620,7 +623,8 @@ InAngle = self:AddInput("Angle", "Angle", {
                 <table>
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
                     <tr><td>REGS_Name</td><td>String</td><td>Node name</td></tr>
-                    <tr><td>REGS_URL</td><td>String</td><td>Documentation / help URL</td></tr>
+                    <tr><td>REGS_URL</td><td>String</td><td>Product / Company URL.</td></tr>
+                    <tr><td>REGS_HelpTopic</td><td>String</td><td>Documentation / Support URL.</td></tr>
                     <tr><td>REGS_VersionString</td><td>String</td><td>Usually a build date.</td></tr>
                     <tr><td>REG_Version</td><td>Number</td><td>Version number.</td></tr>
                     <tr><td>REGS_OpIconString</td><td>String</td><td>String used in Toolbars (short).</td></tr>
