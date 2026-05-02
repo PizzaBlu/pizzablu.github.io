@@ -90,6 +90,12 @@
 
             <div class="container main">
 
+                <style>
+                    table th:nth-child(1), table td:nth-child(1) {
+                        width: 256px;
+                    }
+                </style>
+
                 <h2 id="Expressions"><span>Expressions</span> <a href="#Expressions"><i class="fa-solid fa-link"></i></a></h2>
 
                 <h3 id="Time"><span>Time</span> <a href="#Time"><i class="fa-solid fa-link"></i></a></h3>
@@ -113,8 +119,8 @@
                     <tr><td>Default Height</td><td>Number</td><td><code class="language-lua snip">comp:GetPrefs("Comp.FrameFormat.Height")</code></td></tr>
                     <tr><td>Input Width</td><td>Number</td><td><code class="language-lua snip">Input.Width</code></td></tr>
                     <tr><td>Input Height</td><td>Number</td><td><code class="language-lua snip">Input.Height</code></td></tr>
-                    <tr><td>Text+ <code>Input</code> Width</td><td>Number</td><td><code class="language-lua snip">self.Input.DataWindow[3] - self.Input.DataWindow[1]</code></td></tr>
-                    <tr><td>Text+ <code>Input</code> Height</td><td>Number</td><td><code class="language-lua snip">self.Input.DataWindow[4] - self.Input.DataWindow[2]</code></td></tr>
+                    <tr><td><code>Input</code> DataWindow Width (pixels)</td><td>Number</td><td><code class="language-lua snip">self.Input.DataWindow[3] - self.Input.DataWindow[1]</code></td></tr>
+                    <tr><td><code>Input</code> DataWindow Height (pixels)</td><td>Number</td><td><code class="language-lua snip">self.Input.DataWindow[4] - self.Input.DataWindow[2]</code></td></tr>
                 </table>
 
                 <h3 id="Point"><span>Point</span> <a href="#Point"><i class="fa-solid fa-link"></i></a></h3>
