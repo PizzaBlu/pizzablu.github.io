@@ -200,6 +200,7 @@ span.space {
 @media only screen and (max-width: 1600px) {
     .docs-nav {
         font-size: 14px;
+        width: 240px;
         padding-left: calc(32px * var(--scale));
     }
 
