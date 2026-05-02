@@ -116,7 +116,7 @@
             <div class="container main">
 
                 <h2 id="Link"><span>Link</span> <a href="#Link"><i class="fa-solid fa-link"></i></a></h2>
-                <p class="iblock">General settings for Inputs & Outputs</p>
+                <p class="iblock">General tags for Inputs & Outputs</p>
                 <table>
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
                     <tr><td>LINKID_DataType</td><td>String</td><td>Inputs & Outputs can only connect when they share the same DataType.</td></tr>
@@ -147,7 +147,7 @@
 <pre><code class="language-lua">LINKID_DataType = "Number"</code></pre>
 
                 <h2 id="Input"><span>Input</span> <a href="#Input"><i class="fa-solid fa-link"></i></a></h2>
-                <p class="iblock">General settings for Inputs.</p>
+                <p class="iblock">General tags for Inputs.</p>
                 <table>
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
                     <tr><td>INP_External</td><td>Bool</td><td>External Inputs can be connected to an external source for Animation and Expressions.</td></tr>
@@ -360,6 +360,13 @@
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
                     <tr><td>TEC_Lines</td><td>Number</td><td>Number of lines to display.</td></tr>
                 </table>
+
+<pre><code class="language-lua sample">{
+    LINKID_DataType = "Text",
+    INPID_InputControl = "TextEditControl",
+    INPS_DefaultText = "Hello World",
+    TEC_Lines = 1,
+}</code></pre>
 
                 <h3 id="FileControl"><span>FileControl</span> <a href="#FileControl"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">An InputControl for Selecting a File Path.</p>
