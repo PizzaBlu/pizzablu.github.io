@@ -74,6 +74,7 @@
                     <ul>
                         <li><a href="#Scripts">Usage</a></li>
                         <li><a href="#Lerp">Lerp</a></li>
+                        <li><a href="#Unlerp">Unlerp</a></li>
                     </ul>
                     <a href="#Types">Reference</a>
                     <ul>
@@ -132,6 +133,7 @@
                 </table>
 
                 <h2 id="Scripts"><span>Scripts</span> <a href="#Scripts"><i class="fa-solid fa-link"></i></a></h2>
+
 <p class="iblock">You can embed full lua scripts in expressions with the : syntax.</p>
 <pre><code class="language-lua sample">:                                    -- begin script
 local str = "Hello Lua!";            -- define a local variable
@@ -143,19 +145,35 @@ return Text(str);                    -- the "output" of the expression script
 <pre><code class="language-lua sample">:
 -- lerp function:
 -- a = first number
--- b = second Number
+-- b = second number
 -- t = [0..1] where 0=a and 1=b
 local function lerp(a,b,t) return a + (b-a)*t; end;
 
--- use lerp() to blend between two values over the duration of the composition
-local percent = (time-comp.RenderStart)/(comp.RenderEnd-comp.RenderStart);
-local result = lerp(StartValue, EndValue, percent);
+-- use lerp() to blend between two values based on a Blend slider
+local result = lerp(StartValue, EndValue, Blend);
 
 -- output result
 return result;</code></pre>
 <p class="iblock">Quick copy & paste snippet</p>
 <pre><code class="language-lua sample">local function lerp(a,b,t) return a + (b-a)*t; end;                                      -- Number Interpolation
 local function lerpxy(a,b,t) return Point(a.X + (b.X-a.X)*t, a.Y + (b.Y-a.Y)*t); end;    -- Point Interpolation</code></pre>
+
+<h3 id="Unlerp"><span>Reverse Linear Interpolation</span> <a href="#Unlerp"><i class="fa-solid fa-link"></i></a></h3>
+<p class="iblock">Find a position t between two numbers.</p>
+<pre><code class="language-lua sample">:
+-- unlerp function:
+-- a = first number
+-- b = second number
+-- c = a number typically between a and b
+local function unlerp(a,b,c) return (c-a)/(b-a); end;
+
+-- use unlerp() to find the current time as a percentage from start to end
+local percent = lerp(comp.RenderStart, comp.RenderEnd, time);
+
+-- output percent
+return result;</code></pre>
+<p class="iblock">Quick copy & paste snippet</p>
+<pre><code class="language-lua sample">local function unlerp(a,b,c) return (c-a)/(b-a); end;</code></pre>
 
                 <h2 id="Types"><span>Types</span> <a href="#Types"><i class="fa-solid fa-link"></i></a></h2>
                 <p class="iblock">Parameter Constructors</p>
