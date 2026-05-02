@@ -240,6 +240,14 @@ print(string.format("rgb(%.2f, %.2f, %.2f)", r,g,b));     -- "rgb(0.50, 0.12, 1.
 return r+g+b;
 </code></pre>
 
+<p class="iblock">You can use the <code>trace()</code> function to print something inline.</p>
+<pre><code class="language-lua sample">:
+local a = time/2;
+local b = trace(time/2); -- this is the same, but it prints the result
+</code></pre>
+<p class="iblock"><code>trace()</code> is very helpful for one-line expressions because it can easily be inserted anywhere without effecting the result.</p>
+<pre><code class="language-lua sample">sin(trace(time/comp:GetPrefs("Comp.FrameFormat.Rate")) * 90)</code></pre>
+
                 <h2 id="Types"><span>Types</span> <a href="#Types"><i class="fa-solid fa-link"></i></a></h2>
                 <p class="iblock">Parameter Constructors</p>
                 <table>
