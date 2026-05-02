@@ -205,11 +205,13 @@ return result;</code></pre>
                     <tr><td><code class="snip">%%</code></td><td>Literal</td><td><code>string.format("%i%%", 50); -- "50%"</code></td></tr>
                 </table>
                 <pre><code class="language-lua sample">:
--- load some values
+-- a basic clock
 local framerate = comp:GetPrefs("Comp.FrameFormat.Rate");
 local seconds = time/framerate;
 local minutes = floor(seconds/60);
 seconds = seconds - (minutes * 60);
+
+-- format the minutes and seconds variables
 local str = string.format("%i minutes, %.1f seconds", minutes, seconds);
 return Text(str);
 </code></pre>
