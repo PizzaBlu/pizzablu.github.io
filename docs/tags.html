@@ -52,7 +52,7 @@
             <div class="hero-main">
                 <div class="hero-container">
                     <h1>Fusion Tags</h1>
-                    <p class="clear"><h2>Reference for common Fusion Tags</h2></p>
+                    <p class="clear"><h2>Quick Reference</h2></p>
                 </div>
             </div>
         </div>
@@ -447,10 +447,31 @@
                 <p class="iblock">A PreviewControl for Rectangles. Connects to multiple inputs, but lives on the Width Input.</p>
                 <table>
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                    <tr><td>RCD_LockAspect</td><td>Number</td><td>Use a fixed aspect ratio instead of a Height Input.</td></tr>
-                    <tr><td>RCID_Center</td><td>String</td><td>ID of an Input on this Node to be used as the center position.</td></tr>
-                    <tr><td>RCID_Angle</td><td>String</td><td>ID of an Input on this Node to be used for the angle of the rectangle.</td></tr>
                     <tr><td>PC_ControlID</td><td>Number</td><td>0 = Width, 1 = Height (see <a href="#PreviewControl">PreivewControl</a>)</td></tr>
+                </table>
+                <br>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>RCID_Center</td><td>String</td><td>ID of an Input on this Node to be used as the center position.</td></tr>
+                    <tr><td>RCID_CenterX</td><td>String</td><td>ID of an Input on this Node to be used for the X coordinate.</td></tr>
+                    <tr><td>RCID_CenterY</td><td>String</td><td>ID of an Input on this Node to be used for the Y coordinate.</td></tr>
+                    <tr><td>RCID_Angle</td><td>String</td><td>ID of an Input on this Node to be used for the angle of the rectangle.</td></tr>
+                </table>
+                <br>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>RCP_Center</td><td>Input</td><td>Reference to an Input object to be used as the center position.</td></tr>
+                    <tr><td>RCP_CenterX</td><td>Input</td><td>Reference to an Input object to be used as the X coordinate.</td></tr>
+                    <tr><td>RCP_CenterY</td><td>Input</td><td>Reference to an Input object to be used as the Y coordinate.</td></tr>
+                    <tr><td>RCP_Angle</td><td>Input</td><td>Reference to an Input object to be used as the angle.</td></tr>
+                </table>
+                <br>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>RCD_LockAspect</td><td>Number</td><td>Use a fixed aspect ratio instead of a Height Input.</td></tr>
+                    <tr><td>RCD_SetX</td><td>Number</td><td>Set a fixed X position.</td></tr>
+                    <tr><td>RCD_SetY</td><td>Number</td><td>Set a fixed Y position.</td></tr>
+                    <tr><td>RCD_SetAngle</td><td>Number</td><td>Set a fixed rotation.</td></tr>
                 </table>
 
 <pre><code class="language-lua sample">{
@@ -476,11 +497,51 @@
                 <p class="iblock">A PreviewControl for Ellipses & Circles. Connects to multiple inputs, but lives on the Width Input.</p>
                 <table>
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                    <tr><td>ECD_LockAspect</td><td>Number</td><td>Use a fixed aspect ratio instead of a Height Input.</td></tr>
-                    <tr><td>ECID_Center</td><td>String</td><td>ID of an Input on this Node to be used as the center position.</td></tr>
-                    <tr><td>ECID_Angle</td><td>String</td><td>ID of an Input on this Node to be used for the angle of the rectangle.</td></tr>
                     <tr><td>PC_ControlID</td><td>Number</td><td>0 = Width, 1 = Height (see <a href="#PreviewControl">PreivewControl</a>)</td></tr>
                 </table>
+                <br>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>ECID_Center</td><td>String</td><td>ID of an Input on this Node to be used as the center position.</td></tr>
+                    <tr><td>ECID_CenterX</td><td>String</td><td>ID of an Input on this Node to be used for the X coordinate.</td></tr>
+                    <tr><td>ECID_CenterY</td><td>String</td><td>ID of an Input on this Node to be used for the Y coordinate.</td></tr>
+                    <tr><td>ECID_Angle</td><td>String</td><td>ID of an Input on this Node to be used for the angle of the ellipse.</td></tr>
+                </table>
+                <br>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>ECP_Center</td><td>Input</td><td>Reference to an Input object to be used as the center position.</td></tr>
+                    <tr><td>ECP_CenterX</td><td>Input</td><td>Reference to an Input object to be used as the X coordinate.</td></tr>
+                    <tr><td>ECP_CenterY</td><td>Input</td><td>Reference to an Input object to be used as the Y coordinate.</td></tr>
+                    <tr><td>ECP_Angle</td><td>Input</td><td>Reference to an Input object to be used as the angle.</td></tr>
+                </table>
+                <br>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>ECD_LockAspect</td><td>Number</td><td>Use a fixed aspect ratio instead of a Height Input.</td></tr>
+                    <tr><td>ECD_SetX</td><td>Number</td><td>Set a fixed X position.</td></tr>
+                    <tr><td>ECD_SetY</td><td>Number</td><td>Set a fixed Y position.</td></tr>
+                    <tr><td>ECD_SetAngle</td><td>Number</td><td>Set a fixed rotation.</td></tr>
+                </table>
+
+<pre><code class="language-lua sample">{
+    LINKS_Name = "Width",
+    LINKID_DataType = "Number",
+    INPID_InputControl = "SliderControl",
+    INPID_PreviewControl = "EllipseControl",
+    INP_Default = 0.5,
+    PC_ControlGroup = 0,
+    PC_ControlID = 0,
+}</code></pre>
+<pre><code class="language-lua sample">{
+    LINKS_Name = "Height",
+    LINKID_DataType = "Number",
+    INPID_InputControl = "SliderControl",
+    INPID_PreviewControl = "EllipseControl",
+    INP_Default = 0.5,
+    PC_ControlGroup = 0,
+    PC_ControlID = 1,
+}</code></pre>
 
                 <h3 id="AngleControl"><span>AngleControl</span> <a href="#AngleControl"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">A PreviewControl for Numbers.</p>
