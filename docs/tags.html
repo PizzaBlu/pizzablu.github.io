@@ -66,6 +66,8 @@
                     <a href="#Link">Link</a>
                     <ul>
                         <li><a href="#DataType">DataType</a></li>
+                        <li><a href="#AddInput">AddInput</a></li>
+                        <li><a href="#UserControls">UserControls</a></li>
                     </ul>
 
                     <a href="#Input">Input</a>
@@ -144,7 +146,42 @@
                     <tr><td>ScriptVal</td><td>Table</td><td>ScriptVal, ScriptValParam</td></tr>
                 </table>
 
-<pre><code class="language-lua">LINKID_DataType = "Number"</code></pre>
+<pre><code class="language-lua">{
+    LINKID_DataType = "Number"
+}</code></pre>
+
+                <h3 id="AddInput"><span>AddInput</span> <a href="#AddInput"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">In Fuses, Inputs & Outputs are created with the <code>self:AddInput()</code> and <code>self:AddOutput()</code> functions.</p>
+                <code>self:AddInput(name, id, tags)</code> <span class="space">|</span> <code>self:AddOutput(name, id, tags)</code>
+                <table>
+                    <tr><th>Argument</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>name</td><td>String</td><td>Input/Output display name.</td></tr>
+                    <tr><td>id</td><td>String</td><td>Input/Output script ID (no spaces).</td></tr>
+                    <tr><td>tags</td><td>Table</td><td>A table of {tag = value} entries.</td></tr>
+                </table>
+
+<pre><code class="language-lua sample">InControl = self:AddInput("ControlName", "ControlID", {
+    LINKID_DataType = "Number",
+    INPID_InputControl = "SliderControl",
+})</code></pre>
+
+                <h3 id="UserControls"><span>UserControls</span> <a href="#UserControls"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">In Macros, user created Inputs are stored in the UserControls table.</p>
+
+<pre><code class="language-lua sample">{
+    Tools = ordered() {
+        Background1 = Background {
+            UserControls = ordered() {
+                ControlID = {
+                    LINKS_Name = "ControlName",
+                    LINKID_DataType = "Number",
+                    INPID_InputControl = "SliderControl",
+                }
+            }
+        }
+    }
+}</code></pre>
+
 
                 <h2 id="Input"><span>Input</span> <a href="#Input"><i class="fa-solid fa-link"></i></a></h2>
                 <p class="iblock">General tags for Inputs.</p>
@@ -210,7 +247,6 @@
                 </table>
 
 <pre><code class="language-lua sample">{
-    LINKID_DataType = "Number",
     INPID_InputControl = "SliderControl",
 }</code></pre>
 
