@@ -128,13 +128,11 @@
                     <tr><td>LINK_NotColored</td><td>Bool</td><td>Override the Default Yellow, Green etc. colors for LINK_Main Inputs.</td></tr>
                     <tr><td>LINK_ForceSave</td><td>Bool</td><td>Always save this Link, even if it has not changed from it's default value.</td></tr>
                 </table>
-                <div style="size: 0px; opacity: 0;">Additional tags LINK_MemoryOpenCL, LINK_MemoryCUDA, LINK_MemoryGPU, LINK_MemoryCPU, LINK_SaveSource are available.</div>
-
-<p class="iblock sample-block">Example Image Link (valid as an Input or Output).</p>
 <pre><code class="language-lua sample">{
     LINKID_DataType = "Image",
     LINK_Main = 1,
 }</code></pre>
+                <div style="size: 0px; opacity: 0;">Additional tags LINK_MemoryOpenCL, LINK_MemoryCUDA, LINK_MemoryGPU, LINK_MemoryCPU, LINK_SaveSource are available.</div>
 
                 <h3 id="DataType"><span>DataType</span> <a href="#DataType"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">Available DataTypes for Inputs & Outputs</p>
@@ -147,11 +145,11 @@
                     <tr><td>FuID</td><td>FuID</td><td>FuID, FuIDParam, ComboIDControl</td></tr>
                     <tr><td>ScriptVal</td><td>Table</td><td>ScriptVal, ScriptValParam</td></tr>
                 </table>
-                <div style="size: 0px; opacity: 0;">Additional DataTypes uint64_t, uint32_t, size_t, imagedata_cpu_ptr_t, imagedata_gpu_ptr_t are available.</div>
 
 <pre><code class="language-lua">{
     LINKID_DataType = "Number"
 }</code></pre>
+                <div style="size: 0px; opacity: 0;">Additional DataTypes uint64_t, uint32_t, size_t, imagedata_cpu_ptr_t, imagedata_gpu_ptr_t are available.</div>
 
                 <h3 id="AddInput"><span>AddInput</span> <a href="#AddInput"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">In Fuses, Inputs & Outputs are created with the <code>self:AddInput()</code> and <code>self:AddOutput()</code> functions.</p>
@@ -382,7 +380,6 @@
                     <tr><td>CCS_AddString</td><td>String+</td><td>Add a new entry to the dropdown.</td></tr>
                     <tr><td>CCS_AddSeparator</td><td>String+</td><td>Add a separator to the dropdown, value is ignored.</td></tr>
                 </table>
-                <div style="size: 0px; opacity: 0;">An additional tag: CCS_Display can be set to "List" or "CheckList" for alternate formatting.</div>
 
 <pre><code class="language-lua sample">{
     LINKID_DataType = "Number",
@@ -392,6 +389,7 @@
     [2] = { CCS_AddString = "Wrap" },
     [3] = { CCS_AddString = "Duplicate" },
 }</code></pre>
+                <div style="size: 0px; opacity: 0;">An additional tag: CCS_Display can be set to "List" or "CheckList" for alternate formatting.</div>
 
                 <h3 id="ComboIDControl"><span>ComboIDControl</span> <a href="#ComboIDControl"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">An InputControl for DataType FuID dropdown Inputs.</p>
