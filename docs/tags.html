@@ -128,6 +128,7 @@
                     <tr><td>LINK_NotColored</td><td>Bool</td><td>Override the Default Yellow, Green etc. colors for LINK_Main Inputs.</td></tr>
                     <tr><td>LINK_ForceSave</td><td>Bool</td><td>Always save this Link, even if it has not changed from it's default value.</td></tr>
                 </table>
+                <div style="size: 0px; opacity: 0;">Additional tags LINK_MemoryOpenCL, LINK_MemoryCUDA, LINK_MemoryGPU, LINK_MemoryCPU, LINK_SaveSource are available.</div>
 
 <p class="iblock sample-block">Example Image Link (valid as an Input or Output).</p>
 <pre><code class="language-lua sample">{
@@ -146,6 +147,7 @@
                     <tr><td>FuID</td><td>FuID</td><td>FuID, FuIDParam, ComboIDControl</td></tr>
                     <tr><td>ScriptVal</td><td>Table</td><td>ScriptVal, ScriptValParam</td></tr>
                 </table>
+                <div style="size: 0px; opacity: 0;">Additional DataTypes uint64_t, uint32_t, size_t, imagedata_cpu_ptr_t, imagedata_gpu_ptr_t are available.</div>
 
 <pre><code class="language-lua">{
     LINKID_DataType = "Number"
@@ -380,6 +382,7 @@
                     <tr><td>CCS_AddString</td><td>String+</td><td>Add a new entry to the dropdown.</td></tr>
                     <tr><td>CCS_AddSeparator</td><td>String+</td><td>Add a separator to the dropdown, value is ignored.</td></tr>
                 </table>
+                <div style="size: 0px; opacity: 0;">An additional tag: CCS_Display can be set to "List" or "CheckList" for alternate formatting.</div>
 
 <pre><code class="language-lua sample">{
     LINKID_DataType = "Number",
@@ -398,6 +401,7 @@
                     <tr><td>CCID_AddID</td><td>FuID+</td><td>Insert after CCS_AddString to set the FuID value it returns when selected.</td></tr>
                     <tr><td>CCS_AddSeparator</td><td>String+</td><td>Add a separator to the dropdown, value is ignored.</td></tr>
                 </table>
+                <div style="size: 0px; opacity: 0;">An additional tag: CCS_Display can be set to "List" or "CheckList" for alternate formatting.</div>
 
                 <h3 id="MultiButtonControl"><span>MultiButtonControl</span> <a href="#MultiButtonControl"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">An InputControl for mutually exclusive buttons.</p>
