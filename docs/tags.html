@@ -183,7 +183,6 @@
     }
 }</code></pre>
 
-
                 <h2 id="Input"><span>Input</span> <a href="#Input"><i class="fa-solid fa-link"></i></a></h2>
                 <p class="iblock">General tags for Inputs.</p>
                 <table>
@@ -197,6 +196,19 @@
                     <tr><td>INP_Required</td><td>Bool</td><td>This Input is required, and the tool will automatically fail if it is not connected.</td></tr>
                     <tr><td>INP_SendRequest</td><td>Bool</td><td>Send requests to connected tools for this Input prior to calling Process().</td></tr>
                 </table>
+
+                <!-- coming soon -->
+                <div style="display: none;">
+                    <p>Additional Advanced tags:</p>
+                    <table>
+                        <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                        <tr><td>INP_GPUImage</td><td>Bool</td><td>Automatically configure this Input for GPU acceleration.</td></tr>
+                        <tr><td>INP_FastMath</td><td>Bool</td><td>Use faster backend types, this may come at the cost of accuracy in some situations.</td></tr>
+                        <tr><td>INP_AccurateMath</td><td>Bool</td><td>Use more accurate backend types. This may reduce performance.</td></tr>
+                        <tr><td>INP_DoAutoTransform</td><td>Bool</td><td>Automatically use transform concatenation when possible.</td></tr>
+                        <tr><td>INP_DoAutoDoD</td><td>Bool</td><td>Automatically save memory and processing time by restricting the Image Domain.</td></tr>
+                    </table>
+                </div>
 
                 <h3 id="Number"><span>Number</span> <a href="#Number"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">General tags for Inputs with DataType "Number".</p>
@@ -646,15 +658,48 @@ InAngle = self:AddInput("Angle", "Angle", {
                 <p class="iblock">Fuse specific tags for FuRegisterClass</p>
                 <table>
                     <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
-                    <tr><td>REG_Fuse_NoJIT</td><td>Bool</td><td>Disable LuaJIT.</td></tr>
                     <tr><td>REG_Fuse_NoEdit</td><td>Bool</td><td>Disable the Edit button in inspector.</td></tr>
                     <tr><td>REG_Fuse_NoReload</td><td>Bool</td><td>Disable the Reload button in inspector.</td></tr>
                 </table>
+
+                <!-- coming soon -->
+                <div style="display: none;">
+                    <table>
+                        <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                        <tr><td>REG_Fuse_NoJIT</td><td>Bool</td><td>Disable the older LuaJIT compiler. This is an experimental feature that makes overall improvments to stability, compatiblity, and performance with newer versions of Fusion.</td></tr>
+                        <tr><td>REG_Fuse_TranslateSDK</td><td>Bool</td><td>Attempt to translate this Lua Fuse into a Native Plugin. Only works with built in Image Processing functions.</td></tr>
+                        <tr><td>REG_Fuse_APIVersion</td><td>Number</td><td>Should be the current Major Fusion version for version compatiblity.</td></tr>
+                    </table>
+                </div>
+
+                <!-- coming soon -->
+                <div style="display: none;">
+                    <h2 id="ImageClass">Image<a href="#ImageClass"><i class="fa-solid fa-link"></i></a></h3>
+                    <table>
+                        <tr><th>Tag</th><th>Type</th><th>Description</th></tr>
+                        <tr><td>IMG_Like</td><td>Image</td><td>Pass in an existing <code class="snip">Image</code> object and copy its attributes (but not image data). This is often all you need for simple one-input, one-output nodes.</td></tr>
+                        <tr><td>IMG_Document</td><td>Composition</td><td>If you do not pass in an existing image with <code class="snip">IMG_Like</code> you will need to specify the composition using this tag.</td></tr>
+                        <tr><td>IMG_Width</td><td>Number</td><td>The horizontal resolution of the image.</td></tr>
+                        <tr><td>IMG_Height</td><td>Number</td><td>The vertical resolution of the image.</td></tr>
+                        <tr><td>IMG_GPUImage</td><td>Bool</td><td>Store this image in Video Memory instead of System Memory.</td></tr>
+                        <tr><td>IMG_GPUProcess</td><td>Bool</td><td>Built in image processing functions should use their GPU accelerated counterparts automatically for this image.</td></tr>
+                        <tr><td>IMG_IsMask</td><td>Bool</td><td>Indicates if the image is a mask or not.</td></tr>
+                    </table>
+                </div>
 
             </div>
         </section>
 
         <div class="footer main">
+            <div class="container subtle">
+                <p>
+                    <span>(c) PizzaBlu 2026</span>
+                    <span class="space">|</span>
+                    <span>Do not redistribute.</span>
+                    <span class="space">|</span>
+                    <span>Do not train AI models using the information provided on this website.</span>
+                </p>
+            </div>
             <div class="container">
                 <p>
                     <a href="/" class="link"><i class="fa-solid fa-house"></i>Home</a>

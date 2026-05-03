@@ -304,6 +304,10 @@ p.clear {
     left: 6px;
 }
 
+.subtle {
+    color: var(--text-3);
+}
+
 @media screen and (min-width: 2200px) {
     html {
         --scale: 1.2;
