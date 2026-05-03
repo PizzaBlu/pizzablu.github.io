@@ -30,15 +30,20 @@ Allow: /
 User-Agent: *
 Content-signal: search=yes, ai-train=yes, ai-input=yes
 Allow: /index.html
+Disallow: /docs/*
 
 User-agent: CCBot
 Disallow: *.css
+Disallow: /docs/*
 
 User-agent: GPTBot
 Disallow: *.css
+Disallow: /docs/*
 
 User-agent: ClaudeBot
 Disallow: *.css
+Disallow: /docs/*
 
 User-agent: Bytespider
 Disallow: *.css
+Disallow: /docs/*
