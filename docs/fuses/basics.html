@@ -51,7 +51,7 @@
             <div class="hero-background"></div>
             <div class="hero-main">
                 <div class="hero-container">
-                    <h1>Fuse101</h1>
+                    <h1>Fuse 101</h1>
                     <p class="clear"><h2>Beginners Guide to Fuses in DaVinci Resolve Fusion</h2></p>
                 </div>
             </div>
@@ -80,12 +80,14 @@
 
                     </ul>
 
-                    <a href="Process">Process</a>
+                    <a href="#Process">Process</a>
                     <ul>
                         <li><a href="#GetValue">GetValue</a></li>
                         <li><a href="#Set">Set</a></li>
                         <li><a href="#Image">Image</a></li>
                     </ul>
+
+                    <a href="#Sample">Sample Code</a>
 
                 </ul>
             </div>
@@ -129,8 +131,8 @@
                     <tr><td>class_type</td><td>Int</td><td>A constant indicating what type of tool we are creating. Common class types include<code class="snip">CT_Tool</code>, <code class="snip">CT_SourceTool</code>, <code class="snip">CT_SinkTool</code>, <code class="snip">CT_ConsoleUtility</code>, and <code class="snip">CT_Modifier</code>.</td></tr>
                     <tr><td>tags</td><td>Table</td><td>Most functions in the FusionSDK end with a <code class="snip">tags</code> argument, a <code class="snip">tags</code> table contains key value pairs. The <code class="snip">tags</code> table is where most of the magic happens.</td></tr>
                 </table>
-                <pre><code class="language-lua sample">FuRegisterClass("PizzaBlu.ExampleClass", CT_Tool, {
-    REGS_Name = "ExampleClass",
+                <pre><code class="language-lua sample">FuRegisterClass("PizzaBlu.SampleOpacity", CT_Tool, {
+    REGS_Name = "SampleOpacity",
     REG_NoPreCalcProcess = true,    -- combines the PreCalcProcess() and Process() functions, this is fine for most tools
 });</code></pre>
 
@@ -152,8 +154,8 @@
 
 <pre><code class="language-lua sample">function Create()
 
-    -- create a "Brightness" slider
-    InBrightness = self:AddInput("Brightness", "Brightness", {
+    -- create an "Opacity" slider
+    InOpacity = self:AddInput("Opacity", "Opacity", {
         LINKID_DataType = "Number",
         INPID_InputControl = "SliderControl",
         INP_Default = 1.0,
@@ -185,7 +187,7 @@ end</code></pre>
 
                 <h4 id="GetValue"><code class="snip">Input:GetValue(Request)</code></h4>
                 <p class="iblock">The <code class="snip">GetValue()</code> shortcut is how we extract our <code class="snip">Input</code>s data from the <code class="snip">Request</code>. Not every DataType will require the <code class="snip">.Value</code> at the end, but our <code class="snip">Number</code> does.</p>
-<pre><code class="language-lua sample">local brightness = InBrightness:GetValue(req).Value;
+<pre><code class="language-lua sample">local opacity = InOpacity:GetValue(req).Value;
 local img = InImage:GetValue(req);
 </code></pre>
 
@@ -211,18 +213,62 @@ local img = InImage:GetValue(req);
                     <tr><td>IMG_Width</td><td>Number</td><td>The horizontal resolution of the image.</td></tr>
                     <tr><td>IMG_Height</td><td>Number</td><td>The vertical resolution of the image.</td></tr>
                 </table>
-<pre><code class="language-lua sample">local out = Image({IMG_Like = img});</code></pre>
+<pre><code class="language-lua sample">-- if we handle copying the image data ourselves
+local out = Image({IMG_Like = img});</code></pre>
 
                 <p class="iblock">We will use the <code class="snip">Image:CopyOf()</code> method to create a new copy of our input image with the image data already copied over.</p>
-<pre><code class="language-lua sample">local out = img:CopyOf();</code></pre>
+<pre><code class="language-lua sample">-- let fusion copy the image data for us
+local out = img:CopyOf();</code></pre>
 
                 <p class="iblock">
-                    To apply our Brightness adjustment we will use the built in <code class="snip">Image:Gain()</code> method. It is best to use the built in
+                    To apply our Opacity adjustment we will use the built in <code class="snip">Image:Gain()</code> method. It is best to use the built in
                     image processing methods when possible to take advantage of the faster non-lua code powering them. The <code class="snip">Gain()</code>
                     It is important we call <code class="snip">Gain()</code> on our own copy of the image, rather than the input or we would be messing with another
                     tools memory, which is very dangerous.
-                    The <code class="snip">Gain()</code> method
+                    The <code class="snip">Gain()</code> method accepts 4 arguments. One for each of the Red, Green, Blue, and Alpha channels.
                 </p>
+<pre><code class="language-lua sample">out:Gain(opacity, opacity, opacity, opacity);</code></pre>
+
+                <p class="iblock">Now, lets put all of that together to create our <code class="snip">Process()</code> function.</p>
+<pre><code class="language-lua sample">function Process(req)
+    local opacity = InOpacity:GetValue(req).Value;
+    local img = InImage:GetValue(req);
+    local out = img:CopyOf();
+    out:Gain(opacity, opacity, opacity, opacity);
+    OutImage:Set(req, out);
+end</code></pre>
+
+                <h2 id="Sample">Sample Code</h2>
+                <p class="iblock">Here's what that looks like all together. If you haven't figured it by now, we just created our own Opacity node!</p>
+
+<pre><code class="language-lua sample">FuRegisterClass("PizzaBlu.SampleOpacity", CT_Tool, {
+    REGS_Name = "SampleOpacity",
+    REG_NoPreCalcProcess = true,
+});
+
+function Create()
+    InOpacity = self:AddInput("Opacity", "Opacity", {
+        LINKID_DataType = "Number",
+        INPID_InputControl = "SliderControl",
+        INP_Default = 1.0,
+    });
+    InImage = self:AddInput("Input", "Input", {
+        LINKID_DataType = "Image",
+        LINK_Main = 1,
+    });
+    OutImage = self:AddOutput("Output", "Output", {
+        LINKID_DataType = "Image",
+        LINK_Main = 1,
+    });
+end
+
+function Process(req)
+    local opacity = InOpacity:GetValue(req).Value;
+    local img = InImage:GetValue(req);
+    local out = img:CopyOf();
+    out:Gain(opacity, opacity, opacity, opacity);
+    OutImage:Set(req, out);
+end</code></pre>
 
             </div>
         </section>
