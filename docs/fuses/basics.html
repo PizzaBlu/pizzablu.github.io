@@ -76,6 +76,16 @@
                     </ul>
 
                     <a href="#Create">Create</a>
+                    <ul>
+
+                    </ul>
+
+                    <a href="Process">Process</a>
+                    <ul>
+                        <li><a href="#GetValue">GetValue</a></li>
+                        <li><a href="#Set">Set</a></li>
+                        <li><a href="#Image">Image</a></li>
+                    </ul>
 
                 </ul>
             </div>
@@ -112,7 +122,7 @@
                     <code class="snip">FuRegisterClass()</code> is called when DaVinci Resolve or Fusion first loads our <code class="snip">.fuse</code> file on startup.
                     This means that any changes to <code class="snip">FuRegisterClass</code> require restarting the app. This also includes creating new <code class="snip">.fuse</code> files.
                 </p>
-                <h4><code class="snip" id="FuRegisterClassArguments">FuRegisterClass(id, class_type, tags);</code></h4>
+                <h4 id="FuRegisterClassArguments"><code class="snip">FuRegisterClass(id, class_type, tags);</code></h4>
                 <table>
                     <tr><th>Argument</th><th>Type</th><th>Usage</th></tr>
                     <tr><td>id</td><td>String</td><td>A unique <code>String</code> for this tool. This is what will show up in <code class="snip">.setting</code>s files.</td></tr>
@@ -163,6 +173,57 @@
     });
 
 end</code></pre>
+
+                <h2 id="Process">Process()</h2>
+                <p class="iblock">
+                    The <code class="snip">Process(req)</code> function is the most important part of our fuse. It gets called whenever Fusion needs us to to process new data, usually once per frame.
+                    It will also get called whenever our controls change, or if a node we are connected to changes.
+                    The <code class="snip">Process</code> Function accepts one argument: the <code class="snip">Request</code> object which contains important information
+                    like the frame being requested and the values of our inputs at that time. It is our job here to update the <code class="snip">Request</code>
+                    with our own <code class="snip">Output</code> data.
+                </p>
+
+                <h4 id="GetValue"><code class="snip">Input:GetValue(Request)</code></h4>
+                <p class="iblock">The <code class="snip">GetValue()</code> shortcut is how we extract our <code class="snip">Input</code>s data from the <code class="snip">Request</code>. Not every DataType will require the <code class="snip">.Value</code> at the end, but our <code class="snip">Number</code> does.</p>
+<pre><code class="language-lua sample">local brightness = InBrightness:GetValue(req).Value;
+local img = InImage:GetValue(req);
+</code></pre>
+
+                <h4 id="Set"><code class="snip">Output:Set(Request, Parameter)</code></h4>
+                <p class="iblock">
+                    The <code class="snip">Set()</code> shortcut is how we update the <code class="snip">Request</code> with our output data.
+                    A <code class="snip">Parameter</code> the generic name for any <code class="snip">Input</code> or <code class="snip">Output</code> object.
+                    Make sure to call the correct constructor for your output parameter.
+                    The example below passes our input image through unchanged, so it doesn't need to construct a new <code class="snip">Image</code> yet.
+                </p>
+<pre><code class="language-lua sample">OutImage:Set(req, img);</code></pre>
+
+                <h4 id="Image"><code class="snip">Image(tags)</code></h4>
+                <p class="iblock">
+                    The <code class="snip">Image()</code> constructor is how we create a new <code class="snip">Image</code>.
+                    Like most functions in the FusionSDK, you can configure it with a <code class="snap">tags</code> table.
+                    Note that if <code class="snip">IMG_Like</code> is used, you can still override specific tags.
+                </p>
+                <table>
+                    <tr><th>Tag</th><th>Type</th><th>Usage</th></tr>
+                    <tr><td>IMG_Like</td><td>Image</td><td>Pass in an existing <code class="snip">Image</code> object and copy its attributes (but not image data). This is often all you need for simple one-input, one-output nodes.</td></tr>
+                    <tr><td>IMG_Document</td><td>Composition</td><td>If you do not pass in an existing image with <code class="snip">IMG_Like</code> you will need to specify the composition using this tag.</td></tr>
+                    <tr><td>IMG_Width</td><td>Number</td><td>The horizontal resolution of the image.</td></tr>
+                    <tr><td>IMG_Height</td><td>Number</td><td>The vertical resolution of the image.</td></tr>
+                </table>
+<pre><code class="language-lua sample">local out = Image({IMG_Like = img});</code></pre>
+
+                <p class="iblock">We will use the <code class="snip">Image:CopyOf()</code> method to create a new copy of our input image with the image data already copied over.</p>
+<pre><code class="language-lua sample">local out = img:CopyOf();</code></pre>
+
+                <p class="iblock">
+                    To apply our Brightness adjustment we will use the built in <code class="snip">Image:Gain()</code> method. It is best to use the built in
+                    image processing methods when possible to take advantage of the faster non-lua code powering them. The <code class="snip">Gain()</code>
+                    It is important we call <code class="snip">Gain()</code> on our own copy of the image, rather than the input or we would be messing with another
+                    tools memory, which is very dangerous.
+                    The <code class="snip">Gain()</code> method
+                </p>
+
             </div>
         </section>
 
