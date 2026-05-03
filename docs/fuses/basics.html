@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <!-- Mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/theme.css">
+        <link rel="stylesheet" href="/docs/docs.css">
+        <link rel="stylesheet" href="/docs/hljs.css">
+
+        <style>
+            /* Outfit Latin */
+            @font-face {
+                font-family: 'Outfit';
+                font-style: normal;
+                font-weight: 100 900;
+                font-display: swap;
+                src: url(https://fonts.gstatic.com/s/outfit/v14/QGYvz_MVcBeNP4NJtEtqUYTkntBJ.woff2) format('woff2');
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+        </style>
+
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Preconnect -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- Preload -->
+        <link rel="preload" href="/assets/tile_half.png" as="image">
+
+        <!-- Title -->
+        <title>Fusion Reference - PizzaBlu</title>
+    
+        <!-- favicon -->
+        <link rel="icon" href="/icon.svg" type="image/svg+xml">
+
+        <!-- Animation Continuity -->
+        <script>
+            const elapsed = Date.now() % 240000;
+            document.documentElement.style.setProperty('--animation-delay', `-${elapsed}ms`);
+        </script>
+    </head>
+
+    <body style="background-color: #171b1f; color: #ffffff; overflow-x: hidden; width: 100vw; margin: 0; padding: 0; font-family: 'Outfit', sans-serif;">
+        <div class="hero" id="hero">
+            <div class="hero-background"></div>
+            <div class="hero-main">
+                <div class="hero-container">
+                    <h1>Fuse101</h1>
+                    <p class="clear"><h2>Beginners Guide to Fuses in DaVinci Resolve Fusion</h2></p>
+                </div>
+            </div>
+        </div>
+        <div class="overlay overlay-top-left fullscreen-only">
+            <a href="/index.html" class="navbutton"><i class="fa-solid fa-chevron-left"></i><span class="navhome">Home</span></a>
+        </div>
+        <section class="docs" style="margin-top: -120px; z-index: 10;">
+            <div class="docs-nav fullscreen-only" id="tools-nav">
+
+                <ul id="nav-list">
+
+                    <a href="#Intro">Intro to Fuses</a>
+                    <ul>
+                        <li><a href="#Files">Fuse Files</a></li>
+                        <li><a href="#Overview">Overview</a></li>
+                    </ul>
+
+                    <a href="#FuRegisterClass">FuRegisterClass</a>
+                    <ul>
+                        <li><a href="#FuRegisterClassArguments">Arguments</a></li>
+                    </ul>
+
+                    <a href="#Create">Create</a>
+
+                </ul>
+            </div>
+
+            <style>
+                table th:nth-child(1), table td:nth-child(1) {
+                    width: 256px;
+                }
+            </style>
+
+            <div class="container main">
+
+                <h2 id="Intro">What is a Fuse?</h2>
+                <p class="iblock">Fuses are Lua scripts that allow you to create your own tools in DaVinci Resolve Fusion. You can create everything from regular nodes, to modifier nodes, or even console commands. This guide will just go over the most basic use cases to get you started. You can check out my <a href="/docs/tags.html">FusionSDK Reference</a> page after to dive deeper.</p>
+
+                <h3 id="Files">Where do they go?</h3>
+                <p class="iblock">Fuses have their own <code class="snip">Fuses</code> folder. It is located in the same directroy as your <code class="snip">Macros</code> folder. If you don't know where your <code class="snip">Macros</code> folder is, you might need to familiarize yourself a bit more with Fusion before continuing. Macros offer a great way to create your own tools with much less technical knowladge and effort.</p>
+                <pre><code class="language-lua sample">Fusion/
+  - Fuses/
+  - Macros/
+  - Templates/
+  - Modules/</code></pre>
+
+                <h3 id="Overview">Anatomy of a Fuse</h3>
+                <p class="iblock">Every Fuse must have 3 things:</p>
+                <ul>
+                    <li>A call to <code class="snip">FuRegisterClass()</code>.</li>
+                    <li>An override of the <code class="snip">Create()</code> function.</li>
+                    <li>An override of the <code class="snip">Process()</code> function.</li>
+                </ul>
+
+                <h2 id="FuRegisterClass">FuRegisterClass</h3>
+                <p class="iblock">
+                    <code class="snip">FuRegisterClass()</code> is called when DaVinci Resolve or Fusion first loads our <code class="snip">.fuse</code> file on startup.
+                    This means that any changes to <code class="snip">FuRegisterClass</code> require restarting the app. This also includes creating new <code class="snip">.fuse</code> files.
+                </p>
+                <h4><code class="snip" id="FuRegisterClassArguments">FuRegisterClass(id, class_type, tags);</code></h4>
+                <table>
+                    <tr><th>Argument</th><th>Type</th><th>Usage</th></tr>
+                    <tr><td>id</td><td>String</td><td>A unique <code>String</code> for this tool. This is what will show up in <code class="snip">.setting</code>s files.</td></tr>
+                    <tr><td>class_type</td><td>Int</td><td>A constant indicating what type of tool we are creating. Common class types include<code class="snip">CT_Tool</code>, <code class="snip">CT_SourceTool</code>, <code class="snip">CT_SinkTool</code>, <code class="snip">CT_ConsoleUtility</code>, and <code class="snip">CT_Modifier</code>.</td></tr>
+                    <tr><td>tags</td><td>Table</td><td>Most functions in the FusionSDK end with a <code class="snip">tags</code> argument, a <code class="snip">tags</code> table contains key value pairs. The <code class="snip">tags</code> table is where most of the magic happens.</td></tr>
+                </table>
+                <pre><code class="language-lua sample">FuRegisterClass("PizzaBlu.ExampleClass", CT_Tool, {
+    REGS_Name = "ExampleClass",
+    REG_NoPreCalcProcess = true,    -- combines the PreCalcProcess() and Process() functions, this is fine for most tools
+});</code></pre>
+
+                <h2 id="Create">Create</h2>
+                <p class="iblock">
+                    This is where we create any <code class="snip">Input</code>s and <code class="snip">Output</code>s that our tool needs. <code class="snip">Create()</code> is called both
+                    when a tool is first added, and when the comp is loaded again. If <code class="snip">Create()</code> is being called when loading an existing node
+                    Fusion will automatically update the inputs to their saved values after we create them. 
+                    There are a few methods that you will frequently see used in the <code class="snip">Create()</code> function:
+                </p>
+                <table>
+                    <tr><th>Method</th><th>Type</th><th>Usage</th></tr>
+                    <tr><td><code class="snip">self:AddInput(name, id, tags)</code></td><td><code class="snip">Input</code></td><td>Create Inputs & setup controls.</td></tr>
+                    <tr><td><code class="snip">self:AddOutput(name, id, tags)</code></td><td><code class="snip">Output</code></td><td>Create Outputs.</td></tr>
+                    <tr><td><code class="snip">self:BeginControlNest(name, id, expand)</code><td><code class="snip">Input</code></td></td><td>Inputs between a call to <code class="snip">BeginControlNest</code> and <code class="snip">EndControlNest</code> will automatically be grouped into a collapsable nest.</td></tr>
+                    <tr><td><code class="snip">self:EndControlNest()</code><td><code class="snip">nil</code></td><td>See above.</td></td></tr>
+                </table>
+                <p class="iblock">You can find a more complete reference for the tags for these functions in my <a href="/docs/tags.html">FusionSDK Reference</a>.</p>
+
+<pre><code class="language-lua sample">function Create()
+
+    -- create a "Brightness" slider
+    InBrightness = self:AddInput("Brightness", "Brightness", {
+        LINKID_DataType = "Number",
+        INPID_InputControl = "SliderControl",
+        INP_Default = 1.0,
+    });
+
+    -- our main Image Input
+    -- main Inputs/Outputs show up in the Fusion node graph, instead of the Inspector
+    InImage = self:AddInput("Input", "Input", {
+        LINKID_DataType = "Image",
+        LINK_Main = 1,                                  -- this is the first main input
+    });
+
+    -- our main Image Output
+    OutImage = self:AddOutput("Output", "Output", {
+        LINKID_DataType = "Image",
+        LINK_Main = 1,                                  -- this is the first main output
+    });
+
+end</code></pre>
+            </div>
+        </section>
+
+        <div class="footer main">
+            <div class="container">
+                <p>
+                    <a href="/" class="link"><i class="fa-solid fa-house"></i>Home</a>
+                    <span class="space">|</span>
+                    <a href="/fusion/discord" class="link"><i class="fa-brands fa-discord"></i>Discord</a>
+                    <span class="space">|</span>
+                    <a href="https://www.youtube.com/channel/UCxOrC01PVvxYe_JzB9Q8nqQ" class="link"><i class="fa-brands fa-youtube"></i>Videos</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Syntax Highlighting -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/lua.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+        <!-- Google Analytics -->
+        <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV" fetchpriority="low"></script>
+        <script defer>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-PJX6P9P9GV');
+        </script>
+    </body>
+</html>

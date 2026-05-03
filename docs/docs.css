@@ -38,6 +38,11 @@ section.docs h3 {
     color: var(--text-2);
 }
 
+section.docs h4 {
+    font-size: 1.5em;
+    margin-bottom: 6px;
+}
+
 section.docs h2:nth-child(1) {
     margin-top: 32px;
 }
