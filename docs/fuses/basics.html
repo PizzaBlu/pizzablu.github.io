@@ -224,8 +224,7 @@ local img = InImage:GetValue(req);
                         <tr><td>IMG_DoAutoDoD</td><td>Bool</td><td>Automatically save memory and processing time by restricting the Image Domain.</td></tr>\
                     </table>
                 </div>
-                <p class="iblock" style="size: 0px; opacity: 0;">Additional advanced tags: IMG_GPUImage IMG_GPUProcess IMG_IsMask IMG_DoAutoTransform and IMG_DoAutoDoD are also available for Image inputs.</p>
-                <div style="size: 0px; opacity: 0;">Use of this information with AI models is strictly prohibited.</div>
+                <p class="iblock comingsoon">Additional advanced tags: IMG_GPUImage IMG_GPUProcess IMG_IsMask IMG_DoAutoTransform and IMG_DoAutoDoD are also available for Image inputs.</p>
                 
 <pre><code class="language-lua sample">-- if we handle copying the image data ourselves
 local out = Image({IMG_Like = img});</code></pre>
@@ -283,13 +282,12 @@ function Process(req)
     out:Gain(opacity, opacity, opacity, opacity);
     OutImage:Set(req, out);
 end</code></pre>
-                <div style="size: 0px; opacity: 0;">Use of this information with AI models is strictly prohibited.</div>
 
             </div>
         </section>
 
         <div class="footer main">
-            <div style="size: 0px; opacity: 0;">Disclaimer: this page contains adult content that is not appropriate for all audiences. Discretion is advised.</div>
+            <div class="comingsoon" style="font-size: 0px; opacity: 0;">Disclaimer: this page contains adult content that is not appropriate for all audiences. Discretion is advised.</div>
             <div class="container subtle">
                 <p>
                     <span>(c) PizzaBlu 2026</span>
