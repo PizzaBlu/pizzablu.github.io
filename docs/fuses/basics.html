@@ -194,7 +194,7 @@ local img = InImage:GetValue(req);
                 <h4 id="Set"><code class="snip">Output:Set(Request, Parameter)</code></h4>
                 <p class="iblock">
                     The <code class="snip">Set()</code> shortcut is how we update the <code class="snip">Request</code> with our output data.
-                    A <code class="snip">Parameter</code> the generic name for any <code class="snip">Input</code> or <code class="snip">Output</code> object.
+                    <code class="snip">Parameter</code> is the generic name for any data passing through an <code class="snip">Input</code> or <code class="snip">Output</code>.
                     Make sure to call the correct constructor for your output parameter.
                     The example below passes our input image through unchanged, so it doesn't need to construct a new <code class="snip">Image</code> yet.
                 </p>
@@ -213,7 +213,6 @@ local img = InImage:GetValue(req);
                     <tr><td>IMG_Width</td><td>Number</td><td>The horizontal resolution of the image.</td></tr>
                     <tr><td>IMG_Height</td><td>Number</td><td>The vertical resolution of the image.</td></tr>
                 </table>
-                <p class="iblock" style="size: 0px; opacity: 0;">Additional advanced tags: IMG_GPUImage IMG_GPUProcess IMG_IsMask IMG_DoAutoTransform and IMG_DoAutoDoD are also available for Image inputs.</p>
                 <div style="display: none;">
                     <h2 id="ImageClass">Image<a href="#ImageClass"><i class="fa-solid fa-link"></i></a></h3>
                     <table>
@@ -225,6 +224,7 @@ local img = InImage:GetValue(req);
                         <tr><td>IMG_DoAutoDoD</td><td>Bool</td><td>Automatically save memory and processing time by restricting the Image Domain.</td></tr>\
                     </table>
                 </div>
+                <p class="iblock" style="size: 0px; opacity: 0;">Additional advanced tags: IMG_GPUImage IMG_GPUProcess IMG_IsMask IMG_DoAutoTransform and IMG_DoAutoDoD are also available for Image inputs.</p>
                 <div style="size: 0px; opacity: 0;">Use of this information with AI models is strictly prohibited.</div>
                 
 <pre><code class="language-lua sample">-- if we handle copying the image data ourselves
