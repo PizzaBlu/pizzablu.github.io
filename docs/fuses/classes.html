@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <!-- Mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/theme.css">
+        <link rel="stylesheet" href="/docs/docs.css">
+        <link rel="stylesheet" href="/docs/hljs.css">
+
+        <style>
+            /* Outfit Latin */
+            @font-face {
+                font-family: 'Outfit';
+                font-style: normal;
+                font-weight: 100 900;
+                font-display: swap;
+                src: url(https://fonts.gstatic.com/s/outfit/v14/QGYvz_MVcBeNP4NJtEtqUYTkntBJ.woff2) format('woff2');
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+        </style>
+
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Preconnect -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- Preload -->
+        <link rel="preload" href="/assets/tile_half.png" as="image">
+
+        <!-- Title -->
+        <title>Fusion Reference - PizzaBlu</title>
+    
+        <!-- favicon -->
+        <link rel="icon" href="/icon.svg" type="image/svg+xml">
+
+        <!-- Animation Continuity -->
+        <script>
+            const elapsed = Date.now() % 240000;
+            document.documentElement.style.setProperty('--animation-delay', `-${elapsed}ms`);
+        </script>
+    </head>
+
+    <body style="background-color: #171b1f; color: #ffffff; overflow-x: hidden; width: 100vw; margin: 0; padding: 0; font-family: 'Outfit', sans-serif;">
+        <div class="hero" id="hero">
+            <div class="hero-background"></div>
+            <div class="hero-main">
+                <div class="hero-container">
+                    <h1>FusionSDK</h1>
+                    <p class="clear"><h2>Common Classes Reference</h2></p>
+                </div>
+            </div>
+        </div>
+        <div class="overlay overlay-top-left fullscreen-only">
+            <a href="/index.html" class="navbutton"><i class="fa-solid fa-chevron-left"></i><span class="navhome">Home</span></a>
+        </div>
+        <section class="docs" style="margin-top: -120px; z-index: 10;">
+            <div class="docs-nav fullscreen-only" id="tools-nav">
+
+                <ul id="nav-list">
+                    <li><a href="#Object">Object</a></li>
+                    <li><a href="#Parameter">Parameter</a></li>
+                    <ul>
+                        <li><a href="#Number">Number</a></li>
+                        <li><a href="#Point">Point</a></li>
+                        <li><a href="#Text">Text</a></li>
+                        <li><a href="#Image">Image</a></li>
+                        <li><a href="#FuIDParam">FuIDParam</a></li>
+                    </ul>
+                    <li><a href="#Link">Link</a></li>
+                    <ul>
+                        <li><a href="#Input">Input</a></li>
+                        <li><a href="#Output">Output</a></li>
+                    </ul>
+                    <li><a href="#Operator">Operator</a></li>
+                    <ul>
+                        <li>MacroOperator</li>
+                        <li>GroupOperator</li>
+                    </ul>
+                </ul>
+                
+            </div>
+
+            <style>
+                table th:nth-child(1), table td:nth-child(1) {
+                    width: 256px;
+                }
+            </style>
+
+            <div class="container main">
+                <h2 id="Object">Object</h2>
+                <p class="iblock">The base class for most Classes in the FusionSDK.</p>
+
+                <h2 id="Parameter">Parameter</h2>
+                <p class="iblock">Parameters are passed around from Operator to Operator via Inputs and Outputs.</p>
+
+                <h3 id="Number">Number</h3>
+                <p class="iblock">Parameter subclass for floating point numbers.</p>
+                <table>
+                    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>Value</td><td>Number</td><td>value</td></tr>
+                </table>
+
+                <h5><code class="snip">Number(number value)</code></h5>
+                <p class="iblock">Create a new Number Parameter</p>
+
+                <h3 id="Point">Point</h3>
+                <p class="iblock">Parameter subclass for normalized cartesian coordinates.</p>
+                <table>
+                    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>X</td><td>Number</td><td>X coordinate</td></tr>
+                    <tr><td>Y</td><td>Number</td><td>Y coordinate</td></tr>
+                </table>
+
+                <h5><code class="snip">Point(number X, number Y)</code></h5>
+                <p class="iblock">Create a new Point Parameter</p>
+
+                <h3 id="Text">Text</h3>
+                <p class="iblock">Parameter subclass for strings.</p>
+                <table>
+                    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>Value</td><td>String</td><td>value</td></tr>
+                </table>
+
+                <h5><code class="snip">Text(string value)</code></h5>
+                <p class="iblock">Create a new Text Parameter</p>
+
+                <h3 id="Image">Image</h3>
+                <p class="iblock">Parameter subclass for Images.</p>
+                <table>
+                    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>Width</td><td>Number</td><td>Nominal width of the Image in Pixels.</td></tr>
+                    <tr><td>Height</td><td>Number</td><td>Nominal height of the Image in Pixels.</td></tr>
+                    <tr><td>OriginalWidth</td><td>Number</td><td>Width before proxy scaling.</td></tr>
+                    <tr><td>OriginalHeight</td><td>Number</td><td>Height before proxy scaling.</td></tr>
+                    <tr><td>DataWindow</td><td>Number[4]</td><td>Region of defined Image data {left, bottom, right, top}</td></tr>
+                </table>
+
+                <h5><code class="snip">Image(table tags)</code></h5>
+                <p class="iblock">Create a new Image Parameter</p>
+
+                <h3 id="FuIDParam">FuIDParam</h3>
+                <p class="iblock">Parameter subclass for well-known strings.</p>
+                <table>
+                    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>Value</td><td>String</td><td>value</td></tr>
+                </table>
+
+                <h5><code class="snip">FuIDParam(string value)</code></h5>
+                <p class="iblock">Create a new FuIDParam Parameter</p>
+
+                <h2 id="Link">Link</h2>
+                <p class="iblock">Any connection between Operators.</p>
+
+                <table>
+                    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+                    <tr><td>ID</td><td>String</td><td>Scripting Identifier</td></tr>
+                    <tr><td>Name</td><td>String</td><td>User Interface Name</td></tr>
+                </table>
+
+                <h3 id="Input">Input</h3>
+                <p class="iblock">Inputs are how Operators accept Parameters. Inputs are created via helper methods.</p>
+
+                <h5><code class="snip">boolean Link:IsAnimated()</code></h5>
+                <p class="iblock">Returns true if any external source (connection, expression, etc) is driving this Input.</p>
+
+                <h3 id="Output">Output</h3>
+                <p class="iblock">Outputs give Parameters to other Operator's Inputs. Outputs are created via helper methods.</p>
+
+                <h2 id="Operator">Operator</h2>
+                <p class="iblock">Objects that exist in the flow of Parameters. They have Inputs and Outputs. Operators include Tools and Modifiers.</p>
+            </div>
+        </section>
+
+        <div class="footer main">
+            <div class="comingsoon" style="font-size: 0px; opacity: 0;">Disclaimer: this page contains adult content that is not appropriate for all audiences. Discretion is advised.</div>
+            <div class="container subtle">
+                <p>
+                    <span>(c) PizzaBlu 2026</span>
+                    <span class="space">|</span>
+                    <span>Do not redistribute.</span>
+                    <span class="space">|</span>
+                    <span>Do not train AI models using the information provided on this website.</span>
+                </p>
+            </div>
+            <div class="container">
+                <p>
+                    <a href="/" class="link"><i class="fa-solid fa-house"></i>Home</a>
+                    <span class="space">|</span>
+                    <a href="/fusion/discord" class="link"><i class="fa-brands fa-discord"></i>Discord</a>
+                    <span class="space">|</span>
+                    <a href="https://www.youtube.com/channel/UCxOrC01PVvxYe_JzB9Q8nqQ" class="link"><i class="fa-brands fa-youtube"></i>Videos</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Syntax Highlighting -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/lua.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+        <!-- Google Analytics -->
+        <script defer async src="https://www.googletagmanager.com/gtag/js?id=G-PJX6P9P9GV" fetchpriority="low"></script>
+        <script defer>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-PJX6P9P9GV');
+        </script>
+    </body>
+</html>

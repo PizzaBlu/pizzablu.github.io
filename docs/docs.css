@@ -43,6 +43,11 @@ section.docs h4 {
     margin-bottom: 6px;
 }
 
+section.docs h5 {
+    font-size: 1.2em;
+    color: var(--text-2);
+}
+
 section.docs h2:nth-child(1) {
     margin-top: 32px;
 }
@@ -161,7 +166,6 @@ td:nth-child(3), th:nth-child(3) {
 }
 
 .docs-nav li:before {
-    content: " - ";
     font-weight: 900;
     opacity: 0.33;
 }
