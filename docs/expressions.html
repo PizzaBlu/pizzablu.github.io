@@ -83,6 +83,7 @@
                         <li><a href="#Types">Constructors</a></li>
                         <li><a href="#Math">Math</a></li>
                         <li><a href="#Trig">Trig</a></li>
+                        <li><a href="#LuaMath">Lua</a></li>
                     </ul>
 
                 </ul>
@@ -112,7 +113,7 @@
                 </table>
 
                 <h3 id="Image"><span>Image</span> <a href="#Image"><i class="fa-solid fa-link"></i></a></h3>
-                <p class="iblock">Expressions related to the size of images</p>
+                <p class="iblock">Expressions related to the size of images. Note that not every node uses the ID <code>Input</code> for its image inputs.</p>
                 <table>
                     <tr><th>Meaning</th><th>Type</th><th>Code</th></tr>
                     <tr><td>Default Width</td><td>Number</td><td><code class="language-lua snip">comp:GetPrefs("Comp.FrameFormat.Width")</code></td></tr>
@@ -279,6 +280,50 @@ local b = trace(time/2); -- this is the same, but it prints the result
                     <tr><td>rad(degrees)</td><td>Number</td><td>Degrees to radians.</td></tr>
                 </table>
 
+                <h3 id="LuaMath"><span>Lua</span> <a href="#LuaMath"><i class="fa-solid fa-link"></i></a></h3>
+                <p class="iblock">Because Expressions are Lua code, you can take advantage of the built in Lua math library.</p>
+                <table>
+                    <tr><th>Function</th><th>Type</th><th>Description</th></tr>
+                    <tr><td><code class="snip">math.abs(x)</code></td><td>Number</td><td>Absolute Value of x</td></tr>
+                    <tr><td><code class="snip">math.sqrt(x)</code></td><td>Number</td><td>Square root of x</td></tr>
+
+                    <tr><td><code class="snip">math.ceil(n)</code></td><td>Number</td><td>Round up to an integer</td></tr>
+                    <tr><td><code class="snip">math.floor(n)</code></td><td>Number</td><td>Round down to an integer</td></tr>
+
+                    
+                    <tr><td><code class="snip">math.max(...)</code></td><td>Number</td><td>Returns the largest number</td></tr>
+                    <tr><td><code class="snip">math.min(...)</code></td><td>Number</td><td>Returns the lowest number</td></tr>
+                    
+                    <tr><td><code class="snip">math.exp(n)</code></td><td>Number</td><td>e^n</td></tr>
+                    <tr><td><code class="snip">math.log(n)</code></td><td>Number</td><td>Natural logarithm of n</td></tr>
+
+                    <tr><td><code class="snip">math.modf(n)</code></td><td>Number, Number</td><td>Returns integer part, fraction part</td></tr>
+                    <tr><td><code class="snip">math.fmod(n1, n2)</code></td><td>Number</td><td>The remainder of n1/n2</td></tr>
+
+                    <tr><td><code class="snip">math.random()</code></td><td>Number</td><td>Pseudo-random float between 0 and 1</td></tr>
+                    <tr><td><code class="snip">math.random(lower, upper)</code></td><td>Number</td><td>Pseudo-random integer between lower and upper</td></tr>
+                    <tr><td><code class="snip">math.randomseed()</code></td><td>Number</td><td>Sets a seed for the pseudo-random generator</td></tr>
+                    
+                    <tr><td><code class="snip">math.tointeger(any)</code></td><td>Number</td><td>String to ineger</td></tr>
+                    <tr><td><code class="snip">math.type(n)</code></td><td>String|nil</td><td>Returns one of "float" "integer" and nil</td></tr>
+                
+                    <tr><td><code class="snip">math.pi</code></td><td>Number</td><td>Constant PI</td></tr>
+                    <tr><td><code class="snip">math.huge</code></td><td>Number</td><td>Constant positive infinity</td></tr>
+                    <tr><td><code class="snip">math.mininteger</code></td><td>Number</td><td>Constant lowest possible integer</td></tr>
+                    <tr><td><code class="snip">math.maxinteger</code></td><td>Number</td><td>Constant largest possible integer</td></tr>
+
+                    <tr><td><code class="snip">math.deg(radians)</code></td><td>Number</td><td>Radians to Degrees</td></tr>
+                    <tr><td><code class="snip">math.rad(degrees)</code></td><td>Number</td><td>Degrees to Radians</td></tr>
+
+                    <tr><td><code class="snip">math.sin(radians)</code></td><td>Number</td><td>Trig sin function</td></tr>
+                    <tr><td><code class="snip">math.cos(radians)</code></td><td>Number</td><td>Trig cosine function</td></tr>
+                    <tr><td><code class="snip">math.tan(radians)</code></td><td>Number</td><td>Trig tangent function</td></tr>
+
+                    <tr><td><code class="snip">math.asin(value)</code></td><td>Number</td><td>Inverse sin</td></tr>
+                    <tr><td><code class="snip">math.acos(value)</code></td><td>Number</td><td>Inverse cosine</td></tr>
+                    <tr><td><code class="snip">math.atan(value)</code></td><td>Number</td><td>Inverse tangent</td></tr>
+                </table>
+            
             </div>
         </section>
 
