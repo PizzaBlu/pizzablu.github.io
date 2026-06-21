@@ -1,3 +1,3 @@
 {
-    {Rule = "Reject", Message="Please update DaVinci Resolve.", Plugin={"0.0.0.0", "1000.1000.1000.1000"}, Host={"21.0.0.25", "21.0.0.28"} },
+    {Rule = "Reject", Message="Third-party plugins are not supported on this version of DaVinci Resolve.", Plugin={"0.0.0.0", "1000.1000.1000.1000"}, Host={"21.0.0.25", "21.0.0.28"} },
 }
