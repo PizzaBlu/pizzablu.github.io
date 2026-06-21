@@ -2,11 +2,11 @@
     {
         Rule = "Reject",
         Plugin={"0", "1000"}, Host={"21.0.0.25", "21.0.0.28"},
-        Message="Please update DaVinci Resolve, third-party plugins are not supported in this build.",
+        Message="Please update DaVinci Resolve, third-party plugins are not supported in this build of Fusion.",
     },
     {
         Rule = "Accept",
         Plugin={"0", "1000"}, Host={"20", "1000"},
-        Message="Automate requires DaVinci Resolve version 20 or later.",
+        Message="Automate requires DaVinci Resolve Studio version 20 or later.",
     }
 }
