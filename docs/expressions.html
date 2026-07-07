@@ -191,6 +191,7 @@ return percent;</code></pre>
 local lo = 0.0;         -- lowest value
 local hi = 1.0;         -- highest value
 local rate = 1.0;       -- cycles per second
+local phase = -0.25;    -- offset relative to one cycle
 
 -- function definitions
 local function unlerp(a,b,c) return (c-a)/(b-a); end;
@@ -198,7 +199,7 @@ local function lerp(a,b,t) return a + (b-a)*t; end;
 
 -- calculations
 local seconds = time/comp:GetPrefs("Comp.FrameFormat.Rate");
-local theta = 2 * math.pi * rate * seconds;
+local theta = 2 * math.pi * (phase + rate * seconds);
 local t = unlerp(-1.0, 1.0, sin(theta));
 return lerp(lo, hi, t);</code></pre>
 
