@@ -180,16 +180,19 @@ local function unlerp(a,b,c) return (c-a)/(b-a); end;
 local percent = unlerp(comp.RenderStart, comp.RenderEnd, time);
 
 -- output percent
-return result;</code></pre>
+return percent;</code></pre>
 <p class="iblock">Quick copy & paste snippet</p>
 <pre><code class="language-lua sample">local function unlerp(a,b,c) return (c-a)/(b-a); end;</code></pre>
 
 <h3 id="Remap"><span>Remap</span> <a href="#Remap"><i class="fa-solid fa-link"></i></a></h3>
-<p class="iblock">You can combine an <code>unlerp()</code> and <code>lerp()</code> to remap a value from an input domain to an output range..</p>
+<p class="iblock">You can combine <code>unlerp()</code> and <code>lerp()</code> to remap a value from an input domain to an output range.</p>
 <pre><code class="language-lua sample">:
 -- function definitions
 local function unlerp(a,b,c) return (c-a)/(b-a); end;
 local function lerp(a,b,t) return a + (b-a)*t; end;
+
+local lo = -1.0;
+local hi =  1.0;
 
 -- input variable: "time"
 -- input domain: [RenderStart, RenderEnd]
@@ -198,9 +201,22 @@ local t = unlerp(comp.RenderStart, comp.RenderEnd, time);
 
 -- output range: [LowValue, HighValue]
 -- calculate that same position between "LowValue" and "HighValue"
-local result = lerp(LowValue, HighValue, t);
+return lerp(lo, hi, t);</code></pre>
 
-return result;</code></pre>
+<h3 id="SinWave"><span>Wave Functions</span> <a href="#SinWave"><i class="fa-solid fa-link"></i></a></h3>
+<p class="iblock">You can remap the <code>sin()</code> function to create a repeating wave.</p>
+<pre><code class="language-lua sample">:
+-- function definitions
+local function unlerp(a,b,c) return (c-a)/(b-a); end;
+local function lerp(a,b,t) return a + (b-a)*t; end;
+
+-- setup
+local lo = 0.0;         -- lowest value
+local hi = 1.0;         -- highest value
+local rate = 1.0;       -- cycles per second
+
+local t = unlerp(-1.0, 1.0, sin(2 * math.pi * rate*time/comp:GetPrefs("Comp.FrameFormat.Rate")));
+return lerp(lo, hi, t);</code></pre>
 
                 <h3 id="FormatString"><span>Format Strings</span> <a href="#FormatString"><i class="fa-solid fa-link"></i></a></h3>
                 <p class="iblock">You can use the <code>string.format(str, ...)</code> function to present multiple variables as text in a more readable way.</p>
