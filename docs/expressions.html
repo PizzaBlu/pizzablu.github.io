@@ -215,7 +215,9 @@ local lo = 0.0;         -- lowest value
 local hi = 1.0;         -- highest value
 local rate = 1.0;       -- cycles per second
 
-local t = unlerp(-1.0, 1.0, sin(2 * math.pi * rate*time/comp:GetPrefs("Comp.FrameFormat.Rate")));
+local seconds = time/comp:GetPrefs("Comp.FrameFormat.Rate");
+local theta = 2 * math.pi * rate * seconds;
+local t = unlerp(-1.0, 1.0, sin(theta));
 return lerp(lo, hi, t);</code></pre>
 
                 <h3 id="FormatString"><span>Format Strings</span> <a href="#FormatString"><i class="fa-solid fa-link"></i></a></h3>
