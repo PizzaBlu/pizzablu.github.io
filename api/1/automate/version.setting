@@ -1,5 +1,5 @@
 {
-    Release = 2,
-    Version = "0.14.2",
+    Release = 4,
+    Version = "0.14.5",
     Download = "https://store.pizzablufx.com/products/automate",
 }
