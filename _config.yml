@@ -23,7 +23,7 @@ navigation:
     url: "https://www.youtube.com/channel/UCxOrC01PVvxYe_JzB9Q8nqQ"
     icon: "fa-brands fa-youtube"
 
-navigation-product:
+navigation-basic:
   - home:
     name: "Home"
     url: "/index.html"
