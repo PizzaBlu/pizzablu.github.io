@@ -10,10 +10,6 @@ colors:
   text: "#ffffff"
 
 navigation:
-  # - home:
-  #   name: "Home"
-  #   url: "/index.html"
-  #   icon: "fa-solid fa-home"
   - discord:
     name: "Support"
     url: "https://discord.gg/VMbRGbBeT6"
@@ -28,3 +24,8 @@ navigation-basic:
     name: "Home"
     url: "/index.html"
     icon: "fa-solid fa-home"
+
+links:
+  home: "/"
+  eula: "/eula.html"
+  privacy: "/privacy.html"

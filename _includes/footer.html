@@ -1,0 +1,26 @@
+<footer>
+    <div class="row">
+        <p class="small">© PizzaBlu 2026 - All rights reserved</p>
+    </div>
+    <div class="row">
+        <p class="small">
+            <a href="{{ site.links.home }}" class="subtle-link">home</a> -
+            <a href="{{ site.links.eula }}" class="subtle-link">eula</a> -
+            <a href="{{ site.links.privacy }}" class="subtle-link">privacy</a> -
+            <a href="/thanks" class="subtle-link">thanks</a>
+        </p>
+    </div>
+    <div class="row">
+        <p class="small">
+            {% include email.html user="support" domain="pizzablufx" tld="com" text="Contact Support" %}
+        </p>
+    </div>
+</footer>
+
+<script>
+window.minimalAnalytics = {
+    trackingId: 'G-PJX6P9P9GV',
+    autoTrack: true,
+};
+</script>
+<script defer src="https://unpkg.com/@minimal-analytics/ga4/dist/index.js" fetchpriority="low"></script>

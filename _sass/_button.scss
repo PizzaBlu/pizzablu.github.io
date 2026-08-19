@@ -1,9 +1,5 @@
 .link-button-list {
     display: flex;
-
-    // @media (max-width: $breakpoint-mobile) {
-    //     flex-direction: column;
-    // }
 }
 
 .link-button {
@@ -53,4 +49,17 @@
         padding-left: clamp(16px, $vwpx*16, 1000px);
         padding-right: clamp(20px, $vwpx*20, 1000px);
     }
+}
+
+.inline-btn {
+    @include link-clean;
+    
+    color: rgba(255,255,255,0.5);
+    background-color: rgba(0,0,0, 0.1);
+    outline: 1px solid $outline-color;
+    border: none;
+    border-radius: 8px;
+    padding: 1px 12px;
+    margin: 0px 2px;
+    font-size: 0.75rem;
 }

@@ -4,7 +4,9 @@
 $breakpoint-mobile: {{ site.breakpoints.mobile }};
 
 @import "theme";
+@import "link";
 @import "mobile";
 @import "button";
 @import "section";
 @import "hero";
+@import "footer";

@@ -1,0 +1,15 @@
+$link-color: hsl(219, 79%, 66%);
+$link-color-subtle: hsl(219, 26%, 44%);
+
+@mixin link-clean {
+    text-decoration: none;
+    color: inherit;
+}
+
+a {
+    color: $link-color;
+}
+
+a.subtle-link {
+    color: $link-color-subtle;
+}

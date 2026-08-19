@@ -12,11 +12,16 @@ $text-color: #ffffff;
 $text-size: clamp(16pt, 1vw, 120px);
 $text-mobile-size: clamp(10pt, 1.5vw, 64px);
 
+$text-2: rgb(200,200,200);
+$text-3: rgba(80,80,85,0.8);
+$text-4: rgba(96,96,96, 0.8);
+$text-5: rgba(64,64,72, 0.8);
+
 $outline-color: rgba(12,12,12, 50%);
 
 $button-text: rgb(210,210,230);
-$button-background: hsla(216deg, 56%, 42%, 0.32);
-$button-background-hover: hsla(216, 100%, 64%, 0.66);
+$button-background: hsla($background-hue, 56%, 42%, 0.32);
+$button-background-hover: hsla($background-hue, 100%, 64%, 0.66);
 
 $vwpx: 0.078vw;
 

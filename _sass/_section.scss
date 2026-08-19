@@ -1,4 +1,16 @@
-section {
+@mixin section {
     max-width: 1200px;
     margin: auto;
+}
+
+section {
+    @include section;
+}
+
+section.dense {
+    font-size: 0.75em;
+}
+
+section.narrow {
+    max-width: 1024px;
 }
