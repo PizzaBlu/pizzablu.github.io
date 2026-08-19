@@ -1,0 +1,9 @@
+<div class="link-button-list">
+    {% for link in include.links %}
+        <a href="{{ link.url }}" class="link-button"
+        {% if link.external %}target="_blank" rel="noopener"{% endif %}>
+            <i class="{{ link.icon }}"></i>
+            {{ link.name }}
+        </a>
+    {% endfor %}
+</div>

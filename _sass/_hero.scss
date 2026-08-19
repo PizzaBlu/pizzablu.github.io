@@ -1,0 +1,96 @@
+:root {
+    --scale: 1;
+
+    --hero-calculation-height: var(--hero-height);
+    --hero-calculated-container-height: var(--hero-calculation-height);
+    --hero-calculated-inner-height: calc(var(--hero-calculation-height) * var(--hero-ratio) * var(--hero-content-ratio));
+    --hero-calculated-content-height: calc(var(--hero-calculation-height) * var(--hero-ratio));
+
+    @media (max-width: $breakpoint-mobile) {
+        --hero-calculation-height: var(--hero-mobile-height);
+    }
+}
+
+.hero-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: var(--hero-calculated-container-height);
+
+    background: linear-gradient(
+        hsl(
+            $background-hue,
+            $background-saturation * 2,
+            $background-lightness * 1.12
+        ) 80%,
+        rgba(0, 0, 0, 0) 100%
+    );
+
+    isolation: isolate;
+
+    z-index: -1001;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    height: var(--hero-calculated-container-height);
+
+    background: url("/assets/tile_half.png") repeat;
+    -webkit-animation: scrolling 360s linear infinite;
+    -moz-animation: scrolling 360s linear infinite;
+    -o-animation: scrolling 360s linear infinite;
+    animation: scrolling 360s linear infinite;
+    animation-delay: var(--animation-delay, 0ms);
+
+    background-size: clamp(128px, 8vw, 512px);
+
+    mask-image: linear-gradient(
+        rgba(0, 0, 0, 36%) 0%,
+        rgba(0, 0, 0, 56%) 35%,
+        rgba(0, 0, 0, 4%) 66%,
+        transparent
+    );
+    transform: translateZ(0);
+    pointer-events: none;
+}
+
+.hero-front {
+    position: absolute;
+    inset: 0;
+    height: var(--hero-calculated-inner-height);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    h1 {
+        font-size: clamp(32px, 10vw, 600px);
+        font-weight: 900;
+        line-height: 5vw;
+        letter-spacing: -0.1vw;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    h2 {
+        font-size: clamp(8px, 2vw, 300px);
+        opacity: 0.4;
+        font-weight: 150;
+    }
+}
+
+.hero-spacer {
+    width: 100%;
+    height: var(--hero-calculated-content-height);
+}
+
+@keyframes scrolling {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: calc(8192px * var(--scale)) calc(8192px * var(--scale));
+    }
+}

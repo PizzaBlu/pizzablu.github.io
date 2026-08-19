@@ -1,0 +1,31 @@
+$background-hue: 216deg;
+$background-saturation: 10%;
+$background-lightness: 10%;
+
+$background-color: hsl(
+    $background-hue,
+    $background-saturation,
+    $background-lightness
+);
+
+$text-color: #ffffff;
+$text-size: clamp(16pt, 1vw, 120px);
+$text-mobile-size: clamp(10pt, 1.5vw, 64px);
+
+$outline-color: rgba(12,12,12, 50%);
+
+$button-text: rgb(210,210,230);
+$button-background: hsla(216deg, 56%, 42%, 0.32);
+$button-background-hover: hsla(216, 100%, 64%, 0.66);
+
+$vwpx: 0.078vw;
+
+body {
+    background-color: $background-color;
+    color: $text-color;
+    font-size: $text-size;
+
+    @media (max-width: $breakpoint-mobile) {
+        font-size: $text-mobile-size;
+    }
+}

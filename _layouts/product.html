@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body>
+        {% include hero.html
+            links=site.navigation-product
+            height="720px"
+            mobile-height="400px"
+            ratio="0.66"
+            mobile-ratio="0.5"
+        %}
+        {{ content }}
+        {% include footer.html %}
+    </body>
+</html>

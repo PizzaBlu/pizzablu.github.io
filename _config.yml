@@ -1,0 +1,30 @@
+title: PizzaBluFX
+url: https://pizzablufx.com
+domain: pizzablufx.com
+
+breakpoints:
+  mobile: "810px"
+
+colors:
+  background: "hsl(216deg 10% 10%)"
+  text: "#ffffff"
+
+navigation:
+  # - home:
+  #   name: "Home"
+  #   url: "/index.html"
+  #   icon: "fa-solid fa-home"
+  - discord:
+    name: "Support"
+    url: "https://discord.gg/VMbRGbBeT6"
+    icon: "fa-brands fa-discord"
+  - youtube:
+    name: "Videos"
+    url: "https://www.youtube.com/channel/UCxOrC01PVvxYe_JzB9Q8nqQ"
+    icon: "fa-brands fa-youtube"
+
+navigation-product:
+  - home:
+    name: "Home"
+    url: "/index.html"
+    icon: "fa-solid fa-home"
