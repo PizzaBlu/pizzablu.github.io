@@ -3,8 +3,8 @@
 :root {
     --hero-height: {{ include.height | default: "960px" }};
     --hero-center: {{ include.center | default: "25%" }};
-    --hero-ratio: {{ include.ratio | default: "0.75" }};
-    --hero-content-ratio: {{ include.content-ratio | default: "0.9" }};
+    --hero-ratio: {{ include.ratio | default: "0.7" }};
+    --hero-content-ratio: {{ include.content-ratio | default: "0.8" }};
 
     --hero-mobile-height: {{ include.mobile-height | default: "960px" }};
     --hero-mobile-ratio: {{ include.mobile-ratio | default: "0.4" }};
@@ -12,7 +12,14 @@
     --hero-mobile-content-ratio: {{ include.mobile-content-ratio | default: "0.9" }};
 }
 
+{% if page.hero-tall %}
+.hero-front h1 {
+    line-height: 1em;
+}
+{% endif %}
+
 </style>
+
 <div class="hero-container">
     <div class="hero-background"></div>
 </div>

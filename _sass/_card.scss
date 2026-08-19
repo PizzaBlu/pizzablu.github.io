@@ -1,0 +1,45 @@
+div.card {
+    position: relative;
+
+    width: 400px;
+    height: 480px;
+
+    background-color: $card-background;
+    outline: 1px solid $outline-color;
+    border-radius: 8px;
+
+    color: black;
+
+    img {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 120%;
+        margin-left: -10%;
+    }
+}
+
+section.carousel {
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+.carousel-container {
+    padding: 8px;
+
+    .carousel-items {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 16px;
+        margin: none;
+    }
+
+    overflow-x: scroll;
+    overflow-y: visible;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

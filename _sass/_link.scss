@@ -10,6 +10,10 @@ a {
     color: $link-color;
 }
 
+link-clean {
+    @include link-clean;
+}
+
 a.subtle-link {
     color: $link-color-subtle;
 }

@@ -8,6 +8,20 @@ $background-color: hsl(
     $background-lightness
 );
 
+// $card-background: hsla(
+//     $background-hue,
+//     $background-saturation * 4,
+//     95%,
+//     0.95
+// );
+
+$card-background: hsla(
+    $background-hue,
+    $background-saturation * 2,
+    16%,
+    1
+);
+
 $text-color: #ffffff;
 $text-size: clamp(16pt, 1vw, 120px);
 $text-mobile-size: clamp(10pt, 1.5vw, 64px);

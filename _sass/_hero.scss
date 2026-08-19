@@ -29,8 +29,7 @@
     );
 
     isolation: isolate;
-
-    z-index: -1001;
+    z-index: -200;
 }
 
 .hero-background {
@@ -55,6 +54,8 @@
     );
     transform: translateZ(0);
     pointer-events: none;
+
+    z-index: -200;
 }
 
 .hero-front {
@@ -74,12 +75,14 @@
         letter-spacing: -0.1vw;
         margin: 0px;
         padding: 0px;
+        // user-select: none;
     }
 
     h2 {
         font-size: clamp(8px, 2vw, 18pt);
         opacity: 0.4;
         font-weight: 150;
+        user-select: none;
 
         span {
             @media (max-width: $breakpoint-mobile) {
@@ -87,11 +90,14 @@
             }
         }
     }
+
+    z-index: -100;
 }
 
 .hero-spacer {
+    position: relative;
     width: 100%;
-    height: var(--hero-calculated-content-height);
+    margin-top: var(--hero-calculated-content-height);
 }
 
 @keyframes scrolling {

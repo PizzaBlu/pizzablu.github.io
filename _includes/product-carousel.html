@@ -1,0 +1,12 @@
+{% assign products = "" | split: "" %}
+{% for id in include.items %}
+    {% assign product = site.pages | where: "product-id", id | first %}
+    {% if product %}
+        {% assign products = products | push: product %}
+    {% endif %}
+{% endfor %}
+
+{% include carousel.html
+    title=include.title
+    items=products
+%}
