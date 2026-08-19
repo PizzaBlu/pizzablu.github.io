@@ -6,6 +6,12 @@
             {{ link.name }}
         </a>
     {% endfor %}
+    {% if page.video %}
+        <a href="{{ page.video }}" class="link-button">
+            <i class="fa-brands fa-youtube"></i>
+            Watch
+        </a>
+    {% endif %}
     {% if page.checkout %}
         <a href="{{ page.checkout }}" class="link-button">
             <i class="fa-solid fa-tag"></i>
