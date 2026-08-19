@@ -29,6 +29,7 @@ links:
   home: "/"
   eula: "/eula.html"
   privacy: "/privacy.html"
+  discord: "https://discord.gg/VMbRGbBeT6"
 
 plugins:
   - jekyll-redirect-from
