@@ -1,5 +1,7 @@
+$section-width: 1200px;
+
 @mixin section {
-    max-width: 1200px;
+    max-width: $section-width;
     margin: auto;
 }
 

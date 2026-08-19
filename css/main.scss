@@ -4,6 +4,7 @@
 $breakpoint-mobile: {{ site.breakpoints.mobile }};
 
 @import "theme";
+@import "responsive";
 @import "link";
 @import "mobile";
 @import "button";
@@ -11,3 +12,4 @@ $breakpoint-mobile: {{ site.breakpoints.mobile }};
 @import "hero";
 @import "footer";
 @import "card";
+@import "hero_card";
