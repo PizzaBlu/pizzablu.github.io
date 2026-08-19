@@ -7,6 +7,10 @@ $section-width: clamp(1024px, 75vw, 3840px);
 
 section {
     @include section;
+
+    h3 {
+        font-size: 1.5em;
+    }
 }
 
 section.dense {

@@ -11,14 +11,16 @@ colors:
   text: "#ffffff"
 
 navigation:
-  - discord:
-    name: "Support"
-    url: "https://discord.gg/VMbRGbBeT6"
-    icon: "fa-brands fa-discord"
   - youtube:
     name: "Videos"
     url: "https://www.youtube.com/channel/UCxOrC01PVvxYe_JzB9Q8nqQ"
     icon: "fa-brands fa-youtube"
+    external: true
+  - discord:
+    name: "Support"
+    url: "https://discord.gg/VMbRGbBeT6"
+    icon: "fa-brands fa-discord"
+    external: true
 
 navigation-basic:
   - home:
