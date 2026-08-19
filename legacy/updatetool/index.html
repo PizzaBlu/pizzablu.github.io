@@ -1,0 +1,85 @@
+---
+layout: text
+permalink: /fusion/updatetool.html
+
+title: UpdateTool
+description: Check for updates in Legacy Tools
+
+hero-title: Loading...
+hero-description: Checking for updates
+hero-tall: true
+---
+
+<section>
+    <section class="simple" style="display: none" id="instructions">
+        <h2>How do I update?</h2>
+        <p>You can download the latest version on <a href="https://ko-fi.com/pizzablu/shop">KoFi</a>. Make sure you are signed in if you purchased this tool.</p>
+    </section>
+</section>
+
+<script>
+    const TOOLS = {
+        // layout
+        array_merge:            { name: "ArrayMerge", release: 4, version: '1.3' },
+        array_merge_free:       { name: "ArrayMergeFree", release: 4, version: '1.3' },
+
+        // effects
+        posterize:              { name: "Posterize", release: 3, version: '1.2' },
+        halftone:               { name: "Halftone", release: 1, version: '1.0' },
+        long_shadow:            { name: "LongShadow", release: 1, version: '1.0' },
+        neon_glow:              { name: "NeonGlow", release: 1, version: '1.0' },
+        outline:                { name: "Outline", release: 1, version: '1.0' },
+
+        // masks
+        mask_wipe:              { name: "MaskWipe", release: 1, version: '1.0' },
+        squircle:               { name: "Squircle", release: 1, version: '1.0' },
+        
+        // modifiers
+        time_modifiers:         { name: "TimeModifiers", release: 6, version: '1.5' },
+
+        // genarators
+        arrow:                  { name: "Arrow", release: 2, version: '1.1' },
+        bar_chart:              { name: "BarChart", release: 3, version: '1.2' },
+    }
+
+    set_instructions(false);
+
+    function update_message(title, subtitle) {
+        document.getElementById("hero-title").textContent = title;
+        document.getElementById("hero-subtitle").textContent = subtitle;
+    }
+
+    function set_instructions(b) {
+        document.getElementById("instructions").style.display = b ? "block" : "none";
+    }
+
+    function check() {
+        const params = new URLSearchParams(location.search);
+        const id = params.get("id");
+        const release = params.get("release");
+        const release_int = parseInt(release);
+        if (id == "nil" || (id && !(id in TOOLS))) {
+            update_message("Plugin Not Found", "You can still check for updates manually on KoFi");
+            set_instructions(true);
+            return;
+        }
+
+        if (!id || !release || release_int == NaN || !(id in TOOLS)) {
+            update_message("Error", "You can still check for updates manually on KoFi");
+            console.warn('invalid tool info:', id, release);
+            set_instructions(true);
+            return;
+        }
+
+        if (TOOLS[id].release == release_int) {
+            update_message("You're up to date!", `You have the latest version of ${TOOLS[id].name}`);
+        } else {
+            update_message("Update Available!", `You can upgrade ${TOOLS[id].name} to version ${TOOLS[id].version}`);
+            set_instructions(true);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(check, 100);
+    });
+</script>
