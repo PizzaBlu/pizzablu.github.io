@@ -4,6 +4,7 @@ domain: pizzablufx.com
 
 breakpoints:
   mobile: "810px"
+  big: "2700px"
 
 colors:
   background: "hsl(216deg 10% 10%)"

@@ -11,6 +11,10 @@
         --hero-center: var(--hero-mobile-center) !important;
         --hero-content-ratio: var(--hero-mobile-content-ratio) !important;
     }
+
+    @media (min-width: $breakpoint-big) {
+        --hero-height: calc(var(--hero-mobile-height) * 2) !important;
+    }
 }
 
 .hero-container {
@@ -69,7 +73,7 @@
     flex-direction: column;
     
     h1 {
-        font-size: clamp(32px, 10vw, 160px);
+        font-size: clamp(24pt, 7.5vw, 256pt);
         font-weight: 900;
         line-height: 5vw;
         letter-spacing: -0.1vw;
@@ -79,7 +83,7 @@
     }
 
     h2 {
-        font-size: clamp(8px, 2vw, 18pt);
+        font-size: clamp(8px, 1vw, 32pt);
         opacity: 0.4;
         font-weight: 150;
         user-select: none;

@@ -4,13 +4,13 @@
     background-color: $card-background;
     backdrop-filter: blur(8px) brightness(1.4);
     outline: 1px solid $outline-color;
-    border-radius: 8px;
+    border-radius: clamp(8px, 0.5vw, 64px);
 }
 
 .card {
     @include generic-card;
-    height: 480px;
-    width: 400px;
+    height: clamp(480px, 24vw, 1200px);
+    width: clamp(400px, 20vw, 1024px);
     img {
         position: absolute;
         left: 0;
