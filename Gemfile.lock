@@ -286,6 +286,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jekyll-redirect-from
   wdm (>= 0.1.0)
 
 CHECKSUMS

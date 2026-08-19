@@ -29,3 +29,6 @@ links:
   home: "/"
   eula: "/eula.html"
   privacy: "/privacy.html"
+
+plugins:
+  - jekyll-redirect-from
