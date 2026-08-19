@@ -1,13 +1,15 @@
 :root {
     --scale: 1;
 
-    --hero-calculation-height: var(--hero-height);
-    --hero-calculated-container-height: var(--hero-calculation-height);
-    --hero-calculated-inner-height: calc(var(--hero-calculation-height) * var(--hero-ratio) * var(--hero-content-ratio));
-    --hero-calculated-content-height: calc(var(--hero-calculation-height) * var(--hero-ratio));
+    --hero-calculated-container-height: var(--hero-height);
+    --hero-calculated-inner-height: calc(var(--hero-height) * var(--hero-ratio));
+    --hero-calculated-content-height: calc(var(--hero-height) * var(--hero-ratio) * var(--hero-content-ratio));
 
     @media (max-width: $breakpoint-mobile) {
-        --hero-calculation-height: var(--hero-mobile-height);
+        --hero-height: var(--hero-mobile-height) !important;
+        --hero-ratio: var(--hero-mobile-ratio) !important;
+        --hero-center: var(--hero-mobile-center) !important;
+        --hero-content-ratio: var(--hero-mobile-content-ratio) !important;
     }
 }
 
@@ -47,7 +49,7 @@
 
     mask-image: linear-gradient(
         rgba(0, 0, 0, 36%) 0%,
-        rgba(0, 0, 0, 56%) 35%,
+        rgba(0, 0, 0, 56%) var(--hero-center),
         rgba(0, 0, 0, 4%) 66%,
         transparent
     );
@@ -66,7 +68,7 @@
     flex-direction: column;
     
     h1 {
-        font-size: clamp(32px, 10vw, 600px);
+        font-size: clamp(32px, 10vw, 160px);
         font-weight: 900;
         line-height: 5vw;
         letter-spacing: -0.1vw;
@@ -75,9 +77,15 @@
     }
 
     h2 {
-        font-size: clamp(8px, 2vw, 300px);
+        font-size: clamp(8px, 2vw, 18pt);
         opacity: 0.4;
         font-weight: 150;
+
+        span {
+            @media (max-width: $breakpoint-mobile) {
+                display: none;
+            }
+        }
     }
 }
 

@@ -1,11 +1,17 @@
 <style>
+
 :root {
-    --hero-height: {{ include.height | default: "1024px" }};
-    --hero-mobile-height: {{ include.mobile-height | default: "600px" }};
-    --hero-ratio: {{ include.ratio | default: "0.66" }};
-    --hero-mobile-ratio: {{ include.mobile-ratio | default: "0.5" }};
-    --hero-content-ratio: {{ include.content-ratio | default: "1" }}
+    --hero-height: {{ include.height | default: "960px" }};
+    --hero-center: {{ include.center | default: "25%" }};
+    --hero-ratio: {{ include.ratio | default: "0.75" }};
+    --hero-content-ratio: {{ include.content-ratio | default: "0.9" }};
+
+    --hero-mobile-height: {{ include.mobile-height | default: "960px" }};
+    --hero-mobile-ratio: {{ include.mobile-ratio | default: "0.4" }};
+    --hero-mobile-center: {{ include.mobile-center | default: "20%" }};
+    --hero-mobile-content-ratio: {{ include.mobile-content-ratio | default: "0.9" }};
 }
+
 </style>
 <div class="hero-container">
     <div class="hero-background"></div>
@@ -13,7 +19,7 @@
 <div class="hero-front">
     {% assign hero-title = page.hero-title | default: page.title %}
     <h1>{{ hero-title }}</h1>
-    <h2>{{ page.hero-description }}</h2>
+    <h2><span>{{ page.hero-description }}</span></h2>
     {% include hero-links.html links=include.links %}
 </div>
 <div class="hero-spacer"></div>

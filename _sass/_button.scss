@@ -17,8 +17,8 @@
     text-decoration: none;
     text-shadow: 0 0 4px rgba(0,0,0,0.2);
 
-    margin: clamp(3px, $vwpx*3, 1000px);
-    border-radius: clamp(4px, $vwpx*8, 1000px);
+    margin: clamp(3px, $vwpx*2.5, 1000px);
+    border-radius: clamp(4px, $vwpx*6, 1000px);
     
     padding-left: clamp(30px, $vwpx*30, 1000px);
     padding-right: clamp(32px, $vwpx*32, 1000px);
