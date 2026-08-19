@@ -6,4 +6,10 @@
             {{ link.name }}
         </a>
     {% endfor %}
+    {% if page.checkout %}
+        <a href="{{ page.checkout }}" class="link-button">
+            <i class="fa-solid fa-tag"></i>
+            Buy Now
+        </a>
+    {% endif %}
 </div>
