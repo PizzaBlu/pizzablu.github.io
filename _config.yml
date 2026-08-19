@@ -29,6 +29,7 @@ navigation-basic:
 links:
   home: "/"
   eula: "/eula.html"
+  kofi: "https://ko-fi.com/pizzablu/"
   privacy: "/privacy.html"
   discord: "https://discord.gg/VMbRGbBeT6"
 

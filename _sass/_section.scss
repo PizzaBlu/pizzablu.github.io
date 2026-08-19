@@ -1,4 +1,4 @@
-$section-width: clamp(1200px, 80vw, 3840px);
+$section-width: clamp(1024px, 75vw, 3840px);
 
 @mixin section {
     max-width: $section-width;
