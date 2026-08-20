@@ -21,6 +21,10 @@ navigation:
     url: "https://discord.gg/VMbRGbBeT6"
     icon: "fa-brands fa-discord"
     external: true
+  - faq:
+    name: "FAQ"
+    url: "/faq.html"
+    icon: "fa-solid fa-book"
 
 navigation-basic:
   - home:
@@ -31,9 +35,11 @@ navigation-basic:
 links:
   home: "/"
   eula: "/eula.html"
+  faq: "/faq.html"
   kofi: "https://ko-fi.com/pizzablu/"
   privacy: "/privacy.html"
   discord: "https://discord.gg/VMbRGbBeT6"
 
 plugins:
   - jekyll-redirect-from
+  - jekyll-sitemap

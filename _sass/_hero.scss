@@ -109,6 +109,6 @@
         background-position: 0 0;
     }
     to {
-        background-position: calc(8192px * var(--scale)) calc(8192px * var(--scale));
+        background-position: clamp(8192px, 400vw, 1000000px) clamp(8192px, 400vw, 1000000px);
     }
 }

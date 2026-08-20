@@ -1,0 +1,25 @@
+blockquote {
+    color: $text-2b;
+    font-weight: 200;
+    padding: 1em 2em;
+    margin: 0.5em 0em;
+    margin-bottom: 2em;
+    background-color: hsla(216deg, 33%, 33%, 20%);
+    border-left: 1em solid hsla(216deg, 100%, 66%, 33%);
+    border-radius: clamp(4px, 0.5vw, 1000px);
+    outline: 1px solid $outline-color;
+    backdrop-filter: blur(8px);
+
+    p {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        list-style: inside;
+    }
+
+    ul {
+        margin-top: 0.5em;
+    }
+}
