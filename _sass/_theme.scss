@@ -18,8 +18,15 @@ $card-background: hsla(
 $card-background-hover: hsla(
     $background-hue,
     $background-saturation * 3,
-    18%,
+    15%,
     0.5
+);
+
+$card-background-glow: hsla(
+    $background-hue,
+    20%,
+    80%,
+    0.01
 );
 
 $hero-card-background: hsla(

@@ -13,6 +13,15 @@ section {
     }
 }
 
+section.info {
+    margin-top: 2em;
+    font-size: 0.85em;
+
+    h3 {
+        margin-bottom: 0.25em;
+    }
+}
+
 section.dense {
     font-size: 0.75em;
 }

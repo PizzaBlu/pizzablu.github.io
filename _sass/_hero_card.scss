@@ -4,6 +4,7 @@
     width: auto;
     min-width: 1000px;
     background-color: $hero-card-background;
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.2), 0 0 32px $card-background-glow inset;
 
     $margin-x: 32px;
     margin-left: $margin-x;

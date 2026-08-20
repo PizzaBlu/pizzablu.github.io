@@ -1,5 +1,8 @@
 <a href="{{ include.card.permalink }}" class="link-clean">
-    <div class="card">
+    <div
+        class="card"
+        onmousemove="this.style.setProperty('--mouse-x', `${event.offsetX}px`); this.style.setProperty('--mouse-y', `${event.offsetY}px`);"
+    >
         <img src="{{ include.card.box }}" alt="box art for {{ include.card.title }}">
         <div class="card-title"><span>{{ include.card.title }}</span><span>{{ include.card.price }}</span></div>
     </div>
