@@ -1,0 +1,21 @@
+<button type="button" class="{{ include.class | default: "inline-btn" }}" style="min-width: {{ include.width | default: "128px" }};">
+    {{ include.text | default: "View Email" }}
+</button>
+
+<script>
+{
+    const btn = document.currentScript.previousElementSibling;
+    const email = "{{ include.user }}@{{ include.domain }}.{{ include.tld }}";
+
+    btn.addEventListener("click", () => {
+        const a = document.createElement("a");
+
+        a.textContent = email;
+        a.href = `mailto:${email}`;
+        a.className = btn.className;
+        a.style.minWidth = getComputedStyle(btn).minWidth;
+
+        btn.replaceWith(a);
+    });
+}
+</script>

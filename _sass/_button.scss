@@ -1,0 +1,65 @@
+.link-button-list {
+    display: flex;
+}
+
+.link-button {
+    position: relative;
+    box-sizing: border-box;
+
+    color: $button-text;
+    background: $button-background;
+
+    font-weight: 300;
+    text-decoration: none;
+    text-shadow: 0 0 4px rgba(0,0,0,0.2);
+
+    margin: clamp(3px, $vwpx*2.5, 1000px);
+    border-radius: clamp(4px, $vwpx*6, 1000px);
+    
+    padding-left: clamp(30px, $vwpx*30, 1000px);
+    padding-right: clamp(32px, $vwpx*32, 1000px);
+
+    padding-bottom: clamp(3.5px, $vwpx*3.5, 1000px);
+    padding-top: clamp(3.2px, $vwpx*3.2, 1000px);
+    
+    border-bottom: clamp(5px, $vwpx*5, 1000px) solid rgba(0, 0, 0, 0.16);
+
+    outline: 1px solid $outline-color;
+    backdrop-filter: blur($vwpx * 16) brightness(1.4);
+    transform: translateZ(0);
+
+    transition: 0.1s ease;
+
+    &:hover {
+        background-color: $button-background-hover;
+    }
+
+    i {
+        padding-right: $vwpx*4;
+        transform: translate(0px, 0.5px);
+
+        text-shadow:
+            1px 0 $outline-color,
+            -1px 0 $outline-color,
+            0 1px $outline-color,
+            0 -1px $outline-color;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        padding-left: clamp(16px, $vwpx*16, 1000px);
+        padding-right: clamp(20px, $vwpx*20, 1000px);
+    }
+}
+
+.inline-btn {
+    @include link-clean;
+    
+    color: rgba(255,255,255,0.5);
+    background-color: rgba(0,0,0, 0.1);
+    outline: 1px solid $outline-color;
+    border: none;
+    border-radius: 8px;
+    padding: 1px 12px;
+    margin: 0px 2px;
+    font-size: 0.75rem;
+}

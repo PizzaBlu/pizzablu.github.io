@@ -1,0 +1,114 @@
+:root {
+    --scale: 1;
+
+    --hero-calculated-container-height: var(--hero-height);
+    --hero-calculated-inner-height: calc(var(--hero-height) * var(--hero-ratio));
+    --hero-calculated-content-height: calc(var(--hero-height) * var(--hero-ratio) * var(--hero-content-ratio));
+
+    @media (max-width: $breakpoint-mobile) {
+        --hero-height: var(--hero-mobile-height) !important;
+        --hero-ratio: var(--hero-mobile-ratio) !important;
+        --hero-center: var(--hero-mobile-center) !important;
+        --hero-content-ratio: var(--hero-mobile-content-ratio) !important;
+    }
+
+    @media (min-width: $breakpoint-big) {
+        --hero-height: calc(var(--hero-mobile-height) * 2) !important;
+    }
+}
+
+.hero-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: var(--hero-calculated-container-height);
+
+    background: linear-gradient(
+        hsl(
+            $background-hue,
+            $background-saturation * 2,
+            $background-lightness * 1.12
+        ) 80%,
+        rgba(0, 0, 0, 0) 100%
+    );
+
+    isolation: isolate;
+    z-index: -200;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    height: var(--hero-calculated-container-height);
+
+    background: url("/assets/tile_half.png") repeat;
+    -webkit-animation: scrolling 360s linear infinite;
+    -moz-animation: scrolling 360s linear infinite;
+    -o-animation: scrolling 360s linear infinite;
+    animation: scrolling 360s linear infinite;
+    animation-delay: var(--animation-delay, 0ms);
+
+    background-size: clamp(128px, 8vw, 512px);
+
+    mask-image: linear-gradient(
+        rgba(0, 0, 0, 36%) 0%,
+        rgba(0, 0, 0, 56%) var(--hero-center),
+        rgba(0, 0, 0, 4%) 66%,
+        transparent
+    );
+    transform: translateZ(0);
+    pointer-events: none;
+
+    z-index: -200;
+}
+
+.hero-front {
+    position: absolute;
+    inset: 0;
+    height: var(--hero-calculated-inner-height);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    h1 {
+        font-size: clamp(24pt, 7.5vw, 256pt);
+        font-weight: 900;
+        line-height: 5vw;
+        letter-spacing: -0.1vw;
+        margin: 0px;
+        padding: 0px;
+        // user-select: none;
+    }
+
+    h2 {
+        font-size: clamp(8px, 1vw, 32pt);
+        opacity: 0.4;
+        font-weight: 150;
+        user-select: none;
+
+        span {
+            @media (max-width: $breakpoint-mobile) {
+                display: none;
+            }
+        }
+    }
+
+    z-index: -100;
+}
+
+.hero-spacer {
+    position: relative;
+    width: 100%;
+    margin-top: var(--hero-calculated-content-height);
+}
+
+@keyframes scrolling {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: clamp(8192px, 400vw, 1000000px) clamp(8192px, 400vw, 1000000px);
+    }
+}

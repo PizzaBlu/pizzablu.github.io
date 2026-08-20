@@ -1,0 +1,60 @@
+@mixin generic-card {
+    position: relative;
+
+    background-color: $card-background;
+    backdrop-filter: blur(8px) brightness(1.4);
+    outline: 1px solid $outline-color;
+    border-radius: clamp(8px, 0.5vw, 64px);
+}
+
+.card {
+    @include generic-card;
+    height: clamp(480px, 24vw, 1200px);
+    width: clamp(400px, 20vw, 1024px);
+    img {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 120%;
+        margin-left: -10%;
+    }
+
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.12);
+}
+
+section.carousel {
+    overflow-x: hidden;
+    margin-top: -16px;
+}
+
+.carousel-container {
+    padding: 8px;
+
+    .carousel-items {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 16px;
+        padding-left: 8px;
+        margin: none;
+    }
+
+    overflow-x: scroll;
+    overflow-y: visible;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+section.carousel-scroll-container {
+    width: 100vw;
+    max-width: none;
+    margin-left: -8px;
+    margin-right: -8px;
+
+    .carousel-container {
+        padding-left: clamp(12px, calc((100vw - #{$section-width})/2), 1000px);
+    }
+}

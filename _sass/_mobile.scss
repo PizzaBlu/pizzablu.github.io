@@ -1,0 +1,6 @@
+br.mobile-break {
+    display: none;
+    @media (max-width: $breakpoint-mobile) {
+        display: block;
+    }
+}

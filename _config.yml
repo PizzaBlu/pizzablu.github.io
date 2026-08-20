@@ -1,0 +1,45 @@
+title: PizzaBluFX
+url: https://pizzablufx.com
+domain: pizzablufx.com
+
+breakpoints:
+  mobile: "810px"
+  big: "2700px"
+
+colors:
+  background: "hsl(216deg 10% 10%)"
+  text: "#ffffff"
+
+navigation:
+  - youtube:
+    name: "Videos"
+    url: "https://www.youtube.com/channel/UCxOrC01PVvxYe_JzB9Q8nqQ"
+    icon: "fa-brands fa-youtube"
+    external: true
+  - discord:
+    name: "Support"
+    url: "https://discord.gg/VMbRGbBeT6"
+    icon: "fa-brands fa-discord"
+    external: true
+  - faq:
+    name: "FAQ"
+    url: "/faq.html"
+    icon: "fa-solid fa-book"
+
+navigation-basic:
+  - home:
+    name: "Home"
+    url: "/index.html"
+    icon: "fa-solid fa-home"
+
+links:
+  home: "/"
+  eula: "/eula.html"
+  faq: "/faq.html"
+  kofi: "https://ko-fi.com/pizzablu/"
+  privacy: "/privacy.html"
+  discord: "https://discord.gg/VMbRGbBeT6"
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sitemap

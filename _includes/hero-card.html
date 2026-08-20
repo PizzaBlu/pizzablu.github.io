@@ -1,0 +1,37 @@
+<section class="carousel">
+   <div class="carousel-container">
+        <div class="hero-card">
+            <div class="hero-card-content">
+                <h3>Hello <b>{{ page.title }}</b></h3>
+                <h4>Goodbye {{ page.goodbye }}</h4>
+                <div class="requirements">
+                    Requirements:
+                    <ul>
+                        {% for item in page.requirements %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="hero-card-footer">
+                <div>
+                    <a href="{{ page.checkout }}" class="link-button">
+                        <i class="fa-solid fa-tag"></i>
+                        Buy Now
+                    </a>
+                    {% if page.checkout-free %}
+                        <a href="{{ page.checkout-free }}" class="link-button">
+                            <i class="fa-solid fa-download"></i>
+                            Free Version
+                        </a>
+                    {% endif %}
+                </div>
+                <div>
+                    <p>Lifetime license</p>
+                </div>
+            </div>
+            <img src="{{ page.box }}" alt="{{ page.title }}">
+        </div>
+   </div>
+</section>

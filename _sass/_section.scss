@@ -1,0 +1,22 @@
+$section-width: clamp(1024px, 75vw, 3840px);
+
+@mixin section {
+    max-width: $section-width;
+    margin: auto;
+}
+
+section {
+    @include section;
+
+    h3 {
+        font-size: 1.5em;
+    }
+}
+
+section.dense {
+    font-size: 0.75em;
+}
+
+section.narrow {
+    max-width: 1024px;
+}

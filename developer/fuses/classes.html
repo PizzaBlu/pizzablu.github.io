@@ -1,0 +1,90 @@
+---
+layout: documentation
+permalink: /developer/fuses/classes.html
+
+title: Fuse SDK
+description: Common Classes Reference
+hero-description: Common Classes Reference
+---
+
+<h2 id="Object">Object</h2>
+<p class="iblock">The base class for most Classes in the FusionSDK.</p>
+
+<h2 id="Parameter">Parameter</h2>
+<p class="iblock">Parameters are passed around from Operator to Operator via Inputs and Outputs.</p>
+
+<h3 id="Number">Number</h3>
+<p class="iblock">Parameter subclass for floating point numbers.</p>
+<table>
+    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Value</td><td>Number</td><td>value</td></tr>
+</table>
+
+<h5><code class="snip">Number(number value)</code></h5>
+<p class="iblock">Create a new Number Parameter</p>
+
+<h3 id="Point">Point</h3>
+<p class="iblock">Parameter subclass for normalized cartesian coordinates.</p>
+<table>
+    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+    <tr><td>X</td><td>Number</td><td>X coordinate</td></tr>
+    <tr><td>Y</td><td>Number</td><td>Y coordinate</td></tr>
+</table>
+
+<h5><code class="snip">Point(number X, number Y)</code></h5>
+<p class="iblock">Create a new Point Parameter</p>
+
+<h3 id="Text">Text</h3>
+<p class="iblock">Parameter subclass for strings.</p>
+<table>
+    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Value</td><td>String</td><td>value</td></tr>
+</table>
+
+<h5><code class="snip">Text(string value)</code></h5>
+<p class="iblock">Create a new Text Parameter</p>
+
+<h3 id="Image">Image</h3>
+<p class="iblock">Parameter subclass for Images.</p>
+<table>
+    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Width</td><td>Number</td><td>Nominal width of the Image in Pixels.</td></tr>
+    <tr><td>Height</td><td>Number</td><td>Nominal height of the Image in Pixels.</td></tr>
+    <tr><td>OriginalWidth</td><td>Number</td><td>Width before proxy scaling.</td></tr>
+    <tr><td>OriginalHeight</td><td>Number</td><td>Height before proxy scaling.</td></tr>
+    <tr><td>DataWindow</td><td>Number[4]</td><td>Region of defined Image data {left, bottom, right, top}</td></tr>
+</table>
+
+<h5><code class="snip">Image(table tags)</code></h5>
+<p class="iblock">Create a new Image Parameter</p>
+
+<h3 id="FuIDParam">FuIDParam</h3>
+<p class="iblock">Parameter subclass for well-known strings.</p>
+<table>
+    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+    <tr><td>Value</td><td>String</td><td>value</td></tr>
+</table>
+
+<h5><code class="snip">FuIDParam(string value)</code></h5>
+<p class="iblock">Create a new FuIDParam Parameter</p>
+
+<h2 id="Link">Link</h2>
+<p class="iblock">Any connection between Operators.</p>
+
+<table>
+    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+    <tr><td>ID</td><td>String</td><td>Scripting Identifier</td></tr>
+    <tr><td>Name</td><td>String</td><td>User Interface Name</td></tr>
+</table>
+
+<h3 id="Input">Input</h3>
+<p class="iblock">Inputs are how Operators accept Parameters. Inputs are created via helper methods.</p>
+
+<h5><code class="snip">boolean Link:IsAnimated()</code></h5>
+<p class="iblock">Returns true if any external source (connection, expression, etc) is driving this Input.</p>
+
+<h3 id="Output">Output</h3>
+<p class="iblock">Outputs give Parameters to other Operator's Inputs. Outputs are created via helper methods.</p>
+
+<h2 id="Operator">Operator</h2>
+<p class="iblock">Objects that exist in the flow of Parameters. They have Inputs and Outputs. Operators include Tools and Modifiers.</p>

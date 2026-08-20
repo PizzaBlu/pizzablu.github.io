@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <head>
+        <link rel="stylesheet" href="/css/documentation.css">
+    </head>
+    <body>
+        {% include mobile-header.html %}
+        {% include hero.html
+            links=site.navigation-basic
+            ratio="0.6"
+            content-ratio="0.8"
+            center="20%"
+            mobile-height="720px"
+        %}
+
+        <section class="documentation">
+            {{ content }}
+        </section>
+        
+        <!-- Syntax Highlighting -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/lua.min.js"></script>
+        <script>hljs.highlightAll();</script>
+        {% include footer.html footnote="AI training is not permitted, please contact support if you wish to license this page." %}
+    </body>
+</html>
