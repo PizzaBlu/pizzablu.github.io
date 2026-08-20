@@ -55,4 +55,6 @@ body {
     @media (max-width: $breakpoint-mobile) {
         font-size: $text-mobile-size;
     }
+
+    overflow-x: hidden;
 }
