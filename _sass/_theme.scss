@@ -29,13 +29,6 @@ $card-background-glow: hsla(
     0.025
 );
 
-$hero-card-background: hsla(
-    $background-hue,
-    $background-saturation * 2,
-    16%,
-    0.5
-);
-
 $text-color: #ffffff;
 $text-size: clamp(16pt, 1vw, 120px);
 $text-mobile-size: clamp(10pt, 1.5vw, 64px);
