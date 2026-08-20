@@ -4,7 +4,9 @@
     background-color: $card-background;
     backdrop-filter: blur(0.2em);
     outline: 1px solid $outline-color;
-    border-radius: clamp(8px, 0.5vw, 64px);
+
+    --card-radius: clamp(8px, 0.5vw, 64px);
+    border-radius: var(--card-radius);
 }
 
 @property --glow-radius {
@@ -80,6 +82,8 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.5s ease-out, --glow-radius 0.5s ease-out;
+
+            border-radius: var(--card-radius);
         }
 
         &:hover::before {
