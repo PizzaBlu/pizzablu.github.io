@@ -7,6 +7,12 @@
     border-radius: clamp(8px, 0.5vw, 64px);
 }
 
+@property --glow-radius {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+}
+
 .card {
     @include generic-card;
 
@@ -50,44 +56,38 @@
 
     &:hover {
         background-color: $card-background-hover;
-        box-shadow: 0 0 16px rgba(0, 0, 0, 0.12), 0 0 16px $card-background-glow inset;
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.12), 0 0 24px $card-background-glow inset;
 
         .card-title {
             opacity: 1;
         }
     }
 
-
     @media (min-width: $breakpoint-mobile) {
         &::before {
+            --glow-radius: 10em;
+
             content: "";
             position: absolute;
+            inset: 0;
 
-            width: 10em;
-            height: 10em;
-
-            left: var(--mouse-x);
-            top: var(--mouse-y);
-
-            transform: translate(-50%, -50%);
-
-            border-radius: 50%;
-            background: hsla(216deg, 100%, 80%, 0.05);
-            filter: blur(8em);
+            background: radial-gradient(
+                circle var(--glow-radius) at var(--mouse-x) var(--mouse-y),
+                hsla(216deg, 100%, 80%, 0.05) 0%,
+                transparent 100%
+            );
 
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.5s ease-out, width 0.5s ease-out,  height 0.5s ease-out;
+            transition: opacity 0.5s ease-out, --glow-radius 0.5s ease-out;
         }
 
         &:hover::before {
             opacity: 1;
-            width: 20em;
-            height: 20em;
+            --glow-radius: 20em;
         }
     }
 }
-
 section.carousel {
     overflow-x: hidden;
     margin-top: -16px;
