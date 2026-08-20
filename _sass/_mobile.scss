@@ -4,3 +4,25 @@ br.mobile-break {
         display: block;
     }
 }
+
+.mobile-warn {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    line-height: 0.8em;
+
+    padding: 0.25em;
+    padding-bottom: 0.5em;
+
+    color: $text-color;
+    background-color: orange;
+    font-size: 12pt;
+
+    @media (max-width: $breakpoint-mobile) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
