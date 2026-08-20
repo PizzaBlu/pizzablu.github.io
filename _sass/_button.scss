@@ -13,19 +13,19 @@
     text-decoration: none;
     text-shadow: 0 0 4px rgba(0,0,0,0.2);
 
-    margin: clamp(3px, $vwpx*2.5, 1000px);
-    border-radius: clamp(4px, $vwpx*6, 1000px);
+    margin: 0.25em;
+    border-radius: 0.25em;
     
-    padding-left: clamp(30px, $vwpx*30, 1000px);
-    padding-right: clamp(32px, $vwpx*32, 1000px);
+    padding-left: 1.25em;
+    padding-right: 1.5em;
 
-    padding-bottom: clamp(3.5px, $vwpx*3.5, 1000px);
-    padding-top: clamp(3.2px, $vwpx*3.2, 1000px);
+    padding-bottom: 0.1em;
+    padding-top: 0.2em;
     
-    border-bottom: clamp(5px, $vwpx*5, 1000px) solid rgba(0, 0, 0, 0.16);
+    border-bottom: 0.3em solid rgba(0, 0, 0, 0.16);
 
     outline: 1px solid $outline-color;
-    backdrop-filter: blur($vwpx * 16) brightness(1.4);
+    backdrop-filter: blur(0.5em) brightness(1.4);
     transform: translateZ(0);
 
     transition: 0.1s ease;
@@ -35,7 +35,7 @@
     }
 
     i {
-        padding-right: $vwpx*4;
+        padding-right: 0.25em;
         transform: translate(0px, 0.5px);
 
         text-shadow:
@@ -46,8 +46,8 @@
     }
 
     @media (max-width: $breakpoint-mobile) {
-        padding-left: clamp(16px, $vwpx*16, 1000px);
-        padding-right: clamp(20px, $vwpx*20, 1000px);
+        padding-left: 16px;
+        padding-right: 20px;
     }
 }
 

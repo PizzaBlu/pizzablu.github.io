@@ -4,11 +4,15 @@
     width: auto;
     min-width: 1000px;
     background-color: $hero-card-background;
-    backdrop-filter: blur(8px) brightness(1.4);
 
     $margin-x: 32px;
     margin-left: $margin-x;
     margin-right: $margin-x;
+
+    @media (max-width: $breakpoint-mobile) {
+        min-width: 800px;
+        height: 360px;
+    }
 
     img {
         position: absolute;

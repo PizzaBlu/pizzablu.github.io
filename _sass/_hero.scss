@@ -73,25 +73,29 @@
     flex-direction: column;
     
     h1 {
-        font-size: clamp(24pt, 7.5vw, 256pt);
+        font-size: clamp(48pt, 7.5vw, 256pt);
         font-weight: 900;
-        line-height: 5vw;
+        line-height: 0.8em;
         letter-spacing: -0.1vw;
         margin: 0px;
         padding: 0px;
-        // user-select: none;
+        user-select: none;
+
+        @media (max-width: $breakpoint-mobile) {
+            line-height: 1em;
+        }
     }
 
     h2 {
-        font-size: clamp(8px, 1vw, 32pt);
+        font-size: clamp(12pt, 1.1vw, 32pt);
         opacity: 0.4;
         font-weight: 150;
         user-select: none;
+        line-height: 0.4em;
+        user-select: none;
 
-        span {
-            @media (max-width: $breakpoint-mobile) {
-                display: none;
-            }
+        @media (max-width: $breakpoint-mobile) {
+            display: none;
         }
     }
 

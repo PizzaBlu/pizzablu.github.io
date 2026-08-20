@@ -2,15 +2,21 @@
     position: relative;
 
     background-color: $card-background;
-    backdrop-filter: blur(8px) brightness(1.4);
+    backdrop-filter: blur(clamp(4px, 0.1vw, 64px));
     outline: 1px solid $outline-color;
     border-radius: clamp(8px, 0.5vw, 64px);
 }
 
 .card {
     @include generic-card;
-    height: clamp(480px, 24vw, 1200px);
-    width: clamp(400px, 20vw, 1024px);
+
+    $card-min-size: 18;
+    $card-size: 0.95;
+    $card-width: 24;
+    $card-height: 20;
+    height: clamp(1px*$card-width*$card-min-size, 1vw * $card-width * $card-size, 1000px * $card-width);
+    width: clamp(1px*$card-height*$card-min-size, 1vw * $card-height * $card-size, 1000px * $card-height);
+
     img {
         position: absolute;
         left: 0;
@@ -19,7 +25,12 @@
         margin-left: -10%;
     }
 
-    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0px 16px rgba(0, 0, 0, 0.12);
+    transition: 0.2s ease-out;
+
+    &:hover {
+        background-color: $card-background-hover;
+    }
 }
 
 section.carousel {
@@ -28,15 +39,15 @@ section.carousel {
 }
 
 .carousel-container {
-    padding: 8px;
+    padding: 1em;
+    padding-bottom: 2em;
 
     .carousel-items {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         flex-direction: row;
-        gap: 16px;
-        padding-left: 8px;
+        gap: 1.2em;
         margin: none;
     }
 
@@ -55,6 +66,6 @@ section.carousel-scroll-container {
     margin-right: -8px;
 
     .carousel-container {
-        padding-left: clamp(12px, calc((100vw - #{$section-width})/2), 1000px);
+        padding-left: clamp(16px, calc((100vw - #{$section-width})/2), 1000px);
     }
 }

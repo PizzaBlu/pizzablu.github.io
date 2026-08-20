@@ -10,8 +10,15 @@ $background-color: hsl(
 
 $card-background: hsla(
     $background-hue,
+    $background-saturation * 2,
+    12%,
+    0.5
+);
+
+$card-background-hover: hsla(
+    $background-hue,
     $background-saturation * 3,
-    20%,
+    18%,
     0.5
 );
 
@@ -39,8 +46,6 @@ $outline-color: rgba(12,12,12, 50%);
 $button-text: rgb(210,210,230);
 $button-background: hsla($background-hue, 56%, 42%, 0.32);
 $button-background-hover: hsla($background-hue, 100%, 64%, 0.66);
-
-$vwpx: 0.078vw;
 
 body {
     background-color: $background-color;
