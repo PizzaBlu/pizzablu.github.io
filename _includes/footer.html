@@ -2,6 +2,11 @@
     <div class="row">
         <p class="small">© PizzaBlu 2026 - All rights reserved</p>
     </div>
+    {% if include.footnote %}
+    <div class="row">
+        <p class="small">{{ include.footnote }}</p>
+    </div>
+    {% endif %}
     <div class="row">
         <p class="small">
             <a href="{{ site.links.home }}" class="subtle-link">home</a> -

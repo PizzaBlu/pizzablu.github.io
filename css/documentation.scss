@@ -10,7 +10,7 @@ $breakpoint-big: {{ site.breakpoints.big }};
 @import "table";
 
 section.documentation {
-    font-size: 0.8em;
+    font-size: 0.7em;
     max-width: clamp(1024px, 60vw, 3840px);
 
     p.iblock {
