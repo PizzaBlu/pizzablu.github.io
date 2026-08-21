@@ -39,6 +39,7 @@ links:
   kofi: "https://ko-fi.com/pizzablu/"
   privacy: "/privacy.html"
   discord: "https://discord.gg/VMbRGbBeT6"
+  portal: "https://www.creem.io/portal"
 
 plugins:
   - jekyll-redirect-from
