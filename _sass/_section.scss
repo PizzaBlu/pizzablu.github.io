@@ -2,6 +2,7 @@
     --section-width: clamp(1024px, 66vw, 3840px * 2);
     max-width: var(--section-width);
     margin: auto;
+    margin-bottom: 4em;
 }
 
 section {

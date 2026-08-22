@@ -1,9 +1,15 @@
 {% if include.video %}
 <section class="demo">
     <h3>{{ include.title }}</h3>
-    <div class="video-placeholder">
+    <div
+        class="video-placeholder"
+        data-video="{{ include.video }}"
+        data-margin="{{ include.margin | default: '480px 0px' }}"
+        data-load-threshold="{{ include.load_threshold | default: '0.2' }}"
+        data-play-threshold="{{ include.play_threshold | default: '0.8' }}"
+        data-delay="{{ include.delay | default: '250' }}"
+    >
         <div class="spinner"></div>
     </div>
 </section>
 {% endif %}
-

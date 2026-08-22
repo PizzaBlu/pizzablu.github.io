@@ -1,30 +1,6 @@
 section.demo {
-    margin-top: 2em;
-
-    @mixin video-style {
-        border-radius: $corner-radius;
-        outline: 1.5px solid $outline-color;
-        box-shadow: 0 0 2em rgba(0, 0, 0, 0.2), 0 0 33vw hsla(216deg, 100%, 80%, 0.05) inset;
-    }
-
-    .video-placeholder {
-        width: 100%;
-        aspect-ratio: 16/9;
-        @include video-style;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: $text-3;
-    }
-
-    video {
-        width: calc(100% - 2em);
-        margin: 1em;
-    }
-
     h3 {
-        font-size: 3em;
+        font-size: 2em;
         width: 100%;
         text-align: center;
         margin-top: 2em;
@@ -32,5 +8,28 @@ section.demo {
         color: $text-2;
     }
 
-    margin-bottom: 4em;
+    @mixin video-style {
+        border-radius: $corner-radius;
+        outline: 1.5px solid $outline-color;
+        box-shadow: 0 0 2em rgba(0, 0, 0, 0.2), 0 0 33vw hsla(216deg, 100%, 80%, 0.05) inset;
+
+        width: 100%;
+    }
+
+    .video-placeholder {
+        @include video-style;
+        aspect-ratio: 16/9;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $text-3;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    video {
+        @include video-style;
+    }
 }

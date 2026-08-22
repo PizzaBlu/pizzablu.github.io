@@ -1,0 +1,44 @@
+<script defer>
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".video-placeholder").forEach(placeholder => {
+        const delay = parseInt(placeholder.dataset.delay, 10) || 0;
+        const loadObserver = new IntersectionObserver(([entry]) => {
+            if (!entry.isIntersecting) return;
+
+            const video = document.createElement("video");
+
+            video.src = placeholder.dataset.video;
+            video.playsInline = true;
+            video.preload = "auto";
+            video.loop = true;
+            video.muted = true;
+
+            video.addEventListener("canplay", () => {
+                placeholder.replaceWith(video);
+                loadObserver.disconnect();
+
+                let playTimeout;
+                const playObserver = new IntersectionObserver(([entry]) => {
+                    if (entry.isIntersecting) {
+                        playTimeout = setTimeout(() => video.play(), delay);
+                    } else {
+                        clearTimeout(playTimeout);
+                        video.pause();
+                    }
+                }, {
+                    threshold: parseFloat(placeholder.dataset.playThreshold)
+                });
+
+                playObserver.observe(video);
+            }, { once: true });
+
+            video.load();
+        }, {
+            rootMargin: placeholder.dataset.margin,
+            threshold: parseFloat(placeholder.dataset.loadThreshold)
+        });
+
+        loadObserver.observe(placeholder);
+    });
+});
+</script>
