@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (entry.isIntersecting) {
                         playTimeout = setTimeout(() => video.play(), delay);
                     } else {
+                        video.currentTime = 0;
                         clearTimeout(playTimeout);
                         video.pause();
                     }
