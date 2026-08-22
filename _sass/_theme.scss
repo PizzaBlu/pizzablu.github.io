@@ -53,12 +53,11 @@ body {
     background-color: $background-color;
     color: $text-color;
     font-size: $text-size;
+    padding: 0;
 
     @media (max-width: $breakpoint-mobile) {
         font-size: $text-mobile-size;
     }
-
-    overflow-x: hidden;
 }
 
 @mixin subtle {
@@ -69,4 +68,10 @@ body {
 
 .subtle {
     @include subtle;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }

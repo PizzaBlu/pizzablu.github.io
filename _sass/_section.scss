@@ -1,8 +1,16 @@
+$section-mobile-padding-x: 2em;
+
 @mixin section {
     --section-width: clamp(1024px, 66vw, 3840px * 2);
+
     max-width: var(--section-width);
     margin: auto;
     margin-bottom: 4em;
+    
+    @media (max-width: $breakpoint-mobile) {
+        padding-left: $section-mobile-padding-x;
+        padding-right: $section-mobile-padding-x;
+    }
 }
 
 section {

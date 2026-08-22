@@ -94,3 +94,17 @@
 .lifetime {
     line-height: 1em;
 }
+
+.hero-card-container {
+    @media (max-width: $breakpoint-mobile) {
+        margin: -16px;
+        padding: 16px calc(16px + #{$section-mobile-padding-x});
+
+        overflow-x: auto;
+
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}

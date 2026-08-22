@@ -1,23 +1,28 @@
-
 section.carousel {
     $shadow-range: --64px;
-    $mobile-indent: 10vw;
+    $mobile-indent: 6vw;
+
+    @media (max-width: $breakpoint-mobile) {
+        margin: -16px;
+        padding: 16px;
+        overflow: hidden;
+    }
 
     .cards {
         --card-columns: 3;
         display: grid;
         grid-template-columns: repeat(var(--card-columns), 1fr);
         gap: 1em;
-
+        
         @media (max-width: $breakpoint-mobile) {
-            max-width: 100%;
             display: flex;
             flex-direction: row;
             overflow-x: scroll;
 
             margin: -$shadow-range;
             padding: $shadow-range;
-            border-left: $mobile-indent solid #00000000;
+            border-left: $mobile-indent solid transparent;
+            border-right: $mobile-indent solid transparent;
 
             scrollbar-width: none;
             &::-webkit-scrollbar {

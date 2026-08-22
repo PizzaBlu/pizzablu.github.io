@@ -36,7 +36,9 @@
 
     i {
         padding-right: 0.25em;
-        transform: translate(0px, 0.5px);
+        @media (max-width: $breakpoint-mobile) {
+            transform: translate(0px, 0.12em);
+        }
 
         text-shadow:
             1px 0 $outline-color,
@@ -54,7 +56,7 @@
 .hero-links {
     @media (max-width: $breakpoint-mobile) {
         padding-top: 16px;
-        paddinb-bottom: 12px;
+        padding-bottom: 6px;
         flex-direction: column;
         width: 50%;
     }
