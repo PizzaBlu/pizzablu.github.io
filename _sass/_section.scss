@@ -1,7 +1,6 @@
-$section-width: clamp(1024px, 75vw, 3840px * 2);
-
 @mixin section {
-    max-width: $section-width;
+    --section-width: clamp(1024px, 66vw, 3840px * 2);
+    max-width: var(--section-width);
     margin: auto;
 }
 

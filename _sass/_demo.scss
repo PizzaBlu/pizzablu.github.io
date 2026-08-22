@@ -1,0 +1,31 @@
+section.demo {
+    margin-top: 2em;
+
+    @mixin video-style {
+        border-radius: $corner-radius;
+        outline: 1.5px solid $outline-color;
+        box-shadow: 0 0 2em rgba(0, 0, 0, 0.2), 0 0 33vw hsla(216deg, 100%, 80%, 0.05) inset;
+    }
+
+    .video-placeholder {
+        width: 100%;
+        aspect-ratio: 16/9;
+        @include video-style;
+    }
+
+    video {
+        width: calc(100% - 2em);
+        margin: 1em;
+    }
+
+    h3 {
+        font-size: 3em;
+        width: 100%;
+        text-align: center;
+        margin-top: 2em;
+        margin-bottom: 0.5em;
+        color: $text-2;
+    }
+
+    margin-bottom: 4em;
+}

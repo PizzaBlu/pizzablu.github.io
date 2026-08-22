@@ -5,8 +5,7 @@
     backdrop-filter: blur(0.2em);
     outline: 1px solid $outline-color;
 
-    --card-radius: clamp(8px, 0.5vw, 64px);
-    border-radius: var(--card-radius);
+    border-radius: $corner-radius;
 }
 
 @property --glow-radius {
@@ -15,116 +14,80 @@
     initial-value: 0px;
 }
 
-.card {
-    @include generic-card;
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 
-    $card-min-size: 18;
-    $card-size: 0.95;
-    $card-width: 24;
-    $card-height: 20;
-    height: clamp(1px*$card-width*$card-min-size, 1vw * $card-width * $card-size, 1000px * $card-width);
-    width: clamp(1px*$card-height*$card-min-size, 1vw * $card-height * $card-size, 1000px * $card-height);
+    .card {
+        @include generic-card;
 
-    img {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 120%;
-        margin-left: -10%;
+        min-width: 320px;
+        @media (max-width: $breakpoint-mobile) {
+            width: 66vw;
+        }
+        aspect-ratio: 20/24;
+
+        img {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 120%;
+            margin-left: -10%;
+        }
+
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
+        transition: 0.2s ease-out;
+
+        @media (min-width: $breakpoint-mobile) {
+            &::before {
+                --glow-radius: 10em;
+
+                content: "";
+                position: absolute;
+                inset: 0;
+
+                background: radial-gradient(
+                    circle var(--glow-radius) at var(--mouse-x) var(--mouse-y),
+                    hsla(216deg, 100%, 80%, 0.05) 0%,
+                    transparent 100%
+                );
+
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.5s ease-out, --glow-radius 0.5s ease-out;
+
+                border-radius: $corner-radius;
+            }
+
+            &:hover::before {
+                opacity: 1;
+                --glow-radius: 20em;
+            }
+        }
     }
 
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
-    transition: 0.2s ease-out;
-    // overflow: hidden;
-
-    .card-title {
-        text-decoration: none;
-        color: $text-4;
-        opacity: 0.5;
-        font-weight: 200;
-        overflow: hidden;
-        font-size: 0.8em;
-
-        position: absolute;
-        bottom: -0.25em;
-        left: 0;
-        right: 0;
+    .product-info {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        transform: translate(0, 100%);
+
+        text-decoration: none;
+        font-size: 0.8em;
+        color: $text-4;
+        opacity: 0.5;
+        font-weight: 200;
         padding: 0em 0.5em;
     }
 
     &:hover {
-        background-color: $card-background-hover;
-        box-shadow: 0 0 16px rgba(0, 0, 0, 0.12), 0 0 24px $card-background-glow inset;
+        .card {
+            background-color: $card-background-hover;
+            box-shadow: 0 0 16px rgba(0, 0, 0, 0.12), 0 0 24px $card-background-glow inset;
+        }
 
-        .card-title {
+        .product-info {
             opacity: 1;
         }
-    }
-
-    @media (min-width: $breakpoint-mobile) {
-        &::before {
-            --glow-radius: 10em;
-
-            content: "";
-            position: absolute;
-            inset: 0;
-
-            background: radial-gradient(
-                circle var(--glow-radius) at var(--mouse-x) var(--mouse-y),
-                hsla(216deg, 100%, 80%, 0.05) 0%,
-                transparent 100%
-            );
-
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease-out, --glow-radius 0.5s ease-out;
-
-            border-radius: var(--card-radius);
-        }
-
-        &:hover::before {
-            opacity: 1;
-            --glow-radius: 20em;
-        }
-    }
-}
-section.carousel {
-    overflow-x: hidden;
-    margin-top: -16px;
-}
-
-.carousel-container {
-    padding: 1em;
-    padding-bottom: 3em;
-
-    .carousel-items {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        flex-direction: row;
-        gap: 1.2em;
-        margin: none;
-    }
-
-    overflow-x: scroll;
-    overflow-y: visible;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-}
-
-section.carousel-scroll-container {
-    width: 100vw;
-    max-width: none;
-    margin-left: -8px;
-    margin-right: -8px;
-
-    .carousel-container {
-        padding-left: clamp(16px, calc((100vw - #{$section-width})/2), 1000px);
     }
 }

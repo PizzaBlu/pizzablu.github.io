@@ -1,0 +1,34 @@
+
+section.carousel {
+    $shadow-range: --64px;
+    $mobile-indent: 10vw;
+
+    .cards {
+        --card-columns: 3;
+        display: grid;
+        grid-template-columns: repeat(var(--card-columns), 1fr);
+        gap: 1em;
+
+        @media (max-width: $breakpoint-mobile) {
+            max-width: 100%;
+            display: flex;
+            flex-direction: row;
+            overflow-x: scroll;
+
+            margin: -$shadow-range;
+            padding: $shadow-range;
+            border-left: $mobile-indent solid #00000000;
+
+            scrollbar-width: none;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    h3 {
+        @media (max-width: $breakpoint-mobile) {
+            margin-left: $mobile-indent;
+        }
+    }
+}

@@ -14,7 +14,9 @@
             mobile-height="960px"
         %}
         {% include hero-card.html %}
+        {% include demo.html title=page.demo.title video=page.demo.video %}
         {{ content }}
         {% include footer.html %}
+        {% include scripts.html %}
     </body>
 </html>

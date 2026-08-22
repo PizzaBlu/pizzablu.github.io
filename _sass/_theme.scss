@@ -47,6 +47,8 @@ $button-text: rgb(210,210,230);
 $button-background: hsla($background-hue, 56%, 42%, 0.32);
 $button-background-hover: hsla($background-hue, 100%, 64%, 0.66);
 
+$corner-radius: 0.5em;
+
 body {
     background-color: $background-color;
     color: $text-color;

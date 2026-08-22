@@ -1,14 +1,10 @@
-<section>
+<section class="carousel">
     {% if include.title %}
         <h3>{{ include.title }}</h3>
     {% endif %}
-</section>
-<section class="carousel carousel-scroll-container">
-    <div class="carousel-container">
-        <div class="carousel-items">
-            {% for card in include.items %}
-                {% include card.html card=card %}
-            {% endfor %}
-        </div>
+    <div class="cards">
+        {% for item in include.items %}
+            {% include card.html product=item.product title=item.title url=item.permalink %}
+        {% endfor %}
     </div>
 </section>

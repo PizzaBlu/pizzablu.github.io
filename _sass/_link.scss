@@ -10,7 +10,7 @@ a {
     color: $link-color;
 }
 
-link-clean {
+.link-clean {
     @include link-clean;
 }
 
