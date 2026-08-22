@@ -1,16 +1,33 @@
 $section-mobile-padding-x: 2em;
+$section-top: 3em;
+$section-bottom: 3em;
+
+:root {
+    --section-max-width: 1200px;
+    @media (min-width: $breakpoint-big) {
+        --section-max-width: 2400px;
+    }
+}
 
 @mixin section {
-    --section-width: clamp(1024px, 66vw, 3840px * 2);
+    --section-width: clamp(1024px, 60vw, var(--section-max-width));
 
     max-width: var(--section-width);
     margin: auto;
-    margin-bottom: 4em;
+    margin-top: $section-top;
+    margin-bottom: $section-bottom;
     
     @media (max-width: $breakpoint-mobile) {
         padding-left: $section-mobile-padding-x;
         padding-right: $section-mobile-padding-x;
     }
+}
+
+@mixin section-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 section {
@@ -34,13 +51,21 @@ section.dense {
     font-size: 0.75em;
 }
 
-section.narrow {
-    max-width: 1024px;
+section.center {
+    @include section-center;
 }
 
-section.center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+section.tall {
+    margin-top: $section-top + 2em;
+    margin-bottom: $section-bottom + 2em;
+}
+
+section.short {
+    margin-top: $section-top - 2em;
+    margin-bottom: $section-bottom - 2em;
+}
+
+section.shorter {
+    margin-top: 0;
+    margin-bottom: 0;
 }

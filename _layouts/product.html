@@ -17,18 +17,15 @@
             mobile-height="960px"
         %}
         {% include hero-card.html %}
-        {% include demo.html
-            title=page.demo.title
-            video=page.demo.video
-        %}
+        {% include demo-group.html %}
         {{ content }}
-        <section>
+        <section class="short">
             <h3>Still not sure?</h3>
             <blockquote>
                 We'd love to answer your questions about {{ page.title }} in the <a href="{{ links.site.discord }}">Discord Community</a>.
             </blockquote>
         </section>
-        <section class="center cta">
+        <section class="center cta shorter">
             <h3>{{ page.cta }}</h3>
             {% include checkout-buttons.html %}
         </section>

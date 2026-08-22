@@ -1,6 +1,7 @@
 {% if include.video %}
-<section class="demo">
+<section class="demo display tall">
     <h3>{{ include.title }}</h3>
+    {% if include.subtitle %}<h4>{{ include.subtitle }}</h4>{% endif %}
     <div
         class="video-placeholder"
         data-video="{{ include.video }}"

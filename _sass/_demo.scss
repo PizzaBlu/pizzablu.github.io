@@ -1,12 +1,5 @@
 section.demo {
-    h3 {
-        font-size: 2em;
-        width: 100%;
-        text-align: center;
-        margin-top: 2em;
-        margin-bottom: 0.5em;
-        color: $text-2;
-    }
+    @include section-center;
 
     @mixin video-style {
         border-radius: $corner-radius;
@@ -14,6 +7,7 @@ section.demo {
         box-shadow: 0 0 2em rgba(0, 0, 0, 0.2), 0 0 33vw hsla(216deg, 100%, 80%, 0.05) inset;
 
         width: 100%;
+        margin-top: 1em;
     }
 
     .video-placeholder {
