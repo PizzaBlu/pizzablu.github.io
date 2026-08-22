@@ -29,3 +29,10 @@ section.dense {
 section.narrow {
     max-width: 1024px;
 }
+
+section.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

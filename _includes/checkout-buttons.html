@@ -1,0 +1,15 @@
+<div>
+    <a href="{{ page.product.checkout }}" class="link-button">
+        <i class="fa-solid fa-tag"></i>
+        Buy Now
+    </a>
+    {% if page.product.checkout-free %}
+        <a href="{{ page.product.checkout-free }}" class="link-button">
+            <i class="fa-solid fa-download"></i>
+            Free Version
+        </a>
+    {% endif %}
+</div>
+<div class="subtle lifetime">
+    <p>Lifetime license, no subscriptions</p>
+</div>

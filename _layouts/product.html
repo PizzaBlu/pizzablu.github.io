@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
     {% include head.html %}
+    <head>
+        <link rel="prefetch" href="{{ page.product.checkout }}">
+    </head>
     <body>
         {% include mobile-header.html %}
         {% include hero.html
@@ -19,6 +22,16 @@
             video=page.demo.video
         %}
         {{ content }}
+        <section>
+            <h3>Still not sure?</h3>
+            <blockquote>
+                We'd love to answer your questions about {{ page.title }} in the <a href="{{ links.site.discord }}">Discord Community</a>.
+            </blockquote>
+        </section>
+        <section class="center cta">
+            <h3>{{ page.cta }}</h3>
+            {% include checkout-buttons.html %}
+        </section>
         {% include footer.html %}
         {% include scripts.html %}
         {% include lazy_video.html %}

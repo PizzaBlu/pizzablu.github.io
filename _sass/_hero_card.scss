@@ -81,13 +81,6 @@
         align-items: center;
         justify-content: center;
 
-        p {
-            font-size: 0.8em;
-            font-weight: 100;
-            line-height: 1em;
-            margin-top: 1em;
-        }
-
         @media (max-width: $breakpoint-mobile) {
             width: calc(100vw - 4em);
         }
@@ -96,4 +89,8 @@
     @media (max-width: $breakpoint-mobile) {
         font-size: 1.2em;
     }
+}
+
+.lifetime {
+    line-height: 1em;
 }

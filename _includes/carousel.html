@@ -5,6 +5,7 @@
     <div class="cards">
         {% for item in include.items %}
             {% include card.html product=item.product title=item.title url=item.permalink %}
+            <link rel="prefetch" href="{{ item.permalink | relative_url }}">
         {% endfor %}
     </div>
 </section>

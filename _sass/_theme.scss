@@ -60,3 +60,13 @@ body {
 
     overflow-x: hidden;
 }
+
+@mixin subtle {
+    color: $text-3;
+    font-size: 0.8em;
+    font-weight: 100;
+}
+
+.subtle {
+    @include subtle;
+}
