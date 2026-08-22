@@ -11,6 +11,11 @@ section.demo {
         width: 100%;
         aspect-ratio: 16/9;
         @include video-style;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $text-3;
     }
 
     video {
