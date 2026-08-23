@@ -1,0 +1,18 @@
+---
+layout: default
+permalink: /products/index.html
+
+title: Home
+description: "The missing tools for DaVinci Resolve: trusted by over 7,00 video editors."
+
+hero-title: PizzaBluFX
+hero-description: "The missing tools for DaVinci Resolve - trusted by over 7,000 video editors"
+---
+
+{% assign products = site.pages | where_exp: "item", "item.path contains 'products/'" %}
+{% assign products = products | where_exp: "item", "item.product" %}
+{% assign products = products | sort: "title" %}
+{% include carousel.html
+    title="All Products"
+    items=products
+%}
