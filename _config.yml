@@ -35,11 +35,16 @@ navigation-basic:
 links:
   home: "/"
   eula: "/eula.html"
+  privacy: "/privacy.html"
   faq: "/faq.html"
   kofi: "https://ko-fi.com/pizzablu/"
-  privacy: "/privacy.html"
+  youtube: "https://www.youtube.com/channel/UCxOrC01PVvxYe_JzB9Q8nqQ"
   discord: "https://discord.gg/VMbRGbBeT6"
+  bluesky: "https://bsky.app/profile/pizzablufx.com"
+  twitch: "https://www.twitch.tv/p1zzablu"
+  github: "https://github.com/PizzaBlu"
   portal: "https://www.creem.io/portal"
+  mailto: "mailto://support@pizzablufx.com"
 
 plugins:
   - jekyll-redirect-from

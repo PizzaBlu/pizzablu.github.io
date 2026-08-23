@@ -1,21 +1,27 @@
-<div class="link-button-list hero-links">
+<div class="link-button-list">
     {% for link in include.links %}
-        <a href="{{ link.url }}" class="link-button"
-        {% if link.external %} target="_blank" rel="noopener"{% endif %}>
-            <i class="{{ link.icon }}"></i>
-            {{ link.name }}
-        </a>
+        {% include link-button.html
+            url=link.url
+            icon=link.icon
+            text=link.name
+            external=link.external
+        %}
     {% endfor %}
+
     {% if page.product.video %}
-        <a href="{{ page.product.video }}" class="link-button" target="_blank">
-            <i class="fa-brands fa-youtube"></i>
-            Watch
-        </a>
+        {% include link-button.html
+            url=page.product.video
+            icon="fa-brands fa-youtube"
+            text="Watch"
+            external=true
+        %}
     {% endif %}
+
     {% if page.product.checkout %}
-        <a href="{{ page.product.checkout }}" class="link-button">
-            <i class="fa-solid fa-tag"></i>
-            Buy Now
-        </a>
+        {% include link-button.html
+            url=page.product.checkout
+            icon="fa-solid fa-tag"
+            text="Buy Now"
+        %}
     {% endif %}
 </div>

@@ -1,7 +1,3 @@
-.link-button-list {
-    display: flex;
-}
-
 .link-button {
     position: relative;
     box-sizing: border-box;
@@ -16,8 +12,8 @@
     margin: 0.25em;
     border-radius: 0.25em;
     
-    padding-left: 1.25em;
-    padding-right: 1.5em;
+    padding-left: 1.4em;
+    padding-right: 1.6em;
 
     padding-bottom: 0.12em;
     padding-top: 0.2em;
@@ -35,51 +31,80 @@
     }
 
     i {
-        padding-right: 0.25em;
-        @media (max-width: $breakpoint-mobile) {
-            transform: translate(0px, 0.12em);
-        }
-
+        margin-right: 0.25em;
         text-shadow:
             1px 0 $outline-color,
             -1px 0 $outline-color,
             0 1px $outline-color,
             0 -1px $outline-color;
     }
-
-    @media (max-width: $breakpoint-mobile) {
-        padding-left: 20px;
-        padding-right: 24px;
-    }
 }
 
-.hero-links {
-    @media (max-width: $breakpoint-mobile) {
-        padding-top: 16px;
-        padding-bottom: 6px;
-        flex-direction: column;
-        width: 50%;
-    }
+.link-button-list {
+    display: flex;
 
-    .link-button {
-        @media (max-width: $breakpoint-mobile) {
+    @mixin column {
+        padding-top: 0.5em;
+        padding-bottom: 0.25em;
+        flex-direction: column;
+        width: 16em;
+
+        .link-button {
             display: flex;
             justify-content: center;
-            font-size: 1.5em;
-            backdrop-filter: blur(0.6em) brightness(1.4);
+            backdrop-filter: blur(0.7em) brightness(1.4);
+
+            i {
+                transform: translate(0px, 0.12em);
+            }
+
+            span {
+                min-width: 4em;
+                text-align: center;
+            }
         }
     }
-}
 
-.inline-btn {
-    @include link-clean;
-    
-    color: rgba(255,255,255,0.5);
-    background-color: rgba(0,0,0, 0.1);
-    outline: 1px solid $outline-color;
-    border: none;
-    border-radius: 8px;
-    padding: 1px 12px;
-    margin: 0px 2px;
-    font-size: 0.75rem;
+    @media (max-width: $breakpoint-mobile) {
+        font-size: 1.5em;
+        @include column;
+    }
+
+    &.column {
+        @include column;
+    }
+
+    &.display {
+        .link-button {
+            font-weight: 500;
+        }
+    }
+
+    div {
+        margin: 0.2em;
+        margin-top: 0.4em;
+        margin-bottom: 0;
+        font-size: 1.2em;
+        color: $text-2c;
+        opacity: 0.8;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        h3 {
+            margin: 0;
+            font-size: 1em;
+            font-weight: 200;
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 1em;
+            font-weight: 200;
+            opacity: 0.5;
+        }
+    }
+
+
 }

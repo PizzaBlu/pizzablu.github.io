@@ -1,0 +1,55 @@
+---
+permalink: /links.html
+url: https://pizzablufx.com/links.html
+
+title: Links
+description: Social Media Links
+---
+
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body>
+        <style>
+            .hero-front h1 {
+                font-size: 6em;
+                opacity: 0.8;
+                color: #dddddd;
+            }
+        </style>
+        {% include hero.html
+            
+            height="100vh"
+            ratio="0.33"
+            content-ratio="0.8"
+            center="16%"
+
+            mobile-height="100vh"
+            mobile-ratio="0.25"
+            mobile-content-ratio="0.8"
+            mobile-center="16%"
+
+        %}
+
+       <section class="center">
+            <div class="link-button-list column display">
+
+                <div><h3>PizzaBluFX</h3><h4>Plugins</h4></div>
+                {% include link-button.html url=site.links.home icon="fa-solid fa-tag" text="Website" %}
+                {% include link-button.html url=site.links.youtube icon="fa-brands fa-youtube" text="YouTube" external=true %}
+                {% include link-button.html url=site.links.discord icon="fa-brands fa-discord" text="Discord" external=true %}
+                {% include link-button.html url=site.links.mailto icon="fa-solid fa-envelope" text="Support" external=true %}
+
+                <div><h3>Social Media</h3><h4>Personal</h4></div>
+                {% include link-button.html url="https://www.youtube.com/@pizzablu" icon="fa-brands fa-youtube" text="YouTube" external=true %}
+                {% include link-button.html url=site.links.twitch icon="fa-brands fa-twitch" text="Twitch" external=true %}
+                {% include link-button.html url=site.links.bluesky icon="fa-brands fa-bluesky" text="Bluesky" external=true %}
+                {% include link-button.html url=site.links.github icon="fa-brands fa-github" text="GitHub" external=true %}
+
+            </div>
+        </section>
+
+        {% include footer.html %}
+    </body>
+</html>
+
