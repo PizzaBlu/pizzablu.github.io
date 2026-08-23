@@ -17,7 +17,11 @@
             <div class="hero-card-footer">
                 {% include checkout-buttons.html %}
             </div>
-            <img src="{{ page.product.box }}" alt="{{ page.title }}">
+            <img
+                src="{{ page.product.box }}"
+                alt="box art for {{ page.title }}"
+                fetchpriority=high
+            >
         </div>
    </div>
 </section>
