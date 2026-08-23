@@ -3,7 +3,11 @@
         class="card"
         onmousemove="this.style.setProperty('--mouse-x', `${event.offsetX}px`); this.style.setProperty('--mouse-y', `${event.offsetY}px`);"
     >
-        <img src="{{ include.product.box }}" alt="box art for {{ include.product.title }} plugin">
+        <img
+            src="{{ include.product.box }}"
+            alt="box art for {{ include.product.title }} plugin"
+            fetchpriority=high
+        >
     </div>
     <div class="product-info"><span>{{ include.title }}</span><span>{{ include.product.price }}</span></div>
 </a>
