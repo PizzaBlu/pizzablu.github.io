@@ -1,4 +1,8 @@
-<a href="{{ include.url }}" class="link-button" {% if include.external %}target="_blank" rel="noopener noreferrer"{% endif %}>
+<a
+href="{{ include.url }}"
+class="link-button"
+{% if include.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+>
     <i class="{{ include.icon }}"></i>
     <span>{{ include.text }}</span>
 </a>

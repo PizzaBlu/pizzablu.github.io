@@ -5,3 +5,26 @@ window.minimalAnalytics = {
 };
 </script>
 <script defer src="https://unpkg.com/@minimal-analytics/ga4/dist/index.js" fetchpriority="low"></script>
+
+<script defer>
+document.querySelectorAll("a[href]").forEach(link => {
+    link.addEventListener("pointerenter", () => {
+        const prefetch = document.createElement("link");
+        prefetch.rel = "prefetch";
+        prefetch.href = link.href;
+        document.head.appendChild(prefetch);
+    }, { once: true });
+});
+</script>
+
+<script type="speculationrules">
+{
+  "prefetch": [
+    {
+      "where": {
+        "selector_matches": "a[href]"
+      }
+    }
+  ]
+}
+</script>
