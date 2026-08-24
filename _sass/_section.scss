@@ -55,6 +55,16 @@ section.center {
     @include section-center;
 }
 
+section.faq {
+    padding: 16px;
+    font-size: 0.9em;
+
+    h4 {
+        font-weight: 200;
+        margin: 0;
+    }
+}
+
 section.tall {
     margin-top: $section-top + 2em;
     margin-bottom: $section-bottom + 2em;
