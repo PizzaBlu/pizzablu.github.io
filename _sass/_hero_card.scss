@@ -8,8 +8,14 @@
     margin-top: 0.5em;
 
     @media (max-width: $breakpoint-mobile) {
-        min-width: 800px;
-        height: 360px;
+        min-width: unset;
+        height: unset;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        padding-top: 2em;
     }
 
     img {
@@ -17,15 +23,22 @@
         right: 0;
         bottom: 0;
         height: 100%;
+
+        @media (max-width: $breakpoint-mobile) {
+            position: unset;
+            height: unset;
+            width: 100%;
+        }
     }
 
     .hero-card-content {
         position: absolute;
         top: 4em;
         left: 5em;
+        text-align: center;
 
         @media (max-width: $breakpoint-mobile) {
-            left: 2.5em;
+            position: unset;
         }
     }
 
@@ -83,6 +96,7 @@
 
         @media (max-width: $breakpoint-mobile) {
             width: calc(100vw - 4em);
+            position: unset;
         }
     }
 
@@ -93,18 +107,4 @@
 
 .lifetime {
     line-height: 1em;
-}
-
-.hero-card-container {
-    @media (max-width: $breakpoint-mobile) {
-        margin: -16px;
-        padding: 16px calc(16px + #{$section-mobile-padding-x});
-
-        overflow-x: auto;
-
-        scrollbar-width: none;
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
 }

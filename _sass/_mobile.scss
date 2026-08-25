@@ -4,3 +4,9 @@ br.mobile-break {
         display: block;
     }
 }
+
+.desktop-only {
+    @media (max-width: $breakpoint-mobile) {
+        display: none !important;
+    }
+}
