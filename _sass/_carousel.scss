@@ -1,5 +1,5 @@
 section.carousel {
-    $shadow-range: --64px;
+    $shadow-range: 64px;
     $mobile-indent: 6vw;
 
     @media (max-width: $breakpoint-mobile) {
