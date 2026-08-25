@@ -3,8 +3,7 @@ section.carousel {
     $mobile-indent: 6vw;
 
     @media (max-width: $breakpoint-mobile) {
-        margin: -16px;
-        padding: 16px;
+        padding-inline: 0;
         overflow: hidden;
     }
 
