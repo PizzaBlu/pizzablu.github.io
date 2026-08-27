@@ -1,5 +1,5 @@
 {
-    Release = 7,
-    Version = "0.20.0",
+    Release = 8,
+    Version = "0.21.0",
     Download = "https://pizzablufx.com/portal",
 }
