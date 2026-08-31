@@ -1,0 +1,5 @@
+{
+    Release = {{ page.release }},
+    Version = "{{ page.version }}",
+    Download = "{{ site.api.portal }}",
+}

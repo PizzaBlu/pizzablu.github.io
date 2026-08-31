@@ -46,6 +46,9 @@ links:
   portal: "https://www.creem.io/portal"
   mailto: "mailto://support@pizzablufx.com"
 
+api:
+  portal: "https://pizzablufx.com/portal"
+
 plugins:
   - jekyll-redirect-from
   - jekyll-sitemap
