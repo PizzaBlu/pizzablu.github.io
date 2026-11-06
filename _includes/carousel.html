@@ -1,11 +1,16 @@
 <section class="carousel">
     {% if include.title %}
-        <h3>{{ include.title }}</h3>
+        <h3>
+            {{ include.title }}
+            {% if include.see_all %} <a href="/products/" class="subtle-link">View All Products &#x2192;</a> {% endif %}
+        </h3>
     {% endif %}
     <div class="cards">
         {% for item in include.items %}
-            {% include card.html product=item.product title=item.title url=item.permalink %}
-            <link rel="prefetch" href="{{ item.permalink | relative_url }}">
+            {% if item.product.hidden != true %}
+                {% include card.html product=item.product title=item.title url=item.permalink %}
+                <link rel="prefetch" href="{{ item.permalink | relative_url }}">
+            {% endif %}
         {% endfor %}
     </div>
 </section>

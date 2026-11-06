@@ -1,12 +1,20 @@
 <div>
-    <a href="{{ page.product.checkout }}" class="link-button">
-        <i class="fa-solid fa-tag"></i>
-        Buy Now
-    </a>
+    {% if page.product.checkout %}
+        <a href="{{ page.product.checkout }}" class="link-button">
+            <i class="fa-solid fa-tag"></i>
+            Buy Now
+        </a>
+    {% endif %}
     {% if page.product.checkout-free %}
         <a href="{{ page.product.checkout-free }}" class="link-button">
             <i class="fa-solid fa-download"></i>
-            Free Version
+            {% if page.product.checkout %} Free Version {% else %} Free {% endif %}
+        </a>
+    {% endif %}
+    {% if page.product.kofi-button %}
+        <a href="{{ site.links.kofi }}" class="link-button">
+            <i class="fa-solid fa-coffee"></i>
+            Support
         </a>
     {% endif %}
 </div>

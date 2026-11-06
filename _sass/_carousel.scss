@@ -31,6 +31,18 @@ section.carousel {
     }
 
     h3 {
+        a {
+            float: right;
+            font-size: 0.8em;
+            font-weight: 200;
+            opacity: 0.8;
+
+            @media (max-width: $breakpoint-mobile) {
+                float: unset;
+                margin-left: 1em;
+            }
+        }
+
         @media (max-width: $breakpoint-mobile) {
             margin-left: $mobile-indent;
         }
