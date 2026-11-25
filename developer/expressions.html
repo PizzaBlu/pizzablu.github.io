@@ -100,6 +100,44 @@ return percent;</code></pre>
 <p class="iblock">Quick copy & paste snippet</p>
 <pre><code class="language-lua sample">local function unlerp(a,b,c) return (c-a)/(b-a); end;</code></pre>
 
+<h3 id="AnimateOnChange"><span>Trigger an Animation Each Frame an Input Changes</span> <a href="#AnimateOnChange"><i class="fa-solid fa-link"></i></a></h3>
+<p class="iblock">You can use the <code>Node:GetValue(Input, time)</code> function to get the value of an input on a certain frame.</p>
+<pre><code class="language-lua sample">:
+-- returns [0,1] over a period &lt;duration&gt; frames after the last frame &lt;inp&gt; changes
+function animation_after_change(node, inp, duration, delay)
+    delay = delay or 0;
+    local last = node:GetValue(inp, time-delay);
+    for i=1,duration do
+        local next = node:GetValue(inp, time-i-delay);
+        if last ~= next then
+            return i/duration;
+        end
+        last = next;
+    end
+    return 0;
+end
+
+-- returns [0,1] over a period of &lt;duration&gt; frames centered around the last frame &lt;inp&gt; changes
+function animation_about_change(node, inp, duration)
+    return animation_after_change(node, inp, duration, -duration/2);
+end
+
+-- returns [0,1] over a period of &lt;duration&gt; frames before the last frame &lt;inp&gt; changes
+function animation_before_change(node, inp, duration)
+    return animation_after_change(node, inp, duration, -duration);
+end
+
+-- seconds to frames
+function seconds(s)
+    return s * comp:GetPrefs("Comp.FrameFormat.Rate");
+end
+
+-- 3 options, all animate from "0" to "1" over 1 second
+local t1 = animation_after_change(Text1, "Size", seconds(1));  -- after
+local t2 = animation_about_change(Text1, "Size", seconds(1));  -- centered
+local t3 = animation_before_change(Text1, "Size", seconds(1)); -- before
+return t2;</code></pre>
+
 <h3 id="SinWave"><span>Wave Functions</span> <a href="#SinWave"><i class="fa-solid fa-link"></i></a></h3>
 <p class="iblock">You can interpolate the <code>sin()</code> function to create a repeating wave over a range of values.</p>
 <pre><code class="language-lua sample">:
