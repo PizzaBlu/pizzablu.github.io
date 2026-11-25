@@ -1,3 +1,9 @@
+.docs-inspector {
+    border-radius: 0.5em;
+    border: 1px solid black;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+}
+
 .inspector-row {
     display: flex;
     flex-direction: row;
