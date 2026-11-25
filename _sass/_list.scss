@@ -1,0 +1,14 @@
+ul.list-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 2em;
+    width: 100%;
+
+    ul {
+        min-width: 12em;
+    }
+}

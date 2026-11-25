@@ -50,6 +50,22 @@ section.info {
     }
 }
 
+section.index {
+    margin-top: 3em;
+
+    h4 {
+        opacity: 0.5;
+        margin: 0.5em;
+    }
+    li {
+        ul {
+            list-style-type: circle;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+    }
+}
+
 section.dense {
     font-size: 0.75em;
 }
